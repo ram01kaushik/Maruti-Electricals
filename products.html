@@ -1,210 +1,71 @@
-```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <meta name="theme-color" content="#e56318">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js"></script>
-
   <title>Products | Maruti Electricals</title>
+</head>
 
-  <meta
-    name="description"
-    content="Browse home wires and electrical products from Maruti Electricals in Sikanderpur, Gurgaon."
-  >
+<body>
 
-  <style>
+  <div id="siteHeader"></div>
 
-    /* ================================
-       HOME WIRES PRODUCT PAGE
-       ================================ */
+  <main>
+    <section class="page-hero products-hero">
+      <div class="container page-hero-inner">
+        <span class="eyebrow light">Product Catalogue</span>
+        <h1>Our Products</h1>
+        <p>Explore our range of electrical materials and trusted brands.</p>
+      </div>
+    </section>
 
-    .products-intro {
-      max-width: 760px;
-      margin: 0 auto 50px;
-      text-align: center;
-    }
+    <section class="section products-page">
+      <div class="container">
 
-    .products-intro h2 {
-      margin: 12px 0 14px;
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.1;
-    }
+        <div class="products-intro">
+          <span class="eyebrow">Electrical Materials</span>
+          <h2>Home Wires</h2>
+          <p>Choose from trusted wire brands available at Maruti Electricals.</p>
+        </div>
 
-    .products-intro p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
-    }
+        <div class="product-grid catalogue-grid" id="productGrid"></div>
 
-    /* Main category */
+      </div>
+    </section>
+  </main>
 
-    .category-heading {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 26px;
-    }
+  <div id="siteFooter"></div>
 
-    .category-heading-icon {
-      width: 54px;
-      height: 54px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      background: #e56318;
-      color: white;
-      font-size: 25px;
-    }
+  <script>
+    document.getElementById("siteHeader").innerHTML = header("Products");
+    document.getElementById("siteFooter").innerHTML = footer();
 
-    .category-heading h3 {
-      margin: 0;
-      font-size: 28px;
-    }
+    const wires = [
+      ["Polycab", "POLYCAB"],
+      ["KEI", "KEI"],
+      ["Havells", "HAVELLS"],
+      ["Finolex", "FINOLEX"]
+    ];
 
-    .category-heading p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    document.getElementById("productGrid").innerHTML =
+      wires.map(w => `
+        <article class="product-card">
+          <div class="product-visual">
+            <strong>${w[1]}</strong>
+          </div>
+          <div class="product-copy">
+            <span class="eyebrow">Home Wires</span>
+            <h3>${w[0]}</h3>
+            <p>Explore ${w[0]} home wires and available sizes.</p>
+            <button class="text-link" onclick="alert('${w[0]} catalogue coming soon')">
+              Explore ${w[0]} →
+            </button>
+          </div>
+        </article>
+      `).join("");
+  </script>
 
-    /* Brand grid */
-
-    .wire-brand-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .wire-brand-card {
-      position: relative;
-      padding: 32px;
-      background: #fff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 22px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
-      overflow: hidden;
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .wire-brand-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 4px;
-      background: #e56318;
-    }
-
-    .wire-brand-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.10);
-    }
-
-    .brand-logo {
-      min-height: 64px;
-      padding: 12px 18px;
-      margin-bottom: 22px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 14px;
-      background: #f5f5f5;
-
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .brand-label {
-      display: block;
-      margin-bottom: 7px;
-
-      color: #e56318;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-    }
-
-    .wire-brand-card h4 {
-      margin: 0 0 10px;
-      font-size: 27px;
-    }
-
-    .wire-brand-card p {
-      margin: 0 0 24px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .wire-sizes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 25px;
-    }
-
-    .wire-size {
-      padding: 7px 11px;
-      border-radius: 8px;
-      background: #f5f5f5;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .brand-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-
-      border: 0;
-      padding: 0;
-
-      background: transparent;
-      color: #e56318;
-
-      font: inherit;
-      font-weight: 800;
-
-      cursor: pointer;
-      transition: gap 0.2s ease;
-    }
-
-    .brand-button:hover {
-      gap: 11px;
-    }
-
-    /* Brand details */
-
-    .brand-details {
-      display: none;
-      margin-top: 35px;
-      padding: 35px;
-
-      border-radius: 22px;
-      background: #f7f7f7;
-
-      animation: fadeIn 0.3s ease;
-    }
-
-    .brand-details.active {
-      display: block;
-    }
-
-    .brand-details-header {
-      display: flex;
-      justify-content:
-```
+</body>
+</html>
