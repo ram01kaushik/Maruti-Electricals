@@ -1,71 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js"></script>
-  <title>Products | Maruti Electricals</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e56318">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js"></script>
+<title>Products | Maruti Electricals</title>
+<meta name="description" content="Browse electrical products from Maruti Electricals in Sikanderpur, Gurgaon.">
 </head>
 
 <body>
 
-  <div id="siteHeader"></div>
+<div id="siteHeader"></div>
 
-  <main>
-    <section class="page-hero products-hero">
-      <div class="container page-hero-inner">
-        <span class="eyebrow light">Product Catalogue</span>
-        <h1>Our Products</h1>
-        <p>Explore our range of electrical materials and trusted brands.</p>
-      </div>
-    </section>
+<main>
+<section class="page-hero products-hero">
+<div class="container page-hero-inner">
+<span class="eyebrow light">Product Catalogue</span>
+<h1>Our Products</h1>
+<p>Explore our range of electrical materials, trusted brands and project supplies.</p>
+</div>
+</section>
 
-    <section class="section products-page">
-      <div class="container">
+<section class="section products-page">
+<div class="container">
 
-        <div class="products-intro">
-          <span class="eyebrow">Electrical Materials</span>
-          <h2>Home Wires</h2>
-          <p>Choose from trusted wire brands available at Maruti Electricals.</p>
-        </div>
+<div class="catalog-toolbar">
+<div class="search-box">⌕ <input id="search" placeholder="Search products or categories"></div>
+<div class="result-count" id="count"></div>
+</div>
 
-        <div class="product-grid catalogue-grid" id="productGrid"></div>
+<div class="filter-row" id="filters"></div>
 
-      </div>
-    </section>
-  </main>
+<div class="product-grid catalogue-grid" id="productGrid"></div>
 
-  <div id="siteFooter"></div>
+</div>
+</section>
+</main>
 
-  <script>
-    document.getElementById("siteHeader").innerHTML = header("Products");
-    document.getElementById("siteFooter").innerHTML = footer();
+<div id="modalRoot"></div>
+<div id="siteFooter"></div>
 
-    const wires = [
-      ["Polycab", "POLYCAB"],
-      ["KEI", "KEI"],
-      ["Havells", "HAVELLS"],
-      ["Finolex", "FINOLEX"]
-    ];
+<script>
+const CATEGORIES=[
+'All Products','Wires & Cables','Switches & Sockets','MCBs & DBs',
+'Pipes & Conduits','Lighting','Fans','Accessories','Other'
+];
 
-    document.getElementById("productGrid").innerHTML =
-      wires.map(w => `
-        <article class="product-card">
-          <div class="product-visual">
-            <strong>${w[1]}</strong>
-          </div>
-          <div class="product-copy">
-            <span class="eyebrow">Home Wires</span>
-            <h3>${w[0]}</h3>
-            <p>Explore ${w[0]} home wires and available sizes.</p>
-            <button class="text-link" onclick="alert('${w[0]} catalogue coming soon')">
-              Explore ${w[0]} →
-            </button>
-          </div>
-        </article>
-      `).join("");
-  </script>
+const BRANDS={
+'House Wires':['Polycab','KEI','Havells','Finolex'],
+'MCBs':['Hager','ABB','Havells','Polycab','Legrand'],
+'PVC Electrical Conduit Pipes':['AKG'],
+'LED Bulbs':['Philips','Renesola','Wipro'],
+'LED Panels':['Philips','Wipro','Crompton','Renesola']
+};
+
+let active='All Products';
+
+function render(){
+const q=document.getElementById('search').value.trim().toLowerCase();
+
+const visible=PRODUCTS.filter(p=>
+(active==='All Products'||p.category===active) &&
+(!q||(p.name+' '+p.category+' '+p.description).toLowerCase().includes(q))
+);
+
+document.getElementById('count').textContent=visible.length+' products';
+
+document.getElementById('filters').innerHTML=
+CATEGORIES.map(c=>`
+<button class="filter-pill ${c===active?'active':''}" data-cat="${c}">
+${c}
+</button>`).join('');
+
+document.getElementById('productGrid').innerHTML=
+visible.length
+? visible.map(p=>{
+const brands=BRANDS[p.name];
+return `
+<article class="product-card">
+<div class="product-visual">
+<strong>${p.name}</strong>
+</div>
+<div class="product-copy">
+<span class="eyebrow">${p.category}</span>
+<h3>${p.name}</h3>
+<p>${p.description}</p>
+${brands?`
+<div class="brand-list">
+${brands.map(b=>`<span>${b}</span>`).join('')}
+</div>`:''}
+<div class="product-actions">
+<button class="text-link" data-open="${p.id}">View Details →</button>
+<button class="mini-enquire" data-enquire="${p.id}">Enquire</button>
+</div>
+</div>
+</article>`;
+}).join('')
+:'<div class="empty-state"><h3>No matching products</h3><p>Try another category or search term.</p></div>';
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+document.getElementById('siteHeader').innerHTML=header('Products');
+document.getElementById('siteFooter').innerHTML=footer();
+
+render();
+
+document.getElementById('search').addEventListener('input',render);
+
+document.getElementById('filters').addEventListener('click',e=>{
+if(e.target.dataset.cat){
+active=e.target.dataset.cat;
+render();
+}
+});
+});
+</script>
 
 </body>
 </html>
