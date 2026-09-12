@@ -1,8 +1,8 @@
 const BUSINESS = {
   name: 'Maruti Electricals',
-  phone: 'ADD PHONE NUMBER',
-  whatsapp: 'ADD WHATSAPP NUMBER',
-  email: 'ADD BUSINESS EMAIL',
+  phone: '+91 7733934734',
+  whatsapp: '+91 7733934734',
+  email: 'marutielectrical16@gmail.com',
   address: 'Gangania Complex, M.G. Road, Sikanderpur, DLF, Gurugram, Haryana - 122002',
   experience: '30+ years'
 };
