@@ -10,11 +10,11 @@ const BUSINESS = {
 // Generic Unsplash photos used as temporary catalogue imagery.
 // Replace these URLs with your own product photos whenever ready.
 const IMAGES = {
-  wires: 'https://images.unsplash.com/photo-1761507320645-b11a00bfcc34?auto=format&fit=crop&fm=jpg&q=80&w=1200',
-  protection: 'https://images.unsplash.com/photo-1576446470246-499c738d1c8e?auto=format&fit=crop&fm=jpg&q=80&w=1200',
-  fan: 'https://images.unsplash.com/photo-1551207005-3b305412e532?auto=format&fit=crop&fm=jpg&q=80&w=1200',
-  socket: 'https://images.unsplash.com/photo-1553879449-b80070c922d2?auto=format&fit=crop&fm=jpg&q=80&w=1200',
-  lighting: 'https://images.unsplash.com/photo-1602353923226-b3c58fb179a0?auto=format&fit=crop&fm=jpg&q=80&w=1200'
+  wires: 'house-wires-polycab.png',
+  protection: 'mcb-hager.png',
+  fan: 'ceiling-fan-crompton.webp',
+  socket: 'modular-switch-anchor.jpg',
+  lighting: 'led-bulb-philips.jpg'
 };
 const GENERIC_DETAILS = ['Multiple variants available','Retail and bulk quantities on enquiry','Current availability may vary'];
 const PRODUCTS = [
