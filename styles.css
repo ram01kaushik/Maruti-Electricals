@@ -404,10 +404,10 @@ img { max-width: 100%; display: block; }
   }
 }
 .location-grid .real-map {
-  border-radius: 28px !important;
+  border-radius: 10px !important;
   overflow: hidden !important;
 }
 
 .location-grid .real-map iframe {
-  border-radius: 28px !important;
+  border-radius: 10px !important;
 }
