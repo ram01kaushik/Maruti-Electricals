@@ -1,171 +1,411 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#e56318">
+
 <link rel="stylesheet" href="styles.css">
 <script src="app.js"></script>
+
 <title>Contact Us | Maruti Electricals</title>
-<meta name="description" content="Contact Maruti Electricals for electrical product pricing, availability, bulk requirements and project enquiries.">
+
+<meta
+  name="description"
+  content="Contact Maruti Electricals for electrical product pricing, availability and bulk enquiries."
+>
 </head>
+
 
 <body>
 
 <div id="siteHeader" data-active="Contact Us"></div>
 
+
 <main>
 
 <section class="page-hero contact-hero">
 <div class="container page-hero-inner">
-<span class="eyebrow light">Contact Us</span>
-<h1>Let's discuss your requirement.</h1>
-<p>Looking for electrical materials? Contact us for pricing, availability, bulk requirements and project supplies.</p>
+
+<span class="eyebrow light">
+Contact Us
+</span>
+
+<h1>
+Tell us what you need.
+</h1>
+
+<p>
+Contact Maruti Electricals for product availability,
+pricing, bulk requirements or general enquiries.
+</p>
+
 </div>
 </section>
 
+
 <section class="section contact-section">
+
 <div class="container contact-grid">
+
+
+<!-- LEFT SIDE -->
 
 <div class="contact-details">
 
-<span class="eyebrow orange">Get in touch</span>
-<h2>Electrical material, made easy.</h2>
+<span class="eyebrow orange">
+Get in touch
+</span>
 
-<p>Whether you need a few products or material for an entire project, get in touch with Maruti Electricals for product availability, pricing, bulk quantities and electrical-material requirements.</p>
+<h2>
+Easy to reach. Easy to update.
+</h2>
+
+<p>
+Use this page for product availability, pricing,
+bulk quantities, project requirements or general
+electrical-material enquiries.
+</p>
+
 
 <div class="contact-list">
 
-<div>
-  <span>☎</span>
-  <div>
-    <small>Phone</small>
-    <strong>+91 7733934734</strong>
-  </div>
-</div>
 
 <div>
-  <span>◉</span>
-  <div>
-    <small>WhatsApp</small>
-    <strong>+91 7733934734</strong>
-  </div>
-</div>
+<span>☎</span>
 
 <div>
-  <span>✉</span>
-  <div>
-    <small>Email</small>
-    <strong>marutielectrical16@gmail.com</strong>
-  </div>
-</div>
-
-<div>
-  <span>⌖</span>
-  <div>
-    <small>Address</small>
-    <strong>
-      Gangania Complex, M.G. Road,<br>
-      Sikanderpur, DLF, Gurugram,<br>
-      Haryana - 122002
-    </strong>
-  </div>
+<small>Phone</small>
+<strong id="cPhone"></strong>
 </div>
 
 </div>
+
+
+<div>
+<span>◉</span>
+
+<div>
+<small>WhatsApp</small>
+<strong id="cWhatsapp"></strong>
+</div>
+
+</div>
+
+
+<div>
+<span>✉</span>
+
+<div>
+<small>Email</small>
+<strong id="cEmail"></strong>
+</div>
+
+</div>
+
+
+<div>
+<span>⌖</span>
+
+<div>
+<small>Address</small>
+<strong id="cAddress"></strong>
+</div>
+
+</div>
+
+
+</div>
+
 
 <div class="config-note">
-For project requirements, send us your BOQ and we'll help you with the required electrical materials and quotation.
+For quotations and larger requirements,
+you can also send your BOQ directly on WhatsApp.
 </div>
 
 </div>
+
+
+<!-- ENQUIRY FORM -->
 
 <form class="enquiry-form" id="enquiryForm">
 
+
 <div class="form-head">
-<span class="eyebrow orange">Product Enquiry</span>
-<h2>Send an enquiry</h2>
-<p>Tell us what you need and our team will get back to you.</p>
+
+<span class="eyebrow orange">
+Product Enquiry
+</span>
+
+<h2>
+Send an enquiry
+</h2>
+
+<p>
+Tell us what you need and we'll get back to you.
+</p>
+
 </div>
 
-<label>Name *
-<input id="name" placeholder="Your name">
+
+<label>
+
+Name *
+
+<input
+  id="name"
+  name="name"
+  type="text"
+  placeholder="Your name"
+  required
+>
+
 </label>
+
 
 <div class="form-two">
 
-<label>Phone Number *
-<input id="phone" placeholder="Phone number">
+
+<label>
+
+Phone Number *
+
+<input
+  id="phone"
+  name="phone"
+  type="tel"
+  placeholder="Phone number"
+  required
+>
+
 </label>
 
-<label>Email
-<input id="email" type="email" placeholder="Email address">
+
+<label>
+
+Email
+
+<input
+  id="email"
+  name="email"
+  type="email"
+  placeholder="Email address"
+>
+
 </label>
+
 
 </div>
 
-<label>Product / Requirement
-<input id="product" placeholder="e.g. House wires, MCBs, LED panels">
+
+<label>
+
+Product / Requirement
+
+<input
+  id="product"
+  name="product"
+  type="text"
+  placeholder="e.g. House wires, MCBs, LED panels"
+>
+
 </label>
 
-<label>Message *
-<textarea id="message" rows="5" placeholder="Tell us about your requirement or project"></textarea>
+
+<label>
+
+Message *
+
+<textarea
+  id="message"
+  name="message"
+  rows="5"
+  placeholder="Tell us about your requirement or project"
+  required
+></textarea>
+
 </label>
 
-<button class="btn btn-primary btn-lg" type="submit">
+
+<button
+  class="btn btn-primary btn-lg"
+  type="submit"
+>
 Send Enquiry →
 </button>
 
+
 <div id="formStatus"></div>
 
+
 <small class="form-helper">
-For quotations, you can also send your BOQ directly on WhatsApp.
+Your enquiry will open directly in WhatsApp.
 </small>
+
 
 </form>
 
+
 </div>
+
 </section>
 
 </main>
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-
-cPhone.textContent=BUSINESS.phone;
-cWhatsapp.textContent=BUSINESS.whatsapp;
-cEmail.textContent=BUSINESS.email;
-cAddress.textContent=BUSINESS.address;
-
-const p=sessionStorage.getItem('marutiEnquiryProduct');
-
-if(p){
-product.value=p;
-sessionStorage.removeItem('marutiEnquiryProduct');
-}
-
-enquiryForm.addEventListener('submit',e=>{
-e.preventDefault();
-
-if(!name.value.trim()||!phone.value.trim()||!message.value.trim()){
-formStatus.className='form-status';
-formStatus.textContent='Please fill in your name, phone number and message.';
-return;
-}
-
-formStatus.className='form-status';
-formStatus.textContent='Your enquiry has been prepared. We will get back to you shortly.';
-});
-
-});
-</script>
-
-<script>
-document.getElementById('siteHeader').outerHTML=header('Contact Us');
-document.write(footer());
-</script>
 
 <div id="modalRoot"></div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+/* BUSINESS DETAILS */
+
+document.getElementById('cPhone').textContent =
+  BUSINESS.phone;
+
+document.getElementById('cWhatsapp').textContent =
+  BUSINESS.whatsapp;
+
+document.getElementById('cEmail').textContent =
+  BUSINESS.email;
+
+document.getElementById('cAddress').textContent =
+  BUSINESS.address;
+
+
+/* PRODUCT PASSED FROM CATALOGUE */
+
+const savedProduct =
+  sessionStorage.getItem('marutiEnquiryProduct');
+
+
+if (savedProduct) {
+
+  document.getElementById('product').value =
+    savedProduct;
+
+  sessionStorage.removeItem(
+    'marutiEnquiryProduct'
+  );
+
+}
+
+
+/* FORM */
+
+document
+.getElementById('enquiryForm')
+.addEventListener('submit', function(e) {
+
+  e.preventDefault();
+
+
+  const name =
+    document.getElementById('name').value.trim();
+
+  const phone =
+    document.getElementById('phone').value.trim();
+
+  const email =
+    document.getElementById('email').value.trim();
+
+  const product =
+    document.getElementById('product').value.trim();
+
+  const message =
+    document.getElementById('message').value.trim();
+
+  const status =
+    document.getElementById('formStatus');
+
+
+  /* VALIDATION */
+
+  if (!name || !phone || !message) {
+
+    status.className = 'form-status';
+
+    status.textContent =
+      'Please fill in your name, phone number and message.';
+
+    return;
+
+  }
+
+
+  /* WHATSAPP NUMBER */
+
+  const whatsappNumber =
+    '917733934734';
+
+
+  /* MESSAGE */
+
+  const whatsappMessage =
+
+`Hello Maruti Electricals,
+
+I have a new enquiry.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email || 'Not provided'}
+
+Product / Requirement:
+${product || 'Not specified'}
+
+Message:
+${message}
+
+Sent from the Maruti Electricals website.`;
+
+
+  /* WHATSAPP URL */
+
+  const whatsappURL =
+    'https://wa.me/' +
+    whatsappNumber +
+    '?text=' +
+    encodeURIComponent(
+      whatsappMessage
+    );
+
+
+  status.className =
+    'form-status';
+
+  status.textContent =
+    'Opening WhatsApp…';
+
+
+  window.open(
+    whatsappURL,
+    '_blank'
+  );
+
+});
+
+});
+
+</script>
+
+
+<script>
+
+document.getElementById('siteHeader').outerHTML =
+  header('Contact Us');
+
+document.getElementById('modalRoot').insertAdjacentHTML(
+  'afterend',
+  footer()
+);
+
+</script>
+
 
 </body>
 </html>
