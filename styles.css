@@ -159,12 +159,41 @@ img { max-width: 100%; display: block; }
 .location-section { padding-top: 30px; }
 .location-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: center; }
 .location-copy p { font-size: 17px; line-height: 1.8; }
-.map-placeholder { min-height: 390px; border-radius: 28px; background: #eeece8; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; overflow: hidden; color: var(--primary-orange); }
-.map-placeholder strong { color: var(--text-primary); font-size: 22px; margin-top: 10px; }
-.map-placeholder span { color: var(--text-secondary); font-size: 12px; margin-top: 7px; text-align: center; padding: 0 20px; }
-.map-grid { position: absolute; inset: -30px; opacity: .55; background-image: linear-gradient(36deg, transparent 40%, #d9d4cf 41%, #d9d4cf 44%, transparent 45%), linear-gradient(-34deg, transparent 44%, #d9d4cf 45%, #d9d4cf 48%, transparent 49%); background-size: 110px 90px; }
-.map-placeholder > :not(.map-grid) { position: relative; z-index: 1; }
+.real-map {
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+  display: block !important;
+  height: 100%;
+  min-height: 420px;
+}
 
+.real-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+  display: block;
+}
+
+.map-open-button {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 10;
+
+  background: #ffffff;
+  color: #111111;
+
+  padding: 11px 17px;
+  border-radius: 8px;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+}
 .page-hero { background: var(--dark); color: white; position: relative; overflow: hidden; }
 .page-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 78% 50%, rgba(229,99,24,.25), transparent 32%); pointer-events: none; }
 .page-hero-inner { min-height: 350px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
