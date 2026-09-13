@@ -403,3 +403,11 @@ img { max-width: 100%; display: block; }
     min-height: 320px !important;
   }
 }
+.location-grid .real-map {
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+
+.location-grid .real-map iframe {
+  border-radius: 28px !important;
+}
