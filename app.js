@@ -4,6 +4,7 @@ const BUSINESS = {
   whatsapp: '+91 7733934734',
   email: 'marutielectrical16@gmail.com',
   address: 'Gangania Complex, M.G. Road, Sikanderpur, DLF, Gurugram, Haryana - 122002',
+  maps: 'https://maps.app.goo.gl/RXQ2p4k2jKU6nQ2GA',
   experience: '30+ years'
 };
 
