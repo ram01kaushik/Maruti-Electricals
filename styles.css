@@ -383,3 +383,17 @@ img { max-width: 100%; display: block; }
 .map-open-button:hover {
   transform: translateY(-2px);
 }
+.location-grid .map-placeholder.real-map {
+  height: 420px !important;
+  min-height: 420px !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+.location-grid .map-placeholder.real-map iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
