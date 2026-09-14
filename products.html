@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#e56318">
+
 <link rel="stylesheet" href="styles.css">
 <script src="app.js"></script>
 
@@ -11,28 +13,66 @@
 
 <meta
   name="description"
-  content="Electrical products and trusted brands available at Maruti Electricals, Sikanderpur, Gurgaon."
+  content="Explore electrical products and trusted brands available at Maruti Electricals, Sikanderpur, Gurgaon."
 >
+
+<style>
+
+.category-card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+  background: #f3f1ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.category-card-image.contain img {
+  object-fit: contain;
+  padding: 25px;
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
 <div id="siteHeader"></div>
+
 
 <main>
 
+
 <section class="page-hero products-hero">
+
 <div class="container page-hero-inner">
 
-<span class="eyebrow light">Product Catalogue</span>
+<span class="eyebrow light">
+Product Catalogue
+</span>
 
-<h1>Our Products</h1>
+<h1>
+Our Products
+</h1>
 
 <p>
 Explore our electrical product categories and trusted brands.
 </p>
 
 </div>
+
 </section>
 
 
@@ -40,11 +80,16 @@ Explore our electrical product categories and trusted brands.
 
 <div class="container">
 
+
 <div class="section-heading centered">
 
-<span class="eyebrow orange">Browse Categories</span>
+<span class="eyebrow orange">
+Browse Categories
+</span>
 
-<h2>Choose a product category</h2>
+<h2>
+Choose a product category
+</h2>
 
 <p>
 Select a category to explore the brands we offer.
@@ -56,13 +101,31 @@ Select a category to explore the brands we offer.
 <div class="product-grid catalogue-grid">
 
 
-<div class="product-visual brand-visual">
-<img src="house wires image.jpeg" alt="Home Wires">
+<!-- HOME WIRES -->
+
+<a
+class="product-card"
+href="home-wires.html"
+>
+
+<div class="category-card-image">
+
+<img
+src="house wires image.jpeg"
+alt="Home Wires"
+>
+
 </div>
 
-<span class="eyebrow">Wires & Cables</span>
+<div class="product-copy">
 
-<h3>Home Wires</h3>
+<span class="eyebrow">
+Wires & Cables
+</span>
+
+<h3>
+Home Wires
+</h3>
 
 <p>
 House wiring solutions from trusted electrical brands.
@@ -77,13 +140,31 @@ View Brands →
 </a>
 
 
-<div class="product-visual brand-visual">
-<img src="mcb main.jpeg" alt="Home Wires">
+<!-- MCBs -->
+
+<a
+class="product-card"
+href="mcb.html"
+>
+
+<div class="category-card-image">
+
+<img
+src="mcb main.jpeg"
+alt="MCBs"
+>
+
 </div>
 
-<span class="eyebrow">MCBs & Protection</span>
+<div class="product-copy">
 
-<h3>MCBs</h3>
+<span class="eyebrow">
+MCBs & Protection
+</span>
+
+<h3>
+MCBs
+</h3>
 
 <p>
 Circuit protection products from leading brands.
@@ -98,13 +179,31 @@ View Brands →
 </a>
 
 
-<div class="product-visual brand-visual">
-<img src="Akg pipes.jpeg" alt="Home Wires">
+<!-- CONDUIT PIPES -->
+
+<a
+class="product-card"
+href="conduit-pipes.html"
+>
+
+<div class="category-card-image">
+
+<img
+src="Akg pipes.jpeg"
+alt="Electrical Conduit Pipes"
+>
+
 </div>
 
-<span class="eyebrow">Pipes & Conduits</span>
+<div class="product-copy">
 
-<h3>Conduit Pipes</h3>
+<span class="eyebrow">
+Pipes & Conduits
+</span>
+
+<h3>
+Conduit Pipes
+</h3>
 
 <p>
 Electrical conduit solutions for protected installations.
@@ -119,17 +218,31 @@ View Brands →
 </a>
 
 
-<a class="product-card" href="led-bulbs.html">
+<!-- LED BULBS -->
 
-<div class="product-visual">
-<strong>☼</strong>
+<a
+class="product-card"
+href="led-bulbs.html"
+>
+
+<div class="category-card-image">
+
+<img
+src="LED-Bulb.jpeg"
+alt="LED Bulbs"
+>
+
 </div>
 
 <div class="product-copy">
 
-<span class="eyebrow">Lighting</span>
+<span class="eyebrow">
+Lighting
+</span>
 
-<h3>LED Bulbs</h3>
+<h3>
+LED Bulbs
+</h3>
 
 <p>
 LED lighting options for homes, shops and projects.
@@ -144,17 +257,31 @@ View Brands →
 </a>
 
 
-<a class="product-card" href="led-panels.html">
+<!-- LED PANELS -->
 
-<div class="product-visual">
-<strong>▣</strong>
+<a
+class="product-card"
+href="led-panels.html"
+>
+
+<div class="category-card-image">
+
+<img
+src="LED-Panel.jpeg"
+alt="LED Panels"
+>
+
 </div>
 
 <div class="product-copy">
 
-<span class="eyebrow">Lighting</span>
+<span class="eyebrow">
+Lighting
+</span>
 
-<h3>LED Panels</h3>
+<h3>
+LED Panels
+</h3>
 
 <p>
 Panel lighting from trusted lighting brands.
@@ -169,17 +296,31 @@ View Brands →
 </a>
 
 
-<a class="product-card" href="contact.html">
+<!-- OTHER MATERIALS -->
 
-<div class="product-visual">
-<strong>⌘</strong>
+<a
+class="product-card"
+href="contact.html"
+>
+
+<div class="category-card-image">
+
+<img
+src="Electrical-Accessories.jpeg"
+alt="Electrical Accessories"
+>
+
 </div>
 
 <div class="product-copy">
 
-<span class="eyebrow">More</span>
+<span class="eyebrow">
+More
+</span>
 
-<h3>Other Electrical Materials</h3>
+<h3>
+Other Electrical Materials
+</h3>
 
 <p>
 Have a specific requirement? Contact us and we'll help.
@@ -196,6 +337,7 @@ Send Enquiry →
 
 </div>
 
+
 </div>
 
 </section>
@@ -211,14 +353,15 @@ Send Enquiry →
 document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('siteHeader').outerHTML =
-  header('Products');
+header('Products');
 
 document.getElementById('siteFooter').innerHTML =
-  footer();
+footer();
 
 });
 
 </script>
+
 
 </body>
 </html>
