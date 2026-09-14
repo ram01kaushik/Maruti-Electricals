@@ -377,13 +377,6 @@ View Products →
 `).join('');
 
 
-document.getElementById('featuredProducts').innerHTML =
-PRODUCTS
-.filter(p=>p.featured)
-.slice(0,6)
-.map(p=>productCard(p,true))
-.join('');
-
 });
 
 </script>
