@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 <script src="app.js"></script>
 <title>Products | Maruti Electricals</title>
-<meta name="description" content="Browse electrical products from Maruti Electricals in Sikanderpur, Gurgaon.">
+<meta name="description" content="Electrical products and brands available at Maruti Electricals, Sikanderpur, Gurgaon.">
 </head>
 
 <body>
@@ -15,106 +15,97 @@
 <div id="siteHeader"></div>
 
 <main>
+
 <section class="page-hero products-hero">
 <div class="container page-hero-inner">
 <span class="eyebrow light">Product Catalogue</span>
 <h1>Our Products</h1>
-<p>Explore our range of electrical materials, trusted brands and project supplies.</p>
+<p>Explore our electrical product categories and trusted brands.</p>
 </div>
 </section>
 
 <section class="section products-page">
 <div class="container">
 
-<div class="catalog-toolbar">
-<div class="search-box">⌕ <input id="search" placeholder="Search products or categories"></div>
-<div class="result-count" id="count"></div>
+<div class="section-heading centered">
+<span class="eyebrow orange">Browse Categories</span>
+<h2>Choose a product category</h2>
+<p>Select a category to explore the brands we offer.</p>
 </div>
 
-<div class="filter-row" id="filters"></div>
+<div class="product-grid catalogue-grid">
 
-<div class="product-grid catalogue-grid" id="productGrid"></div>
+<a class="product-card" href="home-wires.html">
+<div class="product-visual"><strong>⌁</strong></div>
+<div class="product-copy">
+<span class="eyebrow">Wires & Cables</span>
+<h3>Home Wires</h3>
+<p>House wiring solutions from trusted electrical brands.</p>
+<span class="text-link">View Brands →</span>
+</div>
+</a>
+
+<a class="product-card" href="mcb.html">
+<div class="product-visual"><strong>⛨</strong></div>
+<div class="product-copy">
+<span class="eyebrow">MCBs & Protection</span>
+<h3>MCBs</h3>
+<p>Circuit protection products from leading brands.</p>
+<span class="text-link">View Brands →</span>
+</div>
+</a>
+
+<a class="product-card" href="conduit-pipes.html">
+<div class="product-visual"><strong>◉</strong></div>
+<div class="product-copy">
+<span class="eyebrow">Pipes & Conduits</span>
+<h3>Conduit Pipes</h3>
+<p>Electrical conduit solutions for protected installations.</p>
+<span class="text-link">View Brands →</span>
+</div>
+</a>
+
+<a class="product-card" href="led-bulbs.html">
+<div class="product-visual"><strong>☼</strong></div>
+<div class="product-copy">
+<span class="eyebrow">Lighting</span>
+<h3>LED Bulbs</h3>
+<p>LED lighting options for homes, shops and projects.</p>
+<span class="text-link">View Brands →</span>
+</div>
+</a>
+
+<a class="product-card" href="led-panels.html">
+<div class="product-visual"><strong>▣</strong></div>
+<div class="product-copy">
+<span class="eyebrow">Lighting</span>
+<h3>LED Panels</h3>
+<p>Panel lighting from trusted lighting brands.</p>
+<span class="text-link">View Brands →</span>
+</div>
+</a>
+
+<a class="product-card" href="products.html">
+<div class="product-visual"><strong>⌘</strong></div>
+<div class="product-copy">
+<span class="eyebrow">More</span>
+<h3>Other Electrical Materials</h3>
+<p>Additional electrical products and accessories.</p>
+<span class="text-link">Explore →</span>
+</div>
+</a>
+
+</div>
 
 </div>
 </section>
+
 </main>
 
-<div id="modalRoot"></div>
-<div id="siteFooter"></div>
-
 <script>
-const CATEGORIES=[
-'All Products','Wires & Cables','Switches & Sockets','MCBs & DBs',
-'Pipes & Conduits','Lighting','Fans','Accessories','Other'
-];
-
-const BRANDS={
-'House Wires':['Polycab','KEI','Havells','Finolex'],
-'MCBs':['Hager','ABB','Havells','Polycab','Legrand'],
-'PVC Electrical Conduit Pipes':['AKG'],
-'LED Bulbs':['Philips','Renesola','Wipro'],
-'LED Panels':['Philips','Wipro','Crompton','Renesola']
-};
-
-let active='All Products';
-
-function render(){
-const q=document.getElementById('search').value.trim().toLowerCase();
-
-const visible=PRODUCTS.filter(p=>
-(active==='All Products'||p.category===active) &&
-(!q||(p.name+' '+p.category+' '+p.description).toLowerCase().includes(q))
-);
-
-document.getElementById('count').textContent=visible.length+' products';
-
-document.getElementById('filters').innerHTML=
-CATEGORIES.map(c=>`
-<button class="filter-pill ${c===active?'active':''}" data-cat="${c}">
-${c}
-</button>`).join('');
-
-document.getElementById('productGrid').innerHTML=
-visible.length
-? visible.map(p=>{
-const brands=BRANDS[p.name];
-return `
-<article class="product-card">
-<div class="product-visual">
-<strong>${p.name}</strong>
-</div>
-<div class="product-copy">
-<span class="eyebrow">${p.category}</span>
-<h3>${p.name}</h3>
-<p>${p.description}</p>
-${brands?`
-<div class="brand-list">
-${brands.map(b=>`<span>${b}</span>`).join('')}
-</div>`:''}
-<div class="product-actions">
-<button class="text-link" data-open="${p.id}">View Details →</button>
-<button class="mini-enquire" data-enquire="${p.id}">Enquire</button>
-</div>
-</div>
-</article>`;
-}).join('')
-:'<div class="empty-state"><h3>No matching products</h3><p>Try another category or search term.</p></div>';
-}
-
 document.addEventListener('DOMContentLoaded',()=>{
-document.getElementById('siteHeader').innerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-
-render();
-
-document.getElementById('search').addEventListener('input',render);
-
-document.getElementById('filters').addEventListener('click',e=>{
-if(e.target.dataset.cat){
-active=e.target.dataset.cat;
-render();
-}
-});
+document.getElementById('siteHeader').outerHTML=header('Products');
+document.write(footer());
 });
 </script>
 
