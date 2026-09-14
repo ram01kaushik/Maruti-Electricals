@@ -359,6 +359,9 @@ const cats = [
 ['✣','Fans & Accessories',
 'Ceiling fans and supporting electrical accessories.'],
 
+['▤','Modular Electrical Accessories',
+'Useful modular accessories and finishing components.'],
+
 ['⌘','Other Electrical Materials',
 'Additional electrical essentials for projects and repairs.']
 
@@ -389,6 +392,20 @@ View Products →
 </span>
 
 </a>
+
+`).join('');
+
+
+document.getElementById('featuredProducts').innerHTML =
+PRODUCTS
+.filter(p=>p.featured)
+.slice(0,6)
+.map(p=>productCard(p,true))
+.join('');
+
+});
+
+</script>
 
 
 <script>
