@@ -19,18 +19,19 @@
 
 <body>
 
+<!-- HEADER -->
 <div id="siteHeader" data-active="Home"></div>
 
 
 <main>
 
-
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
 <div class="container hero-grid">
-
 
 <div class="hero-copy">
 
@@ -47,7 +48,6 @@ Your trusted electrical partner in <em>Sikanderpur.</em>
 Quality electrical materials, reliable service, and over three decades of local experience serving Gurgaon.
 </p>
 
-
 <div class="hero-actions">
 
 <a
@@ -63,7 +63,6 @@ Contact Us
 </a>
 
 </div>
-
 
 <div class="hero-meta">
 
@@ -148,8 +147,9 @@ Generic catalogue imagery — replace with your stock photos later.
 </section>
 
 
-
-<!-- WHY MARUTI -->
+<!-- =========================
+     WHY MARUTI
+========================= -->
 
 <section class="section why-section">
 
@@ -177,7 +177,6 @@ A long-standing Sikanderpur electrical supplier focused on practical requirement
 
 
 <div class="reason-grid">
-
 
 <article class="reason-card">
 
@@ -268,7 +267,6 @@ For individual customers, electricians, contractors, builders and bulk requireme
 
 </article>
 
-
 </div>
 
 </div>
@@ -276,13 +274,13 @@ For individual customers, electricians, contractors, builders and bulk requireme
 </section>
 
 
-
-<!-- HERITAGE -->
+<!-- =========================
+     HERITAGE
+========================= -->
 
 <section class="heritage-section">
 
 <div class="container heritage-grid">
-
 
 <div class="heritage-number">
 
@@ -320,8 +318,9 @@ Learn More About Us →
 </section>
 
 
-
-<!-- ENQUIRY -->
+<!-- =========================
+     ENQUIRY
+========================= -->
 
 <section class="section find-section">
 
@@ -359,13 +358,13 @@ Send Enquiry →
 </section>
 
 
-
-<!-- LOCATION -->
+<!-- =========================
+     LOCATION
+========================= -->
 
 <section class="section location-section">
 
 <div class="container location-grid">
-
 
 <div class="location-copy">
 
@@ -398,7 +397,6 @@ Contact & Directions →
 </div>
 
 
-
 <!-- GOOGLE MAP -->
 
 <div class="map-placeholder real-map">
@@ -426,37 +424,51 @@ Open in Google Maps →
 
 </div>
 
-
 </div>
 
 </section>
 
-
 </main>
 
 
+<!-- FOOTER -->
+<div id="siteFooter"></div>
 
-<!-- HEADER + FOOTER -->
+
+<!-- MODAL ROOT -->
+<div id="modalRoot"></div>
+
+
+<!-- =========================
+     START HEADER + FOOTER
+========================= -->
 
 <script>
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
 
-document.getElementById('siteHeader').outerHTML =
-header('Home');
+  /* Create header first */
+  const headerRoot = document.getElementById('siteHeader');
 
-document.getElementById('siteHeader')
-.insertAdjacentHTML(
-'afterend',
-footer()
-);
+  if (headerRoot) {
+    headerRoot.outerHTML = header('Home');
+  }
+
+
+  /* Create footer */
+  const footerRoot = document.getElementById('siteFooter');
+
+  if (footerRoot) {
+    footerRoot.innerHTML = footer();
+  }
+
+
+  /* Start JavaScript AFTER header exists */
+  boot();
 
 });
 
 </script>
-
-
-<div id="modalRoot"></div>
 
 </body>
 </html>
