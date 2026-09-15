@@ -35,11 +35,64 @@ const PRODUCTS = [
 
 function brand(light=false){ return `<a class="brand-mark ${light?'brand-mark--light':''}" href="index.html"><span class="brand-script">Maruti</span><span class="brand-sub">ELECTRICALS</span></a>`; }
 function header(active){ return `
-<div class="utility-bar"><div class="container utility-inner"><span>${BUSINESS.experience} serving Sikanderpur</span><span class="utility-location">● Gurugram, Haryana</span></div></div>
-<header class="site-header"><div class="container nav-inner"><div>${brand()}</div><nav class="desktop-nav">
-${[['index.html','Home'],['products.html','Products'],['about.html','About Us'],['contact.html','Contact Us']].map(x=>`<a class="nav-link ${active===x[1]?'active':''}" href="${x[0]}">${x[1]}</a>`).join('')}
-</nav><div class="nav-actions"><a class="btn btn-primary desktop-cta" href="contact.html">Enquire Now →</a><button class="menu-btn" id="menuBtn">☰</button></div></div>
-<div class="mobile-panel" id="mobilePanel" hidden><div class="container mobile-links">${[['index.html','Home'],['products.html','Products'],['about.html','About Us'],['contact.html','Contact Us']].map(x=>`<a class="mobile-link ${active===x[1]?'active':''}" href="${x[0]}">${x[1]}</a>`).join('')}<a class="btn btn-primary mobile-enquire" href="contact.html">Enquire Now</a></div></div></header>`; }
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <span>${BUSINESS.experience} serving Sikanderpur</span>
+    <span class="utility-location">● Gurugram, Haryana</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-inner">
+
+    <div>${brand()}</div>
+
+    <nav class="desktop-nav">
+      ${[
+        ['index.html','Home'],
+        ['products.html','Products'],
+        ['about.html','About Us'],
+        ['contact.html','Contact Us']
+      ].map(x =>
+        `<a class="nav-link ${active===x[1]?'active':''}" href="${x[0]}">${x[1]}</a>`
+      ).join('')}
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary desktop-cta" href="contact.html">
+        Enquire Now →
+      </a>
+
+      <button 
+        class="menu-btn" 
+        id="menuBtn" 
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel" hidden>
+    <div class="container mobile-links">
+      ${[
+        ['index.html','Home'],
+        ['products.html','Products'],
+        ['about.html','About Us'],
+        ['contact.html','Contact Us']
+      ].map(x =>
+        `<a class="mobile-link ${active===x[1]?'active':''}" href="${x[0]}">${x[1]}</a>`
+      ).join('')}
+
+      <a class="btn btn-primary mobile-enquire" href="contact.html">
+        Enquire Now
+      </a>
+    </div>
+  </div>
+</header>`;
+}
 function footer(){return `<footer class="footer"><div class="container footer-grid"><div class="footer-brand">${brand(true)}<p>Trusted electrical materials and practical product support in Sikanderpur, Gurgaon.</p><span class="footer-pill">Serving Sikanderpur for 30+ years</span></div><div><h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div><div><h4>Contact</h4><p>☎ ${BUSINESS.phone}</p><p>✉ ${BUSINESS.email}</p><p>⌖ Sikanderpur, Gurugram, Haryana</p></div></div><div class="container footer-bottom"><span>© 2026 Maruti Electricals. All rights reserved.</span><span>Catalogue & enquiry website</span></div></footer><a
   class="whatsapp-float"
   href="https://wa.me/917733934734"
