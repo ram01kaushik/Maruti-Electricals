@@ -21,13 +21,16 @@
 
 <div id="siteHeader" data-active="Home"></div>
 
+
 <main>
+
 
 <!-- HERO -->
 
 <section class="hero">
 
 <div class="container hero-grid">
+
 
 <div class="hero-copy">
 
@@ -44,6 +47,7 @@ Your trusted electrical partner in <em>Sikanderpur.</em>
 Quality electrical materials, reliable service, and over three decades of local experience serving Gurgaon.
 </p>
 
+
 <div class="hero-actions">
 
 <a
@@ -59,6 +63,7 @@ Contact Us
 </a>
 
 </div>
+
 
 <div class="hero-meta">
 
@@ -110,6 +115,7 @@ Generic catalogue imagery — replace with your stock photos later.
 
 </div>
 
+
 <div class="hero-panel mini-panel mini-a">
 
 <span style="font-size:38px">⌁</span>
@@ -117,12 +123,14 @@ Generic catalogue imagery — replace with your stock photos later.
 
 </div>
 
+
 <div class="hero-panel mini-panel mini-b">
 
 <span style="font-size:38px">☼</span>
 <span>Lighting</span>
 
 </div>
+
 
 <div class="hero-panel mini-panel mini-c">
 
@@ -139,39 +147,6 @@ Generic catalogue imagery — replace with your stock photos later.
 
 </section>
 
-
-<!-- PRODUCT CATEGORIES -->
-
-<section class="section category-section">
-
-<div class="container">
-
-<div class="section-heading heading-row">
-
-<div>
-
-<span class="eyebrow orange">
-Product Catalogue
-</span>
-
-<h2>
-Electrical products for every requirement.
-</h2>
-
-</div>
-
-<p>
-From everyday electrical essentials to materials for larger requirements, explore our range.
-</p>
-
-</div>
-
-
-<div class="category-grid" id="categories"></div>
-
-</div>
-
-</section>
 
 
 <!-- WHY MARUTI -->
@@ -202,6 +177,7 @@ A long-standing Sikanderpur electrical supplier focused on practical requirement
 
 
 <div class="reason-grid">
+
 
 <article class="reason-card">
 
@@ -292,6 +268,7 @@ For individual customers, electricians, contractors, builders and bulk requireme
 
 </article>
 
+
 </div>
 
 </div>
@@ -299,11 +276,13 @@ For individual customers, electricians, contractors, builders and bulk requireme
 </section>
 
 
+
 <!-- HERITAGE -->
 
 <section class="heritage-section">
 
 <div class="container heritage-grid">
+
 
 <div class="heritage-number">
 
@@ -341,6 +320,7 @@ Learn More About Us →
 </section>
 
 
+
 <!-- ENQUIRY -->
 
 <section class="section find-section">
@@ -367,6 +347,7 @@ Get in touch for product availability, pricing, regular purchases, project requi
 
 </div>
 
+
 <a
 class="btn btn-primary"
 href="contact.html">
@@ -376,6 +357,7 @@ Send Enquiry →
 </div>
 
 </section>
+
 
 
 <!-- LOCATION -->
@@ -408,10 +390,13 @@ class="btn btn-dark"
 href="https://maps.app.goo.gl/RXQ2p4k2jKU6nQ2GA"
 target="_blank"
 rel="noopener">
+
 Contact & Directions →
+
 </a>
 
 </div>
+
 
 
 <!-- GOOGLE MAP -->
@@ -434,7 +419,9 @@ href="https://maps.app.goo.gl/RXQ2p4k2jKU6nQ2GA"
 target="_blank"
 rel="noopener"
 class="map-open-button">
+
 Open in Google Maps →
+
 </a>
 
 </div>
@@ -444,82 +431,27 @@ Open in Google Maps →
 
 </section>
 
+
 </main>
 
 
-<!-- CATEGORY SCRIPT -->
+
+<!-- HEADER + FOOTER -->
 
 <script>
 
-const cats = [
-
-['⌁','Wires & Cables',
-'House wires, power cables and related electrical wiring.'],
-
-['⏻','Switches & Sockets',
-'Modular switches, sockets and everyday switching essentials.'],
-
-['⛨','MCBs & Distribution Boards',
-'Circuit protection and distribution solutions.'],
-
-['◉','Electrical Pipes & Conduits',
-'Conduit and routing products for protected installations.'],
-
-['☼','LED Lighting',
-'Bulbs, panels and lighting for varied requirements.'],
-
-['✣','Fans & Accessories',
-'Ceiling fans and supporting electrical accessories.'],
-
-['▤','Modular Electrical Accessories',
-'Useful modular accessories and finishing components.'],
-
-['⌘','Other Electrical Materials',
-'Additional electrical essentials for projects and repairs.']
-
-];
-
-
 document.addEventListener('DOMContentLoaded', () => {
-
-document.getElementById('categories').innerHTML =
-
-cats.map(c => `
-
-<a
-class="category-card"
-href="products.html">
-
-<div class="category-icon">
-${c[0]}
-</div>
-
-<h3>
-${c[1]}
-</h3>
-
-<p>
-${c[2]}
-</p>
-
-<span>
-View Products →
-</span>
-
-</a>
-
-`).join('');
-
-});
-
 
 document.getElementById('siteHeader').outerHTML =
 header('Home');
 
-document.getElementById('siteHeader').insertAdjacentHTML(
+document.getElementById('siteHeader')
+.insertAdjacentHTML(
 'afterend',
 footer()
 );
+
+});
 
 </script>
 
