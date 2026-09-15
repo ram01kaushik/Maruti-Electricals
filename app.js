@@ -1,11 +1,16 @@
 const BUSINESS = {
   name: 'Maruti Electricals',
   phone: '+91 7733934734',
-  whatsapp: '917733934734',
+  whatsapp: '+91 7733934734',
   email: 'marutielectrical16@gmail.com',
   address: 'Gangania Complex, M.G. Road, Sikanderpur, DLF, Gurugram, Haryana - 122002',
   experience: '30+ years'
 };
+
+
+/* =========================
+   PRODUCT IMAGES
+========================= */
 
 const IMAGES = {
   wires: 'https://images.unsplash.com/photo-1761507320645-b11a00bfcc34?auto=format&fit=crop&fm=jpg&q=80&w=1200',
@@ -14,6 +19,11 @@ const IMAGES = {
   socket: 'https://images.unsplash.com/photo-1553879449-b80070c922d2?auto=format&fit=crop&fm=jpg&q=80&w=1200',
   lighting: 'https://images.unsplash.com/photo-1602353923226-b3c58fb179a0?auto=format&fit=crop&fm=jpg&q=80&w=1200'
 };
+
+
+/* =========================
+   PRODUCT DATA
+========================= */
 
 const GENERIC_DETAILS = [
   'Multiple variants available',
@@ -28,10 +38,7 @@ const PRODUCTS = [
     category: 'Wires & Cables',
     description: 'House wiring solutions from trusted electrical brands.',
     icon: '⌁',
-    featured: false,
-    image: IMAGES.wires,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    image: IMAGES.wires
   },
   {
     id: 2,
@@ -39,109 +46,71 @@ const PRODUCTS = [
     category: 'Wires & Cables',
     description: 'Cable options for larger electrical loads and project requirements.',
     icon: '⌁',
-    featured: false,
-    image: IMAGES.wires,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    image: IMAGES.wires
   },
   {
     id: 3,
-    name: 'Modular Switches',
+    name: 'Switches & Sockets',
     category: 'Switches & Sockets',
-    description: 'Modern modular switches for homes, offices and commercial spaces.',
+    description: 'Modular switches, sockets and everyday switching essentials.',
     icon: '⏻',
-    featured: false,
-    image: IMAGES.socket,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    image: IMAGES.socket
   },
   {
     id: 4,
-    name: 'Sockets',
-    category: 'Switches & Sockets',
-    description: 'Modular sockets and outlets for residential and commercial installations.',
-    icon: '⌑',
-    featured: false,
-    image: IMAGES.socket,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
-  },
-  {
-    id: 5,
     name: 'MCBs',
     category: 'MCBs & DBs',
     description: 'Circuit protection products from leading electrical brands.',
     icon: '⛨',
-    featured: false,
-    image: IMAGES.protection,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    image: IMAGES.protection
+  },
+  {
+    id: 5,
+    name: 'Distribution Boards',
+    category: 'MCBs & DBs',
+    description: 'Distribution solutions for residential and commercial installations.',
+    icon: '▦',
+    image: IMAGES.protection
   },
   {
     id: 6,
-    name: 'Distribution Boards',
-    category: 'MCBs & DBs',
-    description: 'Distribution solutions for organized circuit protection.',
-    icon: '▦',
-    featured: false,
-    image: IMAGES.protection,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    name: 'Electrical Pipes & Conduits',
+    category: 'Pipes & Conduits',
+    description: 'Conduit and routing products for protected installations.',
+    icon: '◉',
+    image: IMAGES.wires
   },
   {
     id: 7,
-    name: 'PVC Electrical Conduit Pipes',
-    category: 'Pipes & Conduits',
-    description: 'Conduit and routing products for protected electrical installations.',
-    icon: '◉',
-    featured: false,
-    image: IMAGES.wires,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    name: 'LEDs',
+    category: 'Lighting',
+    description: 'LED bulbs and LED panels from trusted brands.',
+    icon: '☼',
+    image: IMAGES.lighting
   },
   {
     id: 8,
-    name: 'LEDs',
-    category: 'Lighting',
-    description: 'LED bulbs, panels and lighting solutions for different requirements.',
-    icon: '☼',
-    featured: false,
-    image: IMAGES.lighting,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    name: 'Fans',
+    category: 'Fans',
+    description: 'Ceiling fans and electrical accessories.',
+    icon: '✣',
+    image: IMAGES.fan
   },
   {
     id: 9,
-    name: 'Ceiling Fans',
-    category: 'Fans',
-    description: 'Ceiling fan options for homes, offices, shops and other spaces.',
-    icon: '✣',
-    featured: false,
-    image: IMAGES.fan,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    name: 'Modular Accessories',
+    category: 'Accessories',
+    description: 'Useful modular accessories and finishing components.',
+    icon: '▤',
+    image: IMAGES.socket
   },
   {
     id: 10,
-    name: 'Modular Electrical Accessories',
-    category: 'Accessories',
-    description: 'Supporting electrical accessories and finishing components.',
-    icon: '▤',
-    featured: false,
-    image: IMAGES.socket,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
-  },
-  {
-    id: 11,
     name: 'Other Electrical Materials',
     category: 'Other',
-    description: 'Additional electrical essentials for projects, repairs and maintenance.',
+    description: 'Additional electrical essentials for projects and repairs.',
     icon: '⌘',
-    featured: false,
-    image: IMAGES.protection,
-    brand: 'Multiple brands available',
-    details: GENERIC_DETAILS
+    image: IMAGES.protection
   }
 ];
 
@@ -161,81 +130,190 @@ function brand(light = false) {
 
 
 /* =========================
-   HEADER + MOBILE MENU
+   HEADER
 ========================= */
 
 function header(active) {
-  const links = [
-    ['index.html', 'Home'],
-    ['products.html', 'Products'],
-    ['about.html', 'About Us'],
-    ['contact.html', 'Contact Us']
-  ];
 
   return `
-    <div class="utility-bar">
-      <div class="container utility-inner">
-        <span>${BUSINESS.experience} serving Sikanderpur</span>
-        <span class="utility-location">● Gurugram, Haryana</span>
+  
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <span>30+ years serving Sikanderpur</span>
+      <span class="utility-location">● Gurugram, Haryana</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+
+    <div class="container nav-inner">
+
+      <div>
+        ${brand()}
       </div>
+
+      <nav class="desktop-nav">
+
+        <a class="nav-link ${active === 'Home' ? 'active' : ''}" href="index.html">
+          Home
+        </a>
+
+        <a class="nav-link ${active === 'Products' ? 'active' : ''}" href="products.html">
+          Products
+        </a>
+
+        <a class="nav-link ${active === 'About Us' ? 'active' : ''}" href="about.html">
+          About Us
+        </a>
+
+        <a class="nav-link ${active === 'Contact Us' ? 'active' : ''}" href="contact.html">
+          Contact Us
+        </a>
+
+      </nav>
+
+      <div class="nav-actions">
+
+        <a class="btn btn-primary desktop-cta" href="contact.html">
+          Enquire Now →
+        </a>
+
+        <button
+          type="button"
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
     </div>
 
-    <header class="site-header">
-      <div class="container nav-inner">
 
-        <div>
-          ${brand()}
-        </div>
+    <div class="mobile-panel" id="mobilePanel" hidden>
 
-        <nav class="desktop-nav">
-          ${links.map(x => `
-            <a
-              class="nav-link ${active === x[1] ? 'active' : ''}"
-              href="${x[0]}"
-            >
-              ${x[1]}
-            </a>
-          `).join('')}
-        </nav>
+      <div class="container mobile-links">
 
-        <div class="nav-actions">
+        <a
+          class="mobile-link ${active === 'Home' ? 'active' : ''}"
+          href="index.html"
+        >
+          Home
+        </a>
 
-          <a class="btn btn-primary desktop-cta" href="contact.html">
-            Enquire Now →
-          </a>
+        <a
+          class="mobile-link ${active === 'Products' ? 'active' : ''}"
+          href="products.html"
+        >
+          Products
+        </a>
 
-          <button
-            class="menu-btn"
-            id="menuBtn"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            ☰
-          </button>
+        <a
+          class="mobile-link ${active === 'About Us' ? 'active' : ''}"
+          href="about.html"
+        >
+          About Us
+        </a>
 
-        </div>
+        <a
+          class="mobile-link ${active === 'Contact Us' ? 'active' : ''}"
+          href="contact.html"
+        >
+          Contact Us
+        </a>
+
+        <a
+          class="btn btn-primary mobile-enquire"
+          href="contact.html"
+        >
+          Enquire Now
+        </a>
+
       </div>
 
-      <div class="mobile-panel" id="mobilePanel" hidden>
-        <div class="container mobile-links">
+    </div>
 
-          ${links.map(x => `
-            <a
-              class="mobile-link ${active === x[1] ? 'active' : ''}"
-              href="${x[0]}"
-            >
-              ${x[1]}
-            </a>
-          `).join('')}
+  </header>
 
-          <a class="btn btn-primary mobile-enquire" href="contact.html">
-            Enquire Now
-          </a>
+  <style>
 
-        </div>
-      </div>
-    </header>
+    .menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border: 0;
+      border-radius: 18px;
+      background: #4b4945;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .mobile-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid #eeeeee;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      z-index: 9998;
+    }
+
+    .mobile-links {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 8px;
+    }
+
+    .mobile-link {
+      display: block;
+      padding: 15px 10px;
+      color: #222;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .mobile-link.active {
+      color: #ed6416;
+    }
+
+    .mobile-enquire {
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+
+      .desktop-nav,
+      .desktop-cta {
+        display: none !important;
+      }
+
+      .menu-btn {
+        display: flex !important;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .site-header {
+        position: relative;
+      }
+
+    }
+
+  </style>
+
   `;
 }
 
@@ -245,65 +323,79 @@ function header(active) {
 ========================= */
 
 function footer() {
+
   return `
-    <footer class="footer">
 
-      <div class="container footer-grid">
+  <footer class="footer">
 
-        <div class="footer-brand">
-          ${brand(true)}
+    <div class="container footer-grid">
 
-          <p>
-            Trusted electrical materials and practical product support
-            in Sikanderpur, Gurgaon.
-          </p>
+      <div class="footer-brand">
 
-          <span class="footer-pill">
-            Serving Sikanderpur for 30+ years
-          </span>
-        </div>
+        ${brand(true)}
 
-        <div>
-          <h4>Quick Links</h4>
+        <p>
+          Trusted electrical materials and practical product support
+          in Sikanderpur, Gurgaon.
+        </p>
 
-          <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact Us</a>
-        </div>
-
-        <div>
-          <h4>Contact</h4>
-
-          <p>☎ ${BUSINESS.phone}</p>
-          <p>✉ ${BUSINESS.email}</p>
-          <p>⌖ Sikanderpur, Gurugram, Haryana</p>
-        </div>
+        <span class="footer-pill">
+          Serving Sikanderpur for 30+ years
+        </span>
 
       </div>
 
-      <div class="container footer-bottom">
-        <span>
-          © 2026 Maruti Electricals. All rights reserved.
-        </span>
 
-        <span>
-          Catalogue & enquiry website
-        </span>
+      <div>
+
+        <h4>Quick Links</h4>
+
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+
       </div>
 
-    </footer>
 
-    <a
-      class="whatsapp-float"
-      href="https://wa.me/${BUSINESS.whatsapp}"
-      target="_blank"
-      rel="noopener"
-      aria-label="Chat on WhatsApp"
-      title="Chat on WhatsApp"
-    >
-      ◉
-    </a>
+      <div>
+
+        <h4>Contact</h4>
+
+        <p>☎ ${BUSINESS.phone}</p>
+        <p>✉ ${BUSINESS.email}</p>
+        <p>⌖ Sikanderpur, Gurugram, Haryana</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <span>
+        © 2026 Maruti Electricals. All rights reserved.
+      </span>
+
+      <span>
+        Catalogue & enquiry website
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/917733934734"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat on WhatsApp"
+  >
+    ◉
+  </a>
+
   `;
 }
 
@@ -313,73 +405,78 @@ function footer() {
 ========================= */
 
 function productCard(p, compact = false) {
+
   return `
-    <article
-      class="product-card ${compact ? 'product-card--compact' : ''}"
-      data-product="${p.id}"
+
+  <article
+    class="product-card ${compact ? 'product-card--compact' : ''}"
+    data-product="${p.id}"
+  >
+
+    <button
+      class="product-visual"
+      data-open="${p.id}"
+      type="button"
     >
 
-      <button
-        class="product-visual"
-        data-open="${p.id}"
-        type="button"
+      <span
+        class="product-fallback"
+        style="font-size:${compact ? 54 : 70}px"
+      >
+        ${p.icon}
+      </span>
+
+      <img
+        src="${p.image}"
+        alt="${p.name}"
+        loading="lazy"
+        onerror="this.style.display='none'"
       >
 
-        <span
-          class="product-fallback"
-          style="font-size:${compact ? 54 : 70}px"
+      <span class="visual-grid"></span>
+
+    </button>
+
+
+    <div class="product-copy">
+
+      <span class="eyebrow">
+        ${p.category}
+      </span>
+
+      <h3>
+        ${p.name}
+      </h3>
+
+      <p class="${compact ? 'compact-description' : ''}">
+        ${p.description}
+      </p>
+
+
+      <div class="product-actions">
+
+        <button
+          class="text-link"
+          data-open="${p.id}"
+          type="button"
         >
-          ${p.icon}
-        </span>
+          View Details →
+        </button>
 
-        <img
-          src="${p.image}"
-          alt="${p.name}"
-          loading="lazy"
-          onerror="this.style.display='none'"
+        <button
+          class="mini-enquire"
+          data-enquire="${p.id}"
+          type="button"
         >
-
-        <span class="visual-grid"></span>
-
-      </button>
-
-      <div class="product-copy">
-
-        <span class="eyebrow">
-          ${p.category}
-        </span>
-
-        <h3>
-          ${p.name}
-        </h3>
-
-        <p class="${compact ? 'compact-description' : ''}">
-          ${p.description}
-        </p>
-
-        <div class="product-actions">
-
-          <button
-            class="text-link"
-            data-open="${p.id}"
-            type="button"
-          >
-            View Details →
-          </button>
-
-          <button
-            class="mini-enquire"
-            data-enquire="${p.id}"
-            type="button"
-          >
-            Enquire
-          </button>
-
-        </div>
+          Enquire
+        </button>
 
       </div>
 
-    </article>
+    </div>
+
+  </article>
+
   `;
 }
 
@@ -389,84 +486,101 @@ function productCard(p, compact = false) {
 ========================= */
 
 function modal(p) {
-  return `
-    <div class="modal-backdrop" id="modal">
 
-      <div class="product-modal">
+  return `
+
+  <div class="modal-backdrop" id="modal">
+
+    <div class="product-modal">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-visual">
+
+        <span
+          class="product-fallback"
+          style="font-size:120px"
+        >
+          ${p.icon}
+        </span>
+
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          onerror="this.style.display='none'"
+        >
+
+      </div>
+
+
+      <div class="modal-copy">
+
+        <span class="eyebrow">
+          ${p.category}
+        </span>
+
+        <h2>
+          ${p.name}
+        </h2>
+
+        <p>
+          ${p.description}
+        </p>
+
+
+        <div class="detail-row">
+
+          <span>Brand</span>
+
+          <strong>
+            Multiple brands available
+          </strong>
+
+        </div>
+
+
+        <div class="spec-list">
+
+          ${GENERIC_DETAILS
+            .map(item => `<div>${item}</div>`)
+            .join('')
+          }
+
+        </div>
+
+
+        <div class="price-note">
+          Price on Enquiry
+        </div>
+
 
         <button
-          class="modal-close"
-          id="modalClose"
+          class="btn btn-primary"
+          data-enquire="${p.id}"
           type="button"
         >
-          ×
+          Enquire about this product →
         </button>
-
-        <div class="modal-visual">
-
-          <span
-            class="product-fallback"
-            style="font-size:120px"
-          >
-            ${p.icon}
-          </span>
-
-          <img
-            src="${p.image}"
-            alt="${p.name}"
-            onerror="this.style.display='none'"
-          >
-
-        </div>
-
-        <div class="modal-copy">
-
-          <span class="eyebrow">
-            ${p.category}
-          </span>
-
-          <h2>
-            ${p.name}
-          </h2>
-
-          <p>
-            ${p.description}
-          </p>
-
-          <div class="detail-row">
-            <span>Brand</span>
-            <strong>${p.brand}</strong>
-          </div>
-
-          <div class="spec-list">
-            ${p.details.map(x => `
-              <div>${x}</div>
-            `).join('')}
-          </div>
-
-          <div class="price-note">
-            Price on Enquiry
-          </div>
-
-          <button
-            class="btn btn-primary"
-            data-enquire="${p.id}"
-            type="button"
-          >
-            Enquire about this product →
-          </button>
-
-        </div>
 
       </div>
 
     </div>
+
+  </div>
+
   `;
 }
 
 
 /* =========================
-   MAIN BOOT FUNCTION
+   MOBILE MENU + BUTTONS
 ========================= */
 
 function boot() {
@@ -480,67 +594,60 @@ function boot() {
 
     menuBtn.addEventListener('click', function () {
 
-      const isOpen = !mobilePanel.hidden;
+      const isClosed = mobilePanel.hidden;
 
-      mobilePanel.hidden = isOpen;
+      mobilePanel.hidden = !isClosed;
 
       menuBtn.setAttribute(
         'aria-expanded',
-        String(!isOpen)
+        String(isClosed)
       );
+
+      menuBtn.innerHTML = isClosed ? '✕' : '☰';
 
     });
 
   }
 
 
-  /* CLOSE MOBILE MENU WHEN LINK IS CLICKED */
+  /* CLOSE MOBILE MENU AFTER CLICKING A LINK */
 
-  if (mobilePanel) {
+  document.querySelectorAll('.mobile-link').forEach(link => {
 
-    mobilePanel.addEventListener('click', function (e) {
+    link.addEventListener('click', function () {
 
-      const link = e.target.closest('a');
-
-      if (link) {
+      if (mobilePanel) {
         mobilePanel.hidden = true;
+      }
 
-        if (menuBtn) {
-          menuBtn.setAttribute(
-            'aria-expanded',
-            'false'
-          );
-        }
+      if (menuBtn) {
+        menuBtn.innerHTML = '☰';
+        menuBtn.setAttribute('aria-expanded', 'false');
       }
 
     });
 
-  }
+  });
 
 
-  /* PRODUCT MODALS + ENQUIRIES */
+  /* PRODUCT BUTTONS */
 
   document.body.addEventListener('click', function (e) {
 
-    /* OPEN PRODUCT */
+    const openButton = e.target.closest('[data-open]');
 
-    const open = e.target.closest('[data-open]');
+    if (openButton) {
 
-    if (open) {
-
-      const p = PRODUCTS.find(
-        x => x.id === Number(open.dataset.open)
+      const product = PRODUCTS.find(
+        p => p.id === Number(openButton.dataset.open)
       );
 
-      if (p) {
+      if (!product) return;
 
-        const modalRoot =
-          document.getElementById('modalRoot');
+      const modalRoot = document.getElementById('modalRoot');
 
-        if (modalRoot) {
-          modalRoot.innerHTML = modal(p);
-        }
-
+      if (modalRoot) {
+        modalRoot.innerHTML = modal(product);
       }
 
       return;
@@ -554,8 +661,7 @@ function boot() {
       e.target.id === 'modal'
     ) {
 
-      const modalRoot =
-        document.getElementById('modalRoot');
+      const modalRoot = document.getElementById('modalRoot');
 
       if (modalRoot) {
         modalRoot.innerHTML = '';
@@ -565,25 +671,23 @@ function boot() {
     }
 
 
-    /* PRODUCT ENQUIRY */
+    /* ENQUIRE */
 
-    const enquire =
+    const enquireButton =
       e.target.closest('[data-enquire]');
 
-    if (enquire) {
+    if (enquireButton) {
 
-      const p = PRODUCTS.find(
-        x => x.id === Number(enquire.dataset.enquire)
+      const product = PRODUCTS.find(
+        p => p.id === Number(enquireButton.dataset.enquire)
       );
 
-      if (p) {
+      if (!product) return;
 
-        sessionStorage.setItem(
-          'marutiEnquiryProduct',
-          p.name
-        );
-
-      }
+      sessionStorage.setItem(
+        'marutiEnquiryProduct',
+        product.name
+      );
 
       window.location.href = 'contact.html';
 
