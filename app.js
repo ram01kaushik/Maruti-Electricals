@@ -105,11 +105,22 @@ function productCard(p,compact=false){return `<article class="product-card ${com
 function modal(p){return `<div class="modal-backdrop" id="modal"><div class="product-modal"><button class="modal-close" id="modalClose">×</button><div class="modal-visual"><span class="product-fallback" style="font-size:120px">${p.icon}</span><img src="${p.image}" alt="Generic ${p.name} reference image" onerror="this.style.display='none'"></div><div class="modal-copy"><span class="eyebrow">${p.category}</span><h2>${p.name}</h2><p>${p.description}</p><div class="detail-row"><span>Brand</span><strong>${p.brand}</strong></div><div class="spec-list">${p.details.map(x=>`<div>${x}</div>`).join('')}</div><div class="price-note">Price on Enquiry</div><button class="btn btn-primary" data-enquire="${p.id}">Enquire about this product →</button></div></div></div>`;}
 
 function boot(){
-  document.getElementById('menuBtn')?.addEventListener('click',()=>{const p=document.getElementById('mobilePanel'); p.hidden=!p.hidden;});
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+
+  if (menuBtn && mobilePanel) {
+    menuBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      mobilePanel.hidden = !mobilePanel.hidden;
+
+      menuBtn.setAttribute(
+        'aria-expanded',
+        String(!mobilePanel.hidden)
+      );
+    });
+  }
+
   document.body.addEventListener('click',(e)=>{
-    const open=e.target.closest('[data-open]'); if(open){const p=PRODUCTS.find(x=>x.id===+open.dataset.open); document.getElementById('modalRoot').innerHTML=modal(p); return;}
-    if(e.target.id==='modalClose'||e.target.id==='modal'){document.getElementById('modalRoot').innerHTML=''; return;}
-    const enq=e.target.closest('[data-enquire]'); if(enq){const p=PRODUCTS.find(x=>x.id===+enq.dataset.enquire); sessionStorage.setItem('marutiEnquiryProduct',p.name); location.href='contact.html';}
-  });
-}
-document.addEventListener('DOMContentLoaded',boot);
