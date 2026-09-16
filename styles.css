@@ -411,3 +411,197 @@ img { max-width: 100%; display: block; }
 .location-grid .real-map iframe {
   border-radius: 10px !important;
 }
+/* =========================================
+   POLYCAB WIRE SPECIFICATIONS
+   Minimal catalogue-style layout
+========================================= */
+
+.polycab-wires-section {
+  padding-top: 95px;
+}
+
+
+/* MAIN SPECIFICATION AREA */
+
+.wire-specs {
+  width: 100%;
+  max-width: 1180px;
+  margin: 55px auto 65px;
+}
+
+
+/* EACH PRODUCT ROW */
+
+.wire-spec-row {
+  display: grid;
+  grid-template-columns: 1.1fr .65fr 2fr;
+  gap: 45px;
+  align-items: center;
+
+  padding: 38px 0;
+
+  border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.wire-spec-row:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+
+/* PRODUCT NAME */
+
+.wire-product-name h3 {
+  margin: 7px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  color: #171717;
+}
+
+
+/* ROLL LENGTH */
+
+.wire-roll {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wire-roll span,
+.wire-column-label {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  color: #777;
+}
+
+.wire-roll strong {
+  font-size: 17px;
+  font-weight: 800;
+  color: #171717;
+}
+
+
+/* SIZES */
+
+.wire-sizes {
+  min-width: 0;
+}
+
+.size-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 13px;
+}
+
+.size-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 47px;
+  height: 38px;
+
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(0,0,0,.13);
+  border-radius: 7px;
+
+  background: #fff;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+
+  transition:
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.size-list span:hover {
+  border-color: #e56318;
+  color: #e56318;
+  transform: translateY(-1px);
+}
+
+.size-list small {
+  margin-left: 3px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+  .polycab-wires-section {
+    padding-top: 70px;
+  }
+
+  .wire-specs {
+    margin-top: 40px;
+  }
+
+  .wire-spec-row {
+    grid-template-columns: 1fr;
+    gap: 22px;
+
+    padding: 32px 0;
+  }
+
+  .wire-product-name h3 {
+    font-size: 30px;
+  }
+
+  .wire-roll {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wire-roll span {
+    font-size: 10px;
+  }
+
+  .wire-roll strong {
+    font-size: 16px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .wire-spec-row {
+    padding: 28px 0;
+  }
+
+  .size-list {
+    gap: 7px;
+  }
+
+  .size-list span {
+    min-width: 44px;
+    height: 36px;
+    padding: 0 10px;
+
+    font-size: 13px;
+  }
+
+}
