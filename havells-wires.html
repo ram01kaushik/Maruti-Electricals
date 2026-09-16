@@ -1,105 +1,615 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
-<title>Havells Home Wires | Maruti Electricals</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Havells Home Wires | Maruti Electricals</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
+
+  <style>
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      margin: 10px 0 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+      font-weight: 500;
+      color: #111;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .polycab-table {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0, 0, 0, .16);
+    }
+
+    .polycab-table-header,
+    .polycab-table-row {
+      display: grid;
+      grid-template-columns: 1.2fr .7fr 2.4fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .polycab-table-header {
+      padding: 18px 0;
+      color: #777;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0, 0, 0, .12);
+    }
+
+    .polycab-table-row {
+      padding: 34px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .12);
+    }
+
+    .polycab-product-name h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.15;
+      font-weight: 500;
+      color: #111;
+    }
+
+    .polycab-product-name p {
+      margin: 8px 0 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .polycab-roll {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .polycab-sizes {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .size-label {
+      font-size: 12px;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 700;
+    }
+
+    .size-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .wire-size-button {
+      min-width: 52px;
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid rgba(0, 0, 0, .18);
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .wire-size-button:hover {
+      border-color: #e56318;
+      color: #e56318;
+    }
+
+    .wire-size-button.selected {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .size-unit {
+      color: #777;
+      font-size: 12px;
+      margin-left: 2px;
+    }
+
+    .selected-enquiry {
+      max-width: 1180px;
+      margin: 30px auto 65px;
+      padding: 18px 22px;
+      border: 1px solid rgba(229, 99, 24, .35);
+      border-radius: 14px;
+      background: #fff8f3;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .selected-enquiry.visible {
+      display: flex;
+    }
+
+    .selected-enquiry-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .selected-enquiry-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e56318;
+      flex-shrink: 0;
+    }
+
+    .selected-enquiry-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: .2s ease;
+    }
+
+    .selected-enquiry-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .polycab-enquiry {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .find-card {
+      padding: 34px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      border-radius: 16px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .find-card-content {
+      flex: 1;
+    }
+
+    .find-card-label {
+      margin-bottom: 8px;
+      color: #e56318;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .find-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 500;
+      color: #111;
+    }
+
+    .find-card p {
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .find-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 9px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: .2s ease;
+    }
+
+    .find-card a:hover {
+      transform: translateY(-2px);
+    }
+
+    .polycab-back {
+      max-width: 1180px;
+      margin: 45px auto 0;
+    }
+
+    .polycab-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #111;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .polycab-back a:hover {
+      color: #e56318;
+    }
+
+    @media (max-width: 800px) {
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 65px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 40px;
+        text-align: left;
+      }
+
+      .polycab-heading h2 {
+        font-size: 42px;
+      }
+
+      .polycab-table-header {
+        display: none;
+      }
+
+      .polycab-table-row {
+        display: block;
+        padding: 30px 0;
+      }
+
+      .polycab-product-name {
+        margin-bottom: 22px;
+      }
+
+      .polycab-roll {
+        margin-bottom: 22px;
+      }
+
+      .polycab-sizes {
+        gap: 10px;
+      }
+
+      .selected-enquiry {
+        margin: 25px auto 50px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .selected-enquiry-button {
+        width: 100%;
+      }
+
+      .find-card {
+        padding: 26px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .find-card a {
+        width: 100%;
+      }
+
+      .polycab-back {
+        margin-top: 35px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
+  <!-- HERO -->
+  <section class="page-hero products-hero">
+    <div class="container page-hero-inner">
+      <span class="eyebrow light">Home Wires</span>
+      <h1>Havells</h1>
+      <p>Havells home wires available from Maruti Electricals.</p>
+    </div>
+  </section>
 
-<main>
 
-<section class="page-hero products-hero">
-<div class="container page-hero-inner">
+  <!-- PRODUCTS -->
+  <main class="polycab-products">
 
-<span class="eyebrow light">Home Wires</span>
-<h1>Havells</h1>
+    <div class="container">
 
-<p>
-Havells home wires available from Maruti Electricals.
-</p>
+      <div class="polycab-heading">
+        <span class="eyebrow orange">Havells</span>
+        <h2>Available Home Wires</h2>
+        <p>Select one or more sizes to enquire about your requirement.</p>
+      </div>
 
-</div>
-</section>
 
-<section class="section">
+      <!-- TABLE -->
+      <div class="polycab-table">
 
-<div class="container">
+        <div class="polycab-table-header">
+          <div>Product</div>
+          <div>Roll Length</div>
+          <div>Available Sizes</div>
+        </div>
 
-<div class="section-heading centered">
 
-<span class="eyebrow orange">Havells</span>
+        <!-- HAVells LIFELINE S -->
+        <div class="polycab-table-row">
 
-<h2>Interested in Havells home wires?</h2>
+          <div class="polycab-product-name">
+            <h3>LifeLine S</h3>
+            <p>Havells Home Wire</p>
+          </div>
 
-<p>
-Send us your requirement and we'll get back to you with
-availability and details.
-</p>
+          <div class="polycab-roll">
+            90M
+          </div>
 
-</div>
+          <div class="polycab-sizes">
 
-<div class="find-card">
+            <span class="size-label">Wire Sizes</span>
 
-<div class="find-icon">⌁</div>
+            <div class="size-list">
 
-<div>
+              <button class="wire-size-button"
+                data-product="LifeLine S"
+                data-size="0.75">
+                0.75<span class="size-unit">mm²</span>
+              </button>
 
-<span class="eyebrow orange">
-Havells Home Wires
-</span>
+              <button class="wire-size-button"
+                data-product="LifeLine S"
+                data-size="1">
+                1<span class="size-unit">mm²</span>
+              </button>
 
-<h2>
-Send your requirement directly.
-</h2>
+              <button class="wire-size-button"
+                data-product="LifeLine S"
+                data-size="1.5">
+                1.5<span class="size-unit">mm²</span>
+              </button>
 
-<p>
-Tell us the wire size, quantity or any other requirement
-you have. We'll respond on WhatsApp.
-</p>
+              <button class="wire-size-button"
+                data-product="LifeLine S"
+                data-size="2.5">
+                2.5<span class="size-unit">mm²</span>
+              </button>
 
-</div>
+              <button class="wire-size-button"
+                data-product="LifeLine S"
+                data-size="4">
+                4<span class="size-unit">mm²</span>
+              </button>
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20home%20wires.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener"
->
-Send Enquiry on WhatsApp →
-</a>
+            </div>
 
-</div>
+          </div>
 
-<div class="center-cta">
+        </div>
 
-<a class="btn btn-dark" href="home-wires.html">
-← Back to Home Wires
-</a>
+      </div>
 
-</div>
 
-</div>
+      <!-- SELECTED SIZE ENQUIRY -->
+      <div class="selected-enquiry" id="selectedEnquiry">
 
-</section>
+        <div class="selected-enquiry-text">
+          <span class="selected-enquiry-dot"></span>
+          <span id="selectedEnquiryText">
+            0 sizes selected
+          </span>
+        </div>
 
-</main>
+        <a
+          href="#"
+          class="selected-enquiry-button"
+          id="selectedEnquiryButton"
+          target="_blank"
+          rel="noopener">
+          Send Enquiry for Selected Sizes →
+        </a>
 
-<div id="siteFooter"></div>
+      </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
+
+      <!-- GENERAL ENQUIRY -->
+      <div class="polycab-enquiry">
+
+        <div class="find-card">
+
+          <div class="find-card-content">
+
+            <div class="find-card-label">
+              Havells Home Wires
+            </div>
+
+            <h3>Need a specific wire size?</h3>
+
+            <p>
+              Contact Maruti Electricals for availability,
+              pricing and your electrical material requirement.
+            </p>
+
+          </div>
+
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20LifeLine%20S%20home%20wires.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener">
+            Enquire on WhatsApp →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- BACK BUTTON -->
+      <div class="polycab-back">
+
+        <a href="home-wires.html">
+          ← Back to Home Wires
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /*
+       * Header and footer are generated by app.js
+       */
+      if (typeof header === "function") {
+        const headerElement = document.createElement("div");
+        headerElement.innerHTML = header("Products");
+
+        document.body.insertBefore(
+          headerElement.firstElementChild,
+          document.body.firstChild
+        );
+      }
+
+      if (typeof footer === "function") {
+        const footerElement = document.createElement("div");
+        footerElement.innerHTML = footer();
+
+        document.body.appendChild(
+          footerElement.firstElementChild
+        );
+      }
+
+
+      /*
+       * Size selection
+       */
+      const sizeButtons =
+        document.querySelectorAll(".wire-size-button");
+
+      const selectedEnquiry =
+        document.getElementById("selectedEnquiry");
+
+      const selectedEnquiryText =
+        document.getElementById("selectedEnquiryText");
+
+      const selectedEnquiryButton =
+        document.getElementById("selectedEnquiryButton");
+
+
+      function updateSelectedEnquiry() {
+
+        const selected =
+          document.querySelectorAll(
+            ".wire-size-button.selected"
+          );
+
+        if (selected.length === 0) {
+
+          selectedEnquiry.classList.remove("visible");
+
+          return;
+        }
+
+
+        selectedEnquiry.classList.add("visible");
+
+        selectedEnquiryText.textContent =
+          selected.length +
+          (selected.length === 1
+            ? " size selected"
+            : " sizes selected");
+
+
+        /*
+         * Build WhatsApp message
+         */
+
+        let message =
+          "Hello Maruti Electricals, I am interested in Havells home wires.";
+
+
+        message +=
+          "\n\nLifeLine S:";
+
+
+        selected.forEach(function (button) {
+
+          message +=
+            "\n• " +
+            button.dataset.size +
+            " mm²";
+
+        });
+
+
+        message +=
+          "\n\nPlease share availability and details.";
+
+
+        selectedEnquiryButton.href =
+          "https://wa.me/917733934734?text=" +
+          encodeURIComponent(message);
+
+      }
+
+
+      sizeButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+          button.classList.toggle("selected");
+
+          updateSelectedEnquiry();
+
+        });
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
