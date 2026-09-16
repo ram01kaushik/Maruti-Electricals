@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#e56318">
@@ -9,90 +10,540 @@
 <link rel="stylesheet" href="styles.css">
 <script src="app.js"></script>
 
-<title>Havells Switches & Sockets | Maruti Electricals</title>
+<title>Polycab Home Wires | Maruti Electricals</title>
+
+<style>
+
+/* =========================================
+   POLYCAB PRODUCT SPECIFICATIONS
+========================================= */
+
+.polycab-products {
+    padding-top: 80px;
+    padding-bottom: 90px;
+}
+
+.polycab-heading {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.polycab-heading .eyebrow {
+    margin-bottom: 12px;
+}
+
+.polycab-heading h2 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.05;
+    color: #171717;
+}
+
+.polycab-heading p {
+    margin: 0;
+    font-size: 17px;
+    color: #666;
+}
+
+
+/* =========================================
+   PRODUCT TABLE
+========================================= */
+
+.polycab-table {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 25px;
+    border-top: 1px solid rgba(0,0,0,.16);
+}
+
+.polycab-table-header,
+.polycab-table-row {
+    display: grid;
+    grid-template-columns: 1.2fr .7fr 2.4fr;
+    column-gap: 40px;
+}
+
+.polycab-table-header {
+    padding: 18px 0;
+
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+
+    color: #777;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.polycab-table-row {
+    padding: 34px 0;
+
+    align-items: start;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
+
+.polycab-product-name span {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+
+    color: #e56318;
+}
+
+.polycab-product-name h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.1;
+    font-weight: 700;
+
+    color: #171717;
+}
+
+
+/* =========================================
+   ROLL LENGTH
+========================================= */
+
+.polycab-roll {
+    font-size: 17px;
+    font-weight: 700;
+    color: #171717;
+}
+
+
+/* =========================================
+   SIZE SELECTOR
+========================================= */
+
+.polycab-sizes {
+    min-width: 0;
+}
+
+.size-label {
+    display: block;
+
+    margin-bottom: 13px;
+
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+
+    color: #777;
+}
+
+.size-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* SIZE BUTTON */
+
+.wire-size-button {
+    appearance: none;
+
+    min-width: 52px;
+    height: 40px;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
+
+.wire-size-button:hover {
+    border-color: #e56318;
+    color: #e56318;
+    transform: translateY(-1px);
+}
+
+
+/* SELECTED SIZE */
+
+.wire-size-button.selected {
+    background: #e56318;
+    border-color: #e56318;
+    color: #fff;
+}
+
+.wire-size-button.selected:hover {
+    background: #d95710;
+    border-color: #d95710;
+    color: #fff;
+}
+
+.size-unit {
+    margin-left: 4px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #777;
+}
+
+
+/* =========================================
+   SELECTED ENQUIRY BAR
+========================================= */
+
+.selected-enquiry {
+    display: none;
+
+    max-width: 1180px;
+    margin: 30px auto 65px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 18px 22px;
+
+    border: 1px solid rgba(229,99,24,.25);
+    border-radius: 14px;
+
+    background: #fff8f3;
+}
+
+.selected-enquiry.visible {
+    display: flex;
+}
+
+.selected-enquiry-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.selected-enquiry-dot {
+    width: 9px;
+    height: 9px;
+
+    flex: 0 0 auto;
+
+    border-radius: 50%;
+
+    background: #e56318;
+}
+
+.selected-enquiry-text span {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.selected-enquiry-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    border: 0;
+    border-radius: 50px;
+
+    background: #e56318;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    box-shadow: 0 8px 22px rgba(229,99,24,.18);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.selected-enquiry-button:hover {
+    background: #d95710;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   GENERAL ENQUIRY
+========================================= */
+
+.polycab-enquiry {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .polycab-products {
+        padding-top: 60px;
+        padding-bottom: 65px;
+    }
+
+    .polycab-heading {
+        margin-bottom: 45px;
+    }
+
+    .polycab-table-header {
+        display: none;
+    }
+
+    .polycab-table-row {
+        display: block;
+        padding: 30px 0;
+    }
+
+    .polycab-product-name {
+        margin-bottom: 22px;
+    }
+
+    .polycab-product-name h3 {
+        font-size: 29px;
+    }
+
+    .polycab-roll {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+    .polycab-roll::before {
+        content: "Roll Length:";
+
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+
+        color: #777;
+    }
+
+    .wire-size-button {
+        min-width: 48px;
+        height: 38px;
+
+        padding: 0 11px;
+
+        font-size: 13px;
+    }
+
+    .selected-enquiry {
+        flex-direction: column;
+        align-items: stretch;
+
+        margin: 25px 0 45px;
+
+        padding: 17px;
+    }
+
+    .selected-enquiry-text {
+        justify-content: center;
+    }
+
+    .selected-enquiry-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+</style>
+
+
+<style>
+.havells-grid {
+  max-width: 1180px;
+  margin: 0 auto 65px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.havells-model-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: 34px;
+  border: 1px solid rgba(0,0,0,.14);
+  border-radius: 14px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.havells-model-card:hover {
+  transform: translateY(-4px);
+  border-color: #e56318;
+  box-shadow: 0 14px 35px rgba(0,0,0,.08);
+}
+
+.havells-model-card h3 {
+  margin: 12px 0 10px;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.havells-model-card p {
+  margin: 0;
+  color: #666;
+  line-height: 1.65;
+}
+
+.model-enquiry {
+  margin-top: auto;
+  padding-top: 28px;
+  color: #e56318;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .havells-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 50px;
+  }
+
+  .havells-model-card {
+    min-height: 210px;
+    padding: 28px;
+  }
+}
+</style>
+
 </head>
 
-<body>
 
+<body>
 <div id="siteHeader"></div>
 
 <main>
 
 <section class="page-hero products-hero">
-
-<div class="container page-hero-inner">
-
-<span class="eyebrow light">
-Switches & Sockets
-</span>
-
-<h1>Havells</h1>
-
-<p>
-Havells switches and sockets available from Maruti Electricals.
-</p>
-
-</div>
-
+  <div class="container page-hero-inner">
+    <span class="eyebrow light">Switches &amp; Sockets</span>
+    <h1>Havells</h1>
+    <p>Havells switches &amp; sockets available from Maruti Electricals.</p>
+  </div>
 </section>
 
+<section class="section polycab-products">
+  <div class="container">
 
-<section class="section">
+    <div class="polycab-heading">
+      <span class="eyebrow orange">Havells</span>
+      <h2>Available Models</h2>
+      <p>Select a model to enquire about your requirement.</p>
+    </div>
 
-<div class="container">
+    <div class="havells-grid">
 
-<div class="find-card">
+      <a class="havells-model-card" href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20Athena%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details." target="_blank" rel="noopener">
+        <span class="eyebrow orange">Havells</span>
+        <h3>Athena</h3>
+        <p>Havells Athena switches &amp; sockets.</p>
+        <span class="model-enquiry">Enquire on WhatsApp →</span>
+      </a>
 
-<div class="find-icon">
-⏻
-</div>
+      <a class="havells-model-card" href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20Coral%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details." target="_blank" rel="noopener">
+        <span class="eyebrow orange">Havells</span>
+        <h3>Coral</h3>
+        <p>Havells Coral switches &amp; sockets.</p>
+        <span class="model-enquiry">Enquire on WhatsApp →</span>
+      </a>
 
-<div>
+      <a class="havells-model-card" href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20Adiva%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details." target="_blank" rel="noopener">
+        <span class="eyebrow orange">Havells</span>
+        <h3>Adiva</h3>
+        <p>Havells Adiva switches &amp; sockets.</p>
+        <span class="model-enquiry">Enquire on WhatsApp →</span>
+      </a>
 
-<span class="eyebrow orange">
-Havells Switches & Sockets
-</span>
+    </div>
 
-<h2>
-Need Havells switches or sockets?
-</h2>
+    <div class="polycab-enquiry">
+      <div class="find-card">
+        <div class="find-icon">⌁</div>
+        <div>
+          <span class="eyebrow orange">Havells Switches &amp; Sockets</span>
+          <h2>Need help with your requirement?</h2>
+          <p>Tell us the Havells model, product and quantity you require. We'll check availability and respond on WhatsApp.</p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details." target="_blank" rel="noopener">Send Enquiry on WhatsApp →</a>
+      </div>
+    </div>
 
-<p>
-Send us your requirement, series, quantity or project details and we'll get back to you on WhatsApp.
-</p>
+    <div class="center-cta">
+      <a class="btn btn-dark" href="switches-sockets.html">← Back to Switches &amp; Sockets</a>
+    </div>
 
-</div>
-
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Havells%20switches%20and%20sockets.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener">
-Send Enquiry on WhatsApp →
-</a>
-
-</div>
-
-<div class="center-cta">
-<a class="btn btn-dark" href="switches-sockets.html">
-← Back to Switches & Sockets
-</a>
-</div>
-
-</div>
-
+  </div>
 </section>
 
 </main>
 
 <div id="siteFooter"></div>
-
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
 
+/* =========================================
+   HEADER + FOOTER
+========================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+document.getElementById('siteHeader').outerHTML =
+header('Products');
+
+document.getElementById('siteFooter').innerHTML =
+footer();
+
+});
+
+</script>
 </body>
 </html>
