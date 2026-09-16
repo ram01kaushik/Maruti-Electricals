@@ -2,53 +2,693 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#e56318">
+
 <link rel="stylesheet" href="styles.css">
 <script src="app.js"></script>
+
 <title>Finolex Home Wires | Maruti Electricals</title>
+
+<style>
+
+/* =========================================
+   FINOLEX PRODUCT SPECIFICATIONS
+========================================= */
+
+.polycab-products {
+    padding-top: 80px;
+    padding-bottom: 90px;
+}
+
+.polycab-heading {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.polycab-heading .eyebrow {
+    margin-bottom: 12px;
+}
+
+.polycab-heading h2 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.05;
+    color: #171717;
+}
+
+.polycab-heading p {
+    margin: 0;
+    font-size: 17px;
+    color: #666;
+}
+
+
+/* =========================================
+   PRODUCT TABLE
+========================================= */
+
+.polycab-table {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 25px;
+    border-top: 1px solid rgba(0,0,0,.16);
+}
+
+.polycab-table-header,
+.polycab-table-row {
+    display: grid;
+    grid-template-columns: 1.2fr .7fr 2.4fr;
+    column-gap: 40px;
+}
+
+.polycab-table-header {
+    padding: 18px 0;
+
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+
+    color: #777;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.polycab-table-row {
+    padding: 34px 0;
+
+    align-items: start;
+
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
+
+.polycab-product-name span {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+
+    color: #e56318;
+}
+
+.polycab-product-name h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.1;
+    font-weight: 700;
+
+    color: #171717;
+}
+
+
+/* =========================================
+   ROLL LENGTH
+========================================= */
+
+.polycab-roll {
+    font-size: 17px;
+    font-weight: 700;
+    color: #171717;
+}
+
+
+/* =========================================
+   SIZE SELECTOR
+========================================= */
+
+.polycab-sizes {
+    min-width: 0;
+}
+
+.size-label {
+    display: block;
+
+    margin-bottom: 13px;
+
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+
+    color: #777;
+}
+
+.size-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* SIZE BUTTON */
+
+.wire-size-button {
+    appearance: none;
+
+    min-width: 52px;
+    height: 40px;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
+
+.wire-size-button:hover {
+    border-color: #e56318;
+    color: #e56318;
+    transform: translateY(-1px);
+}
+
+
+/* SELECTED SIZE */
+
+.wire-size-button.selected {
+    background: #e56318;
+    border-color: #e56318;
+    color: #fff;
+}
+
+.wire-size-button.selected:hover {
+    background: #d95710;
+    border-color: #d95710;
+    color: #fff;
+}
+
+.size-unit {
+    margin-left: 4px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #777;
+}
+
+
+/* =========================================
+   SELECTED ENQUIRY BAR
+========================================= */
+
+.selected-enquiry {
+    display: none;
+
+    max-width: 1180px;
+    margin: 30px auto 65px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 18px 22px;
+
+    border: 1px solid rgba(229,99,24,.25);
+    border-radius: 14px;
+
+    background: #fff8f3;
+}
+
+.selected-enquiry.visible {
+    display: flex;
+}
+
+.selected-enquiry-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.selected-enquiry-dot {
+    width: 9px;
+    height: 9px;
+
+    flex: 0 0 auto;
+
+    border-radius: 50%;
+
+    background: #e56318;
+}
+
+.selected-enquiry-text span {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.selected-enquiry-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    border: 0;
+    border-radius: 50px;
+
+    background: #e56318;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    box-shadow: 0 8px 22px rgba(229,99,24,.18);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.selected-enquiry-button:hover {
+    background: #d95710;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   GENERAL ENQUIRY
+========================================= */
+
+.polycab-enquiry {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .polycab-products {
+        padding-top: 60px;
+        padding-bottom: 65px;
+    }
+
+    .polycab-heading {
+        margin-bottom: 45px;
+    }
+
+    .polycab-table-header {
+        display: none;
+    }
+
+    .polycab-table-row {
+        display: block;
+        padding: 30px 0;
+    }
+
+    .polycab-product-name {
+        margin-bottom: 22px;
+    }
+
+    .polycab-product-name h3 {
+        font-size: 29px;
+    }
+
+    .polycab-roll {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+    .polycab-roll::before {
+        content: "Roll Length:";
+
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+
+        color: #777;
+    }
+
+    .wire-size-button {
+        min-width: 48px;
+        height: 38px;
+
+        padding: 0 11px;
+
+        font-size: 13px;
+    }
+
+    .selected-enquiry {
+        flex-direction: column;
+        align-items: stretch;
+
+        margin: 25px 0 45px;
+
+        padding: 17px;
+    }
+
+    .selected-enquiry-text {
+        justify-content: center;
+    }
+
+    .selected-enquiry-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
 <div id="siteHeader"></div>
 
+
 <main>
 
+
+<!-- HERO -->
+
 <section class="page-hero products-hero">
+
 <div class="container page-hero-inner">
 
-<span class="eyebrow light">Home Wires</span>
-<h1>Finolex</h1>
+<span class="eyebrow light">
+Home Wires
+</span>
+
+<h1>
+Finolex
+</h1>
 
 <p>
 Finolex home wires available from Maruti Electricals.
 </p>
 
 </div>
+
 </section>
 
-<section class="section">
+
+<!-- PRODUCT SPECIFICATIONS -->
+
+<section class="section polycab-products">
 
 <div class="container">
 
-<div class="section-heading centered">
 
-<span class="eyebrow orange">Finolex</span>
+<div class="polycab-heading">
 
-<h2>Interested in Finolex home wires?</h2>
+<span class="eyebrow orange">
+Finolex
+</span>
+
+<h2>
+Available Home Wires
+</h2>
 
 <p>
-Send us your requirement and we'll get back to you with
-availability and details.
+Select one or more sizes to enquire about your requirement.
 </p>
 
 </div>
 
+
+<div class="polycab-table">
+
+
+<!-- TABLE HEADER -->
+
+<div class="polycab-table-header">
+
+<div>
+Product
+</div>
+
+<div>
+Roll Length
+</div>
+
+<div>
+Available Sizes
+</div>
+
+</div>
+
+
+<!-- SILVER PACK -->
+
+<div class="polycab-table-row">
+
+<div class="polycab-product-name">
+
+<span>
+Finolex Home Wire
+</span>
+
+<h3>
+Silver Pack
+</h3>
+
+</div>
+
+
+<div class="polycab-roll">
+90M
+</div>
+
+
+<div class="polycab-sizes">
+
+<span class="size-label">
+Available Sizes
+</span>
+
+<div class="size-list">
+
+<button
+type="button"
+class="wire-size-button"
+data-product="Silver Pack"
+data-size="0.75"
+>
+0.75
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="Silver Pack"
+data-size="1"
+>
+1
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="Silver Pack"
+data-size="1.5"
+>
+1.5
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="Silver Pack"
+data-size="2.5"
+>
+2.5
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="Silver Pack"
+data-size="4"
+>
+4
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="Silver Pack"
+data-size="6"
+>
+6
+</button>
+
+<span class="size-unit">
+mm²
+</span>
+
+</div>
+</div>
+</div>
+
+
+<!-- FRLS-H -->
+
+<div class="polycab-table-row">
+
+<div class="polycab-product-name">
+
+<span>
+Finolex Home Wire
+</span>
+
+<h3>
+FRLS-H
+</h3>
+
+</div>
+
+
+<div class="polycab-roll">
+180M / 300M
+</div>
+
+
+<div class="polycab-sizes">
+
+<span class="size-label">
+Available Sizes
+</span>
+
+<div class="size-list">
+
+<button
+type="button"
+class="wire-size-button"
+data-product="FRLS-H"
+data-size="1"
+>
+1
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="FRLS-H"
+data-size="1.5"
+>
+1.5
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="FRLS-H"
+data-size="2.5"
+>
+2.5
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="FRLS-H"
+data-size="4"
+>
+4
+</button>
+
+<button
+type="button"
+class="wire-size-button"
+data-product="FRLS-H"
+data-size="6"
+>
+6
+</button>
+
+<span class="size-unit">
+mm²
+</span>
+
+</div>
+</div>
+</div>
+
+
+<!-- SELECTED SIZE ENQUIRY -->
+
+<div
+id="selectedEnquiry"
+class="selected-enquiry"
+>
+
+<div class="selected-enquiry-text">
+
+<span class="selected-enquiry-dot"></span>
+
+<span id="selectedCount">
+0 sizes selected
+</span>
+
+</div>
+
+
+<a
+id="selectedEnquiryButton"
+class="selected-enquiry-button"
+href="#"
+target="_blank"
+rel="noopener"
+>
+Send Enquiry for Selected Sizes →
+</a>
+
+</div>
+
+
+<!-- GENERAL ENQUIRY -->
+
+<div class="polycab-enquiry">
+
 <div class="find-card">
 
-<div class="find-icon">⌁</div>
+<div class="find-icon">
+⌁
+</div>
 
 <div>
 
@@ -57,15 +697,16 @@ Finolex Home Wires
 </span>
 
 <h2>
-Send your requirement directly.
+Need a specific wire size?
 </h2>
 
 <p>
-Tell us the wire size, quantity or any other requirement
-you have. We'll respond on WhatsApp.
+Tell us the wire type, size and quantity you require.
+We'll check availability and respond on WhatsApp.
 </p>
 
 </div>
+
 
 <a
 class="btn btn-primary"
@@ -78,13 +719,20 @@ Send Enquiry on WhatsApp →
 
 </div>
 
+</div>
+
+
 <div class="center-cta">
 
-<a class="btn btn-dark" href="home-wires.html">
+<a
+class="btn btn-dark"
+href="home-wires.html"
+>
 ← Back to Home Wires
 </a>
 
 </div>
+
 
 </div>
 
@@ -92,14 +740,137 @@ Send Enquiry on WhatsApp →
 
 </main>
 
+
 <div id="siteFooter"></div>
 
+
 <script>
+
+/* =========================================
+   HEADER + FOOTER
+========================================= */
+
 document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
+
+document.getElementById('siteHeader').outerHTML =
+header('Products');
+
+document.getElementById('siteFooter').innerHTML =
+footer();
+
+
+/* =========================================
+   SIZE SELECTION
+========================================= */
+
+const sizeButtons =
+document.querySelectorAll('.wire-size-button');
+
+const selectedEnquiry =
+document.getElementById('selectedEnquiry');
+
+const selectedCount =
+document.getElementById('selectedCount');
+
+const selectedEnquiryButton =
+document.getElementById('selectedEnquiryButton');
+
+
+function updateEnquiryButton() {
+
+const selected =
+document.querySelectorAll(
+'.wire-size-button.selected'
+);
+
+
+if (selected.length === 0) {
+
+selectedEnquiry.classList.remove('visible');
+
+selectedEnquiryButton.href = '#';
+
+return;
+
+}
+
+
+selectedEnquiry.classList.add('visible');
+
+
+selectedCount.textContent =
+selected.length === 1
+? '1 size selected'
+: selected.length + ' sizes selected';
+
+
+let message =
+'Hello Maruti Electricals, I am interested in Finolex home wires.%0A%0A';
+
+
+const products = {};
+
+
+selected.forEach(button => {
+
+const product =
+button.dataset.product;
+
+const size =
+button.dataset.size;
+
+
+if (!products[product]) {
+products[product] = [];
+}
+
+
+products[product].push(size);
+
 });
+
+
+Object.keys(products).forEach(product => {
+
+message +=
+product + ': ' +
+products[product]
+.map(size => size + ' mm²')
+.join(', ') +
+'%0A';
+
+});
+
+
+message +=
+'%0APlease share availability and details.';
+
+
+selectedEnquiryButton.href =
+'https://wa.me/917733934734?text=' +
+message;
+
+}
+
+
+/* CLICK HANDLERS */
+
+sizeButtons.forEach(button => {
+
+button.addEventListener('click', () => {
+
+button.classList.toggle('selected');
+
+updateEnquiryButton();
+
+});
+
+});
+
+});
+
 </script>
+
 
 </body>
 </html>
