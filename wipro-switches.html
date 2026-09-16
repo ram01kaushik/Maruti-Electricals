@@ -1,98 +1,583 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
+  <title>Wipro Switches & Sockets | Maruti Electricals</title>
 
-<title>Wipro Switches & Sockets | Maruti Electricals</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
+
+  <style>
+    /* =========================================
+       WIPRO PAGE
+       POLYCAB WIRES DESIGN — 2 x 2 GRID
+       ========================================= */
+
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+      margin: 10px 0 18px;
+      font-weight: 400;
+      letter-spacing: -1.5px;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================
+       2 x 2 SUB-BRAND GRID
+       ========================================= */
+
+    .wipro-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 40px;
+
+      border-top: 1px solid rgba(0, 0, 0, .16);
+    }
+
+    .wipro-card {
+      position: relative;
+
+      min-height: 230px;
+      padding: 34px 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border-bottom: 1px solid rgba(0, 0, 0, .16);
+
+      text-decoration: none;
+      color: #222;
+
+      transition: color .18s ease;
+    }
+
+    .wipro-card:hover {
+      color: #e56318;
+    }
+
+    .wipro-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .wipro-card-label {
+      color: #e56318;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .wipro-card-arrow {
+      width: 40px;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(0, 0, 0, .14);
+      border-radius: 8px;
+
+      color: #222;
+      font-size: 19px;
+
+      transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+    }
+
+    .wipro-card:hover .wipro-card-arrow {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+      transform: translateX(3px);
+    }
+
+    .wipro-card h3 {
+      margin: 25px 0 12px;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 31px;
+      line-height: 1.15;
+      font-weight: 400;
+
+      color: #222;
+    }
+
+    .wipro-card p {
+      max-width: 440px;
+
+      margin: 0;
+
+      color: #666;
+
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================
+       GENERAL ENQUIRY
+       ========================================= */
+
+    .selected-enquiry {
+      max-width: 1180px;
+
+      margin: 30px auto 65px;
+
+      padding: 18px 22px;
+
+      border: 1px solid rgba(229, 99, 24, .25);
+      border-radius: 14px;
+
+      background: #fff8f3;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+    .selected-enquiry-text {
+      flex: 1;
+    }
+
+    .selected-enquiry-text strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #222;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .selected-enquiry-text span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .selected-enquiry-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 46px;
+      padding: 0 22px;
+
+      border: 0;
+      border-radius: 50px;
+
+      background: #e56318;
+      color: #fff;
+
+      text-decoration: none;
+
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+
+      box-shadow: 0 8px 22px rgba(229, 99, 24, .18);
+
+      transition:
+        transform .18s ease,
+        background .18s ease;
+    }
+
+    .selected-enquiry-button:hover {
+      background: #cf5612;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================================
+       BACK BUTTON
+       ========================================= */
+
+    .back-home {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .back-home a {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      color: #222;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: color .18s ease;
+    }
+
+    .back-home a:hover {
+      color: #e56318;
+    }
+
+
+    /* =========================================
+       MOBILE
+       ========================================= */
+
+    @media (max-width: 800px) {
+
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 70px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 42px;
+      }
+
+      .polycab-heading h2 {
+        font-size: 42px;
+      }
+
+      .wipro-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin: 0 18px;
+      }
+
+      .wipro-card {
+        min-height: 210px;
+        padding: 30px 0;
+      }
+
+      .wipro-card h3 {
+        font-size: 29px;
+      }
+
+      .selected-enquiry {
+        margin: 30px 18px 55px;
+
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .selected-enquiry-button {
+        width: 100%;
+      }
+
+      .back-home {
+        margin: 0 18px;
+      }
+    }
+  </style>
 </head>
+
 
 <body>
 
-<div id="siteHeader"></div>
-
-<main>
-
-<section class="page-hero products-hero">
-
-<div class="container page-hero-inner">
-
-<span class="eyebrow light">
-Switches & Sockets
-</span>
-
-<h1>Wipro</h1>
-
-<p>
-Wipro switches and sockets available from Maruti Electricals.
-</p>
-
-</div>
-
-</section>
+  <!-- HEADER -->
+  <div id="siteHeader"></div>
 
 
-<section class="section">
+  <!-- HERO -->
+  <section class="page-hero products-hero">
 
-<div class="container">
+    <div class="container page-hero-inner">
 
-<div class="find-card">
+      <span class="eyebrow light">
+        Switches &amp; Sockets
+      </span>
 
-<div class="find-icon">
-⏻
-</div>
+      <h1>Wipro</h1>
 
-<div>
+      <p>
+        Wipro switches and sockets available from Maruti Electricals.
+      </p>
 
-<span class="eyebrow orange">
-Wipro Switches & Sockets
-</span>
+    </div>
 
-<h2>
-Need Wipro switches or sockets?
-</h2>
+  </section>
 
-<p>
-Send us your requirement, series, quantity or project details and we'll get back to you on WhatsApp.
-</p>
 
-</div>
+  <!-- MAIN CONTENT -->
+  <section class="polycab-products">
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20switches%20and%20sockets.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener">
-Send Enquiry on WhatsApp →
-</a>
+    <div class="container">
 
-</div>
+      <!-- HEADING -->
 
-<div class="center-cta">
-<a class="btn btn-dark" href="switches-sockets.html">
-← Back to Switches & Sockets
-</a>
-</div>
+      <div class="polycab-heading">
 
-</div>
+        <span class="eyebrow orange">
+          Wipro
+        </span>
 
-</section>
+        <h2>
+          Available Ranges
+        </h2>
 
-</main>
+        <p>
+          Select a Wipro range to enquire about availability and details.
+        </p>
 
-<div id="siteFooter"></div>
+      </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
+
+      <!-- 2 x 2 GRID -->
+
+      <div class="wipro-grid">
+
+
+        <!-- STYLUS -->
+
+        <a
+          class="wipro-card"
+          href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Stylus%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="wipro-card-top">
+
+            <span class="wipro-card-label">
+              Wipro Series
+            </span>
+
+            <span class="wipro-card-arrow">
+              →
+            </span>
+
+          </div>
+
+          <div>
+
+            <h3>
+              Stylus
+            </h3>
+
+            <p>
+              Enquire about Wipro Stylus switches and sockets.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <!-- CONVEX -->
+
+        <a
+          class="wipro-card"
+          href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Convex%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="wipro-card-top">
+
+            <span class="wipro-card-label">
+              Wipro Series
+            </span>
+
+            <span class="wipro-card-arrow">
+              →
+            </span>
+
+          </div>
+
+          <div>
+
+            <h3>
+              Convex
+            </h3>
+
+            <p>
+              Enquire about Wipro Convex switches and sockets.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <!-- VENIA -->
+
+        <a
+          class="wipro-card"
+          href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Venia%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="wipro-card-top">
+
+            <span class="wipro-card-label">
+              Wipro Series
+            </span>
+
+            <span class="wipro-card-arrow">
+              →
+            </span>
+
+          </div>
+
+          <div>
+
+            <h3>
+              Venia
+            </h3>
+
+            <p>
+              Enquire about Wipro Venia switches and sockets.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <!-- NOWA -->
+
+        <a
+          class="wipro-card"
+          href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Nowa%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="wipro-card-top">
+
+            <span class="wipro-card-label">
+              Wipro Series
+            </span>
+
+            <span class="wipro-card-arrow">
+              →
+            </span>
+
+          </div>
+
+          <div>
+
+            <h3>
+              Nowa
+            </h3>
+
+            <p>
+              Enquire about Wipro Nowa switches and sockets.
+            </p>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+
+      <!-- GENERAL ENQUIRY -->
+
+      <div class="selected-enquiry">
+
+        <div class="selected-enquiry-text">
+
+          <strong>
+            Wipro Switches &amp; Sockets
+          </strong>
+
+          <span>
+            Need help choosing a range? Talk to Maruti Electricals.
+          </span>
+
+        </div>
+
+        <a
+          class="selected-enquiry-button"
+          href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20switches%20and%20sockets.%20Please%20help%20me%20with%20the%20available%20ranges."
+          target="_blank"
+          rel="noopener"
+        >
+          Send Enquiry →
+        </a>
+
+      </div>
+
+
+      <!-- BACK -->
+
+      <div class="back-home">
+
+        <a href="switches-sockets.html">
+          ← Back to Switches &amp; Sockets
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <div id="siteFooter"></div>
+
+
+  <!-- SHARED HEADER / FOOTER -->
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      if (typeof header === "function") {
+        document.getElementById("siteHeader").innerHTML =
+          header("Products");
+      }
+
+      if (typeof footer === "function") {
+        document.getElementById("siteFooter").innerHTML =
+          footer();
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
