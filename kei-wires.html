@@ -8,46 +8,45 @@
   <meta name="description" content="KEI HomeCab FR home wires available from Maruti Electricals, Sikanderpur, Gurugram.">
 
   <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-  <div id="siteHeader"></div>
 
   <style>
-    .keI-products {
+    /* ================================
+       KEI PAGE — POLYCAB MASTER STYLE
+       ================================ */
+
+    .polycab-products {
       padding-top: 90px;
       padding-bottom: 40px;
     }
 
-    .kei-heading {
+    .polycab-heading {
       text-align: center;
       max-width: 760px;
       margin: 0 auto 55px;
     }
 
-    .kei-heading h2 {
+    .polycab-heading h2 {
       margin: 10px 0 14px;
     }
 
-    .kei-heading p {
+    .polycab-heading p {
       color: #666;
       margin: 0;
     }
 
-    .kei-table {
+    .polycab-table {
       border-top: 1px solid #dcdcdc;
     }
 
-    .kei-table-header,
-    .kei-table-row {
+    .polycab-table-header,
+    .polycab-table-row {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr 2fr;
       gap: 30px;
       align-items: center;
     }
 
-    .kei-table-header {
+    .polycab-table-header {
       padding: 16px 0;
       border-bottom: 1px solid #dcdcdc;
       font-size: 12px;
@@ -57,32 +56,32 @@
       color: #777;
     }
 
-    .kei-table-row {
+    .polycab-table-row {
       padding: 30px 0;
       border-bottom: 1px solid #dcdcdc;
     }
 
-    .kei-product-name {
+    .polycab-product-name {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .kei-product-name strong {
+    .polycab-product-name strong {
       font-size: 22px;
       font-weight: 500;
     }
 
-    .kei-product-name span {
+    .polycab-product-name span {
       font-size: 13px;
       color: #888;
     }
 
-    .kei-roll {
+    .polycab-roll {
       font-size: 18px;
     }
 
-    .kei-sizes {
+    .polycab-sizes {
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
@@ -173,7 +172,7 @@
       background: #dd6819;
     }
 
-    .kei-enquiry {
+    .polycab-enquiry {
       max-width: 760px;
       margin: 70px auto 0;
       padding: 38px;
@@ -181,18 +180,18 @@
       text-align: center;
     }
 
-    .kei-enquiry h3 {
+    .polycab-enquiry h3 {
       margin: 8px 0 12px;
     }
 
-    .kei-enquiry p {
+    .polycab-enquiry p {
       color: #666;
       max-width: 580px;
       margin: 0 auto 25px;
       line-height: 1.7;
     }
 
-    .kei-enquiry a {
+    .polycab-enquiry a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -205,26 +204,27 @@
     }
 
     @media (max-width: 800px) {
-      .kei-products {
+
+      .polycab-products {
         padding-top: 65px;
       }
 
-      .kei-table-header {
+      .polycab-table-header {
         display: none;
       }
 
-      .kei-table-row {
+      .polycab-table-row {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 28px 0;
       }
 
-      .kei-roll {
+      .polycab-roll {
         font-size: 15px;
         color: #666;
       }
 
-      .kei-sizes {
+      .polycab-sizes {
         align-items: flex-start;
       }
 
@@ -238,12 +238,17 @@
         justify-content: center;
       }
 
-      .kei-enquiry {
+      .polycab-enquiry {
         padding: 28px 20px;
         margin-top: 55px;
       }
     }
   </style>
+</head>
+
+<body>
+
+  <div id="siteHeader"></div>
 
   <main>
 
@@ -258,39 +263,53 @@
 
 
     <!-- PRODUCTS -->
-    <section class="section kei-products">
+    <section class="section polycab-products">
+
       <div class="container">
 
-        <div class="kei-heading">
+        <div class="polycab-heading">
           <span class="eyebrow orange">KEI</span>
+
           <h2>Available Home Wires</h2>
-          <p>Select one or more sizes to enquire about your requirement.</p>
+
+          <p>
+            Select one or more sizes to enquire about your requirement.
+          </p>
         </div>
 
 
-        <div class="kei-table">
+        <div class="polycab-table">
 
           <!-- TABLE HEADER -->
-          <div class="kei-table-header">
+          <div class="polycab-table-header">
+
             <div>Product</div>
+
             <div>Roll Length</div>
+
             <div>Available Sizes</div>
+
           </div>
 
 
-          <!-- HOMECAB FR -->
-          <div class="kei-table-row">
+          <!-- KEI HOMECAB FR -->
+          <div class="polycab-table-row">
 
-            <div class="kei-product-name">
+            <div class="polycab-product-name">
+
               <span>KEI Home Wire</span>
+
               <strong>HomeCab FR</strong>
+
             </div>
 
-            <div class="kei-roll">
+
+            <div class="polycab-roll">
               90M
             </div>
 
-            <div class="kei-sizes">
+
+            <div class="polycab-sizes">
 
               <div class="size-list">
 
@@ -351,9 +370,15 @@
         <div id="selectedEnquiry" class="selected-enquiry">
 
           <div class="selected-enquiry-text">
+
             <span class="selected-enquiry-dot"></span>
-            <span id="selectedCount">0 sizes selected</span>
+
+            <span id="selectedCount">
+              0 sizes selected
+            </span>
+
           </div>
+
 
           <a
             id="selectedEnquiryButton"
@@ -361,18 +386,24 @@
             href="#"
             target="_blank"
             rel="noopener">
+
             Send Enquiry for Selected Sizes →
+
           </a>
 
         </div>
 
 
         <!-- GENERAL ENQUIRY -->
-        <div class="kei-enquiry">
+        <div class="polycab-enquiry">
 
-          <span class="eyebrow orange">KEI Home Wires</span>
+          <span class="eyebrow orange">
+            KEI Home Wires
+          </span>
 
-          <h3>Need a specific wire size?</h3>
+          <h3>
+            Need a specific wire size?
+          </h3>
 
           <p>
             Tell us the wire type, size and quantity you require.
@@ -384,20 +415,29 @@
             href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20KEI%20HomeCab%20FR%20home%20wires."
             target="_blank"
             rel="noopener">
+
             Enquire on WhatsApp →
+
           </a>
 
         </div>
 
 
-        <!-- BACK -->
+        <!-- BACK BUTTON -->
         <div style="text-align:center; margin-top:45px;">
-          <a href="home-wires.html" class="btn btn-outline">
+
+          <a
+            href="home-wires.html"
+            class="btn btn-outline">
+
             ← Back to Home Wires
+
           </a>
+
         </div>
 
       </div>
+
     </section>
 
   </main>
@@ -408,31 +448,53 @@
 
   <script src="app.js"></script>
 
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById("siteHeader").innerHTML = header("Products");
+
       document.getElementById("siteFooter").innerHTML = footer();
 
-      const sizeButtons = document.querySelectorAll(".wire-size-button");
-      const selectedEnquiry = document.getElementById("selectedEnquiry");
-      const selectedCount = document.getElementById("selectedCount");
-      const selectedEnquiryButton = document.getElementById("selectedEnquiryButton");
+
+      const sizeButtons =
+        document.querySelectorAll(".wire-size-button");
+
+      const selectedEnquiry =
+        document.getElementById("selectedEnquiry");
+
+      const selectedCount =
+        document.getElementById("selectedCount");
+
+      const selectedEnquiryButton =
+        document.getElementById("selectedEnquiryButton");
+
 
       function updateEnquiryButton() {
 
-        const selected = document.querySelectorAll(".wire-size-button.selected");
+        const selected =
+          document.querySelectorAll(
+            ".wire-size-button.selected"
+          );
 
+
+        /* No sizes selected */
         if (selected.length === 0) {
 
           selectedEnquiry.classList.remove("visible");
+
           selectedEnquiryButton.href = "#";
-          selectedCount.textContent = "0 sizes selected";
+
+          selectedCount.textContent =
+            "0 sizes selected";
 
           return;
         }
 
+
+        /* Show enquiry bar */
         selectedEnquiry.classList.add("visible");
+
 
         selectedCount.textContent =
           selected.length === 1
@@ -440,22 +502,30 @@
             : selected.length + " sizes selected";
 
 
+        /* Group selected sizes by product */
         const grouped = {};
+
 
         selected.forEach(function (button) {
 
-          const product = button.dataset.product;
-          const size = button.dataset.size;
+          const product =
+            button.dataset.product;
+
+          const size =
+            button.dataset.size;
+
 
           if (!grouped[product]) {
             grouped[product] = [];
           }
+
 
           grouped[product].push(size);
 
         });
 
 
+        /* Build WhatsApp message */
         let message =
           "Hello Maruti Electricals, I am interested in KEI home wires.%0A%0A";
 
@@ -476,11 +546,13 @@
 
 
         selectedEnquiryButton.href =
-          "https://wa.me/917733934734?text=" + message;
+          "https://wa.me/917733934734?text=" +
+          message;
 
       }
 
 
+      /* Size button selection */
       sizeButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
