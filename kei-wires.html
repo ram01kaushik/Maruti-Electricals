@@ -1,105 +1,500 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
-<title>KEI Home Wires | Maruti Electricals</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KEI Home Wires | Maruti Electricals</title>
+  <meta name="description" content="KEI HomeCab FR home wires available from Maruti Electricals, Sikanderpur, Gurugram.">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-<main>
+  <style>
+    .keI-products {
+      padding-top: 90px;
+      padding-bottom: 40px;
+    }
 
-<section class="page-hero products-hero">
-<div class="container page-hero-inner">
+    .kei-heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 55px;
+    }
 
-<span class="eyebrow light">Home Wires</span>
-<h1>KEI</h1>
+    .kei-heading h2 {
+      margin: 10px 0 14px;
+    }
 
-<p>
-KEI home wires available from Maruti Electricals.
-</p>
+    .kei-heading p {
+      color: #666;
+      margin: 0;
+    }
 
-</div>
-</section>
+    .kei-table {
+      border-top: 1px solid #dcdcdc;
+    }
 
-<section class="section">
+    .kei-table-header,
+    .kei-table-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 2fr;
+      gap: 30px;
+      align-items: center;
+    }
 
-<div class="container">
+    .kei-table-header {
+      padding: 16px 0;
+      border-bottom: 1px solid #dcdcdc;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #777;
+    }
 
-<div class="section-heading centered">
+    .kei-table-row {
+      padding: 30px 0;
+      border-bottom: 1px solid #dcdcdc;
+    }
 
-<span class="eyebrow orange">KEI</span>
+    .kei-product-name {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-<h2>Interested in KEI home wires?</h2>
+    .kei-product-name strong {
+      font-size: 22px;
+      font-weight: 500;
+    }
 
-<p>
-Send us your requirement and we'll get back to you with
-availability and details.
-</p>
+    .kei-product-name span {
+      font-size: 13px;
+      color: #888;
+    }
 
-</div>
+    .kei-roll {
+      font-size: 18px;
+    }
 
-<div class="find-card">
+    .kei-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+    }
 
-<div class="find-icon">⌁</div>
+    .size-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-<div>
+    .wire-size-button {
+      border: 1px solid #d5d5d5;
+      background: #fff;
+      color: #222;
+      padding: 9px 13px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-<span class="eyebrow orange">
-KEI Home Wires
-</span>
+    .wire-size-button:hover {
+      border-color: #f47721;
+      color: #f47721;
+    }
 
-<h2>
-Send your requirement directly.
-</h2>
+    .wire-size-button.selected {
+      background: #f47721;
+      border-color: #f47721;
+      color: #fff;
+    }
 
-<p>
-Tell us the wire size, quantity or any other requirement
-you have. We'll respond on WhatsApp.
-</p>
+    .size-unit {
+      color: #888;
+      font-size: 13px;
+      margin-left: 3px;
+    }
 
-</div>
+    .selected-enquiry {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      margin-top: 30px;
+      padding: 20px 24px;
+      border: 1px solid #dedede;
+      background: #fafafa;
+    }
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20KEI%20home%20wires.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener"
->
-Send Enquiry on WhatsApp →
-</a>
+    .selected-enquiry.visible {
+      display: flex;
+    }
 
-</div>
+    .selected-enquiry-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-<div class="center-cta">
+    .selected-enquiry-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f47721;
+      display: inline-block;
+    }
 
-<a class="btn btn-dark" href="home-wires.html">
-← Back to Home Wires
-</a>
+    .selected-enquiry-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f47721;
+      color: #fff;
+      text-decoration: none;
+      padding: 13px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
 
-</div>
+    .selected-enquiry-button:hover {
+      transform: translateY(-2px);
+      background: #dd6819;
+    }
 
-</div>
+    .kei-enquiry {
+      max-width: 760px;
+      margin: 70px auto 0;
+      padding: 38px;
+      border: 1px solid #dedede;
+      text-align: center;
+    }
 
-</section>
+    .kei-enquiry h3 {
+      margin: 8px 0 12px;
+    }
 
-</main>
+    .kei-enquiry p {
+      color: #666;
+      max-width: 580px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
 
-<div id="siteFooter"></div>
+    .kei-enquiry a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      background: #f47721;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+    }
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
+    @media (max-width: 800px) {
+      .kei-products {
+        padding-top: 65px;
+      }
+
+      .kei-table-header {
+        display: none;
+      }
+
+      .kei-table-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 28px 0;
+      }
+
+      .kei-roll {
+        font-size: 15px;
+        color: #666;
+      }
+
+      .kei-sizes {
+        align-items: flex-start;
+      }
+
+      .selected-enquiry {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .selected-enquiry-text {
+        justify-content: center;
+      }
+
+      .kei-enquiry {
+        padding: 28px 20px;
+        margin-top: 55px;
+      }
+    }
+  </style>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero products-hero">
+      <div class="container page-hero-inner">
+        <span class="eyebrow light">Home Wires</span>
+        <h1>KEI</h1>
+        <p>KEI home wires available from Maruti Electricals.</p>
+      </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section kei-products">
+      <div class="container">
+
+        <div class="kei-heading">
+          <span class="eyebrow orange">KEI</span>
+          <h2>Available Home Wires</h2>
+          <p>Select one or more sizes to enquire about your requirement.</p>
+        </div>
+
+
+        <div class="kei-table">
+
+          <!-- TABLE HEADER -->
+          <div class="kei-table-header">
+            <div>Product</div>
+            <div>Roll Length</div>
+            <div>Available Sizes</div>
+          </div>
+
+
+          <!-- HOMECAB FR -->
+          <div class="kei-table-row">
+
+            <div class="kei-product-name">
+              <span>KEI Home Wire</span>
+              <strong>HomeCab FR</strong>
+            </div>
+
+            <div class="kei-roll">
+              90M
+            </div>
+
+            <div class="kei-sizes">
+
+              <div class="size-list">
+
+                <button
+                  class="wire-size-button"
+                  data-product="HomeCab FR"
+                  data-size="0.75">
+                  0.75
+                </button>
+
+                <button
+                  class="wire-size-button"
+                  data-product="HomeCab FR"
+                  data-size="1">
+                  1
+                </button>
+
+                <button
+                  class="wire-size-button"
+                  data-product="HomeCab FR"
+                  data-size="1.5">
+                  1.5
+                </button>
+
+                <button
+                  class="wire-size-button"
+                  data-product="HomeCab FR"
+                  data-size="2.5">
+                  2.5
+                </button>
+
+                <button
+                  class="wire-size-button"
+                  data-product="HomeCab FR"
+                  data-size="4">
+                  4
+                </button>
+
+                <button
+                  class="wire-size-button"
+                  data-product="HomeCab FR"
+                  data-size="6">
+                  6
+                </button>
+
+              </div>
+
+              <span class="size-unit">mm²</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SELECTED SIZE ENQUIRY -->
+        <div id="selectedEnquiry" class="selected-enquiry">
+
+          <div class="selected-enquiry-text">
+            <span class="selected-enquiry-dot"></span>
+            <span id="selectedCount">0 sizes selected</span>
+          </div>
+
+          <a
+            id="selectedEnquiryButton"
+            class="selected-enquiry-button"
+            href="#"
+            target="_blank"
+            rel="noopener">
+            Send Enquiry for Selected Sizes →
+          </a>
+
+        </div>
+
+
+        <!-- GENERAL ENQUIRY -->
+        <div class="kei-enquiry">
+
+          <span class="eyebrow orange">KEI Home Wires</span>
+
+          <h3>Need a specific wire size?</h3>
+
+          <p>
+            Tell us the wire type, size and quantity you require.
+            Our team at Maruti Electricals will help you with availability
+            and further details.
+          </p>
+
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20KEI%20HomeCab%20FR%20home%20wires."
+            target="_blank"
+            rel="noopener">
+            Enquire on WhatsApp →
+          </a>
+
+        </div>
+
+
+        <!-- BACK -->
+        <div style="text-align:center; margin-top:45px;">
+          <a href="home-wires.html" class="btn btn-outline">
+            ← Back to Home Wires
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <div id="siteFooter"></div>
+
+
+  <script src="app.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      document.getElementById("siteHeader").innerHTML = header("Products");
+      document.getElementById("siteFooter").innerHTML = footer();
+
+      const sizeButtons = document.querySelectorAll(".wire-size-button");
+      const selectedEnquiry = document.getElementById("selectedEnquiry");
+      const selectedCount = document.getElementById("selectedCount");
+      const selectedEnquiryButton = document.getElementById("selectedEnquiryButton");
+
+      function updateEnquiryButton() {
+
+        const selected = document.querySelectorAll(".wire-size-button.selected");
+
+        if (selected.length === 0) {
+
+          selectedEnquiry.classList.remove("visible");
+          selectedEnquiryButton.href = "#";
+          selectedCount.textContent = "0 sizes selected";
+
+          return;
+        }
+
+        selectedEnquiry.classList.add("visible");
+
+        selectedCount.textContent =
+          selected.length === 1
+            ? "1 size selected"
+            : selected.length + " sizes selected";
+
+
+        const grouped = {};
+
+        selected.forEach(function (button) {
+
+          const product = button.dataset.product;
+          const size = button.dataset.size;
+
+          if (!grouped[product]) {
+            grouped[product] = [];
+          }
+
+          grouped[product].push(size);
+
+        });
+
+
+        let message =
+          "Hello Maruti Electricals, I am interested in KEI home wires.%0A%0A";
+
+
+        Object.keys(grouped).forEach(function (product) {
+
+          message +=
+            product +
+            ": " +
+            grouped[product].join(" mm², ") +
+            " mm²%0A";
+
+        });
+
+
+        message +=
+          "%0APlease share availability and details.";
+
+
+        selectedEnquiryButton.href =
+          "https://wa.me/917733934734?text=" + message;
+
+      }
+
+
+      sizeButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+          button.classList.toggle("selected");
+
+          updateEnquiryButton();
+
+        });
+
+      });
+
+    });
+  </script>
 
 </body>
 </html>
