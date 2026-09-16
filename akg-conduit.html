@@ -1,115 +1,835 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
+  <title>AKG Conduit Pipes | Maruti Electricals</title>
 
-<title>AKG Conduit Pipes | Maruti Electricals</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
+
+  <style>
+    /* =========================================
+       AKG CONDUIT PIPE SPECIFICATIONS
+       Same visual system as the master wire pages
+       ========================================= */
+
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+      margin: 10px 0 18px;
+      font-weight: 400;
+      letter-spacing: -1.5px;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .polycab-table {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0,0,0,.16);
+    }
+
+    .polycab-table-header {
+      display: grid;
+      grid-template-columns: 1.2fr .7fr 2.4fr;
+      gap: 40px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(0,0,0,.16);
+
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      color: #777;
+    }
+
+    .polycab-table-row {
+      display: grid;
+      grid-template-columns: 1.2fr .7fr 2.4fr;
+      gap: 40px;
+      align-items: center;
+
+      padding: 34px 0;
+      border-bottom: 1px solid rgba(0,0,0,.12);
+    }
+
+    .polycab-product-name h3 {
+      margin: 8px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .polycab-roll {
+      font-size: 17px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .polycab-sizes {
+      width: 100%;
+    }
+
+    .size-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .wire-size-button {
+      min-width: 52px;
+      height: 40px;
+      padding: 0 14px;
+
+      border: 1px solid rgba(0,0,0,.18);
+      border-radius: 8px;
+      background: #fff;
+
+      color: #222;
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+    }
+
+    .wire-size-button:hover {
+      border-color: #e56318;
+      transform: translateY(-1px);
+    }
+
+    .wire-size-button.selected {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .size-unit {
+      color: #777;
+      font-size: 13px;
+      margin-left: 3px;
+    }
+
+    /* =========================================
+       SELECTED ENQUIRY BAR
+       ========================================= */
+
+    .selected-enquiry {
+      max-width: 1180px;
+      margin: 30px auto 65px;
+
+      padding: 18px 22px;
+
+      border: 1px solid rgba(229,99,24,.35);
+      border-radius: 14px;
+      background: #fff8f3;
+
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .selected-enquiry.visible {
+      display: flex;
+    }
+
+    .selected-enquiry-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 15px;
+      color: #333;
+    }
+
+    .selected-enquiry-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #e56318;
+      flex: 0 0 auto;
+    }
+
+    .selected-enquiry-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 42px;
+      padding: 0 18px;
+
+      border-radius: 8px;
+      background: #e56318;
+      color: #fff;
+
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: transform .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .selected-enquiry-button:hover {
+      transform: translateY(-2px);
+      background: #cf5612;
+    }
+
+    /* =========================================
+       GENERAL ENQUIRY
+       ========================================= */
+
+    .polycab-enquiry {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .polycab-enquiry .find-card {
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 16px;
+
+      padding: 32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      background: #fff;
+    }
+
+    .polycab-enquiry .find-card-content {
+      flex: 1;
+    }
+
+    .polycab-enquiry .find-card-label {
+      display: block;
+
+      margin-bottom: 9px;
+
+      color: #e56318;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .polycab-enquiry .find-card p {
+      margin: 0;
+
+      color: #222;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .polycab-enquiry .find-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 46px;
+      padding: 0 22px;
+
+      border-radius: 9px;
+      background: #e56318;
+      color: #fff;
+
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: transform .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .polycab-enquiry .find-card a:hover {
+      transform: translateY(-2px);
+      background: #cf5612;
+    }
+
+    /* =========================================
+       BACK BUTTON
+       ========================================= */
+
+    .back-home {
+      max-width: 1180px;
+      margin: 40px auto 90px;
+    }
+
+    .back-home a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      color: #222;
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: color .2s ease;
+    }
+
+    .back-home a:hover {
+      color: #e56318;
+    }
+
+    /* =========================================
+       MOBILE
+       ========================================= */
+
+    @media (max-width: 800px) {
+
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 65px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 42px;
+        padding: 0 18px;
+      }
+
+      .polycab-heading h2 {
+        font-size: 42px;
+      }
+
+      .polycab-table {
+        margin: 0 18px;
+      }
+
+      .polycab-table-header {
+        display: none;
+      }
+
+      .polycab-table-row {
+        display: block;
+        padding: 30px 0;
+      }
+
+      .polycab-product-name {
+        margin-bottom: 18px;
+      }
+
+      .polycab-product-name h3 {
+        font-size: 29px;
+      }
+
+      .polycab-roll {
+        margin-bottom: 18px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .size-list {
+        gap: 8px;
+      }
+
+      .wire-size-button {
+        min-width: 48px;
+        padding: 0 12px;
+      }
+
+      .selected-enquiry {
+        margin: 25px 18px 45px;
+        padding: 17px;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .selected-enquiry-button {
+        width: 100%;
+      }
+
+      .polycab-enquiry {
+        margin: 0 18px;
+      }
+
+      .polycab-enquiry .find-card {
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .polycab-enquiry .find-card p {
+        font-size: 24px;
+      }
+
+      .polycab-enquiry .find-card a {
+        width: 100%;
+      }
+
+      .back-home {
+        margin: 35px 18px 65px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
-
-<main>
-
-<section class="page-hero products-hero">
-
-<div class="container page-hero-inner">
-
-<span class="eyebrow light">
-Conduit Pipes
-</span>
-
-<h1>AKG</h1>
-
-<p>
-AKG conduit pipe products available from Maruti Electricals.
-</p>
-
-</div>
-
-</section>
+  <!-- HEADER -->
+  <div id="siteHeader"></div>
 
 
-<section class="section">
+  <!-- HERO -->
+  <section class="page-hero products-hero">
+    <div class="container page-hero-inner">
 
-<div class="container">
+      <span class="eyebrow light">
+        Electrical Pipes &amp; Conduits
+      </span>
 
-<div class="find-card">
+      <h1>AKG</h1>
 
-<div class="find-icon">
-◉
-</div>
+      <p>
+        AKG electrical conduit pipes available from Maruti Electricals.
+      </p>
 
-<div>
-
-<span class="eyebrow orange">
-AKG Conduit Pipes
-</span>
-
-<h2>
-Need AKG conduit pipes?
-</h2>
-
-<p>
-Send us your required size, quantity or project requirement
-and we'll get back to you on WhatsApp.
-</p>
-
-</div>
-
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20AKG%20conduit%20pipes.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener"
->
-Send Enquiry on WhatsApp →
-</a>
-
-</div>
+    </div>
+  </section>
 
 
-<div class="center-cta">
+  <!-- PRODUCTS -->
+  <section class="polycab-products">
 
-<a
-class="btn btn-dark"
-href="conduit-pipes.html"
->
-← Back to Conduit Pipes
-</a>
+    <div class="container">
 
-</div>
+      <div class="polycab-heading">
 
-</div>
+        <span class="eyebrow orange">
+          AKG
+        </span>
 
-</section>
+        <h2>
+          Available Conduit Pipes
+        </h2>
 
-</main>
+        <p>
+          Select one or more variants to enquire about your requirement.
+        </p>
+
+      </div>
 
 
-<div id="siteFooter"></div>
+      <!-- TABLE -->
+      <div class="polycab-table">
+
+        <!-- HEADER -->
+        <div class="polycab-table-header">
+
+          <div>
+            Size
+          </div>
+
+          <div>
+            Size
+          </div>
+
+          <div>
+            Available Types
+          </div>
+
+        </div>
 
 
-<script>
+        <!-- 20 MM -->
+        <div class="polycab-table-row">
 
-document.addEventListener('DOMContentLoaded', () => {
+          <div class="polycab-product-name">
 
-document.getElementById('siteHeader').outerHTML =
-header('Products');
+            <span class="eyebrow orange">
+              AKG Conduit Pipe
+            </span>
 
-document.getElementById('siteFooter').innerHTML =
-footer();
+            <h3>
+              20 mm
+            </h3>
 
-});
+          </div>
 
-</script>
+          <div class="polycab-roll">
+            20 mm
+          </div>
+
+          <div class="polycab-sizes">
+
+            <div class="size-list">
+
+              <button
+                class="wire-size-button"
+                data-size="20 mm — Light">
+                Light
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="20 mm — Medium">
+                Medium
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="20 mm — Heavy">
+                Heavy
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="20 mm — FRLS Medium">
+                FRLS Medium
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="20 mm — FRLS Heavy">
+                FRLS Heavy
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 25 MM -->
+        <div class="polycab-table-row">
+
+          <div class="polycab-product-name">
+
+            <span class="eyebrow orange">
+              AKG Conduit Pipe
+            </span>
+
+            <h3>
+              25 mm
+            </h3>
+
+          </div>
+
+          <div class="polycab-roll">
+            25 mm
+          </div>
+
+          <div class="polycab-sizes">
+
+            <div class="size-list">
+
+              <button
+                class="wire-size-button"
+                data-size="25 mm — Light">
+                Light
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="25 mm — Medium">
+                Medium
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="25 mm — Heavy">
+                Heavy
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="25 mm — FRLS Medium">
+                FRLS Medium
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="25 mm — FRLS Heavy">
+                FRLS Heavy
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 32 MM -->
+        <div class="polycab-table-row">
+
+          <div class="polycab-product-name">
+
+            <span class="eyebrow orange">
+              AKG Conduit Pipe
+            </span>
+
+            <h3>
+              32 mm
+            </h3>
+
+          </div>
+
+          <div class="polycab-roll">
+            32 mm
+          </div>
+
+          <div class="polycab-sizes">
+
+            <div class="size-list">
+
+              <button
+                class="wire-size-button"
+                data-size="32 mm — Medium">
+                Medium
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="32 mm — Heavy">
+                Heavy
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="32 mm — FRLS Medium">
+                FRLS Medium
+              </button>
+
+              <button
+                class="wire-size-button"
+                data-size="32 mm — FRLS Heavy">
+                FRLS Heavy
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SELECTED ENQUIRY -->
+      <div
+        class="selected-enquiry"
+        id="selectedEnquiry">
+
+        <div class="selected-enquiry-text">
+
+          <span class="selected-enquiry-dot"></span>
+
+          <span id="selectedCount">
+            0 variants selected
+          </span>
+
+        </div>
+
+        <a
+          href="#"
+          class="selected-enquiry-button"
+          id="selectedEnquiryButton">
+
+          Send Enquiry for Selected Variants →
+
+        </a>
+
+      </div>
+
+
+      <!-- GENERAL ENQUIRY -->
+      <div class="polycab-enquiry">
+
+        <div class="find-card">
+
+          <div class="find-card-content">
+
+            <span class="find-card-label">
+              AKG Conduit Pipes
+            </span>
+
+            <p>
+              Need a specific conduit pipe variant?
+            </p>
+
+          </div>
+
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20AKG%20conduit%20pipes.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener">
+
+            Enquire on WhatsApp →
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- BACK -->
+      <div class="back-home">
+
+        <a href="pipes-conduits.html">
+          ← Back to Electrical Pipes &amp; Conduits
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <div id="siteFooter"></div>
+
+
+  <!-- PAGE SCRIPT -->
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /*
+       * Use the same shared header and footer
+       * as the other catalogue pages.
+       */
+
+      if (typeof header === "function") {
+        document.getElementById("siteHeader").innerHTML =
+          header("Products");
+      }
+
+      if (typeof footer === "function") {
+        document.getElementById("siteFooter").innerHTML =
+          footer();
+      }
+
+
+      /*
+       * VARIANT SELECTION
+       */
+
+      const buttons =
+        document.querySelectorAll(".wire-size-button");
+
+      const selectedEnquiry =
+        document.getElementById("selectedEnquiry");
+
+      const selectedCount =
+        document.getElementById("selectedCount");
+
+      const selectedEnquiryButton =
+        document.getElementById("selectedEnquiryButton");
+
+
+      function updateSelection() {
+
+        const selected =
+          document.querySelectorAll(
+            ".wire-size-button.selected"
+          );
+
+
+        if (selected.length === 0) {
+
+          selectedEnquiry.classList.remove("visible");
+
+          selectedEnquiryButton.href = "#";
+
+          return;
+
+        }
+
+
+        selectedEnquiry.classList.add("visible");
+
+
+        selectedCount.textContent =
+          selected.length +
+          (selected.length === 1
+            ? " variant selected"
+            : " variants selected");
+
+
+        /*
+         * Build WhatsApp enquiry.
+         */
+
+        let message =
+          "Hello Maruti Electricals, I am interested in AKG conduit pipes.%0A%0A";
+
+
+        message +=
+          "Selected variants:%0A";
+
+
+        selected.forEach(function (button) {
+
+          message +=
+            "• " +
+            encodeURIComponent(
+              button.dataset.size
+            ) +
+            "%0A";
+
+        });
+
+
+        message +=
+          "%0APlease share availability and details.";
+
+
+        selectedEnquiryButton.href =
+          "https://wa.me/917733934734?text=" +
+          message;
+
+      }
+
+
+      buttons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+          button.classList.toggle("selected");
+
+          updateSelection();
+
+        });
+
+      });
+
+
+    });
+
+  </script>
 
 </body>
 </html>
