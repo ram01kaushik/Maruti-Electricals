@@ -1,1007 +1,848 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KEI Home Wires | Maruti Electricals</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e56318">
 
-  <meta
-    name="description"
-    content="KEI HomeCab FR home wires available from Maruti Electricals, Sikanderpur, Gurugram."
-  >
+<link rel="stylesheet" href="styles.css">
+<script src="app.js"></script>
 
-  <link rel="stylesheet" href="styles.css">
+<title>KEI Home Wires | Maruti Electricals</title>
 
-  <style>
+<style>
 
-    /* =====================================================
-       KEI WIRES
-       EXACT POLYCAB MASTER VISUAL SYSTEM
-       ===================================================== */
+/* =========================================
+   KEI PRODUCT SPECIFICATIONS
+   SAME POLYCAB MASTER STYLE
+========================================= */
 
-    .kei-page .page-hero {
-      background:
-        linear-gradient(
-          115deg,
-          #171614 0%,
-          #201b18 68%,
-          #5b2811 100%
-        ) !important;
+.polycab-products {
+    padding-top: 80px;
+    padding-bottom: 90px;
+}
 
-      color: #ffffff;
-      position: relative;
-      overflow: hidden;
-    }
+.polycab-heading {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
 
-    .kei-page .page-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+.polycab-heading .eyebrow {
+    margin-bottom: 12px;
+}
 
-      background:
-        radial-gradient(
-          circle at 78% 50%,
-          rgba(229,99,24,.25),
-          transparent 32%
-        );
+.polycab-heading h2 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1.05;
+    color: #171717;
+}
 
-      pointer-events: none;
-    }
+.polycab-heading p {
+    margin: 0;
+    font-size: 17px;
+    color: #666;
+}
 
-    .kei-page .page-hero-inner {
-      min-height: 350px !important;
 
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
+/* =========================================
+   PRODUCT TABLE
+========================================= */
 
-      position: relative !important;
-      z-index: 1 !important;
-    }
+.polycab-table {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 25px;
+    border-top: 1px solid rgba(0,0,0,.16);
+}
 
-    .kei-page .page-hero h1 {
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif !important;
+.polycab-table-header,
+.polycab-table-row {
+    display: grid;
+    grid-template-columns: 1.2fr .7fr 2.4fr;
+    column-gap: 40px;
+}
 
-      font-size:
-        clamp(52px, 7vw, 88px) !important;
+.polycab-table-header {
+    padding: 18px 0;
 
-      line-height: .95 !important;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
 
-      margin:
-        12px 0 18px !important;
+    color: #777;
 
-      letter-spacing:
-        -.04em !important;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
 
-      max-width: 870px;
-    }
+.polycab-table-row {
+    padding: 34px 0;
 
-    .kei-page .page-hero p {
-      color: #c8c1bb !important;
+    align-items: start;
 
-      max-width: 720px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
 
-      font-size: 17px;
 
-      line-height: 1.65;
-    }
+/* =========================================
+   PRODUCT NAME
+========================================= */
 
+.polycab-product-name span {
+    display: block;
+    margin-bottom: 8px;
 
-    /* =====================================================
-       PRODUCT SECTION
-       ===================================================== */
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .13em;
 
-    .kei-page .polycab-products {
-      padding:
-        96px 0 40px !important;
-    }
+    color: #e56318;
+}
 
+.polycab-product-name h3 {
+    margin: 0;
 
-    /* =====================================================
-       MAIN HEADING
-       ===================================================== */
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.1;
+    font-weight: 700;
 
-    .kei-page .polycab-heading {
-      text-align: center;
+    color: #171717;
+}
 
-      max-width: 760px;
 
-      margin:
-        0 auto 55px;
-    }
+/* =========================================
+   ROLL LENGTH
+========================================= */
 
-    .kei-page .polycab-heading h2 {
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif !important;
+.polycab-roll {
+    font-size: 17px;
+    font-weight: 700;
+    color: #171717;
+}
 
-      font-size:
-        clamp(38px, 4.5vw, 62px) !important;
 
-      line-height:
-        1.03 !important;
+/* =========================================
+   SIZE SELECTOR
+========================================= */
 
-      letter-spacing:
-        -.03em !important;
+.polycab-sizes {
+    min-width: 0;
+}
 
-      margin:
-        9px 0 14px !important;
+.size-label {
+    display: block;
 
-      font-weight:
-        500 !important;
-    }
+    margin-bottom: 13px;
 
-    .kei-page .polycab-heading p {
-      color: #69645f;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
 
-      margin: 14px auto 0;
+    color: #777;
+}
 
-      line-height: 1.75;
+.size-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
 
-      max-width: 640px;
-    }
 
+/* SIZE BUTTON */
 
-    /* =====================================================
-       PRODUCT TABLE
-       ===================================================== */
+.wire-size-button {
+    appearance: none;
 
-    .kei-page .polycab-table {
-      border-top:
-        1px solid #e6e1db;
-    }
+    min-width: 52px;
+    height: 40px;
 
-    .kei-page .polycab-table-header,
-    .kei-page .polycab-table-row {
-      display: grid;
+    padding: 0 13px;
 
-      grid-template-columns:
-        1.2fr .8fr 2fr;
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 8px;
 
-      gap: 30px;
+    background: #fff;
 
-      align-items: center;
-    }
+    color: #222;
 
-    .kei-page .polycab-table-header {
-      padding:
-        16px 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
 
-      border-bottom:
-        1px solid #e6e1db;
+    cursor: pointer;
 
-      font-size: 12px;
+    transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
 
-      font-weight: 700;
+.wire-size-button:hover {
+    border-color: #e56318;
+    color: #e56318;
+    transform: translateY(-1px);
+}
 
-      text-transform: uppercase;
 
-      letter-spacing:
-        .08em;
+/* SELECTED SIZE */
 
-      color:
-        #777;
-    }
+.wire-size-button.selected {
+    background: #e56318;
+    border-color: #e56318;
+    color: #fff;
+}
 
-    .kei-page .polycab-table-row {
-      padding:
-        30px 0;
+.wire-size-button.selected:hover {
+    background: #d95710;
+    border-color: #d95710;
+    color: #fff;
+}
 
-      border-bottom:
-        1px solid #e6e1db;
-    }
+.size-unit {
+    margin-left: 4px;
 
+    font-size: 13px;
+    font-weight: 700;
 
-    /* =====================================================
-       PRODUCT NAME
-       ===================================================== */
+    color: #777;
+}
 
-    .kei-page .polycab-product-name {
-      display: flex;
 
-      flex-direction: column;
+/* =========================================
+   SELECTED ENQUIRY BAR
+========================================= */
 
-      gap: 6px;
-    }
+.selected-enquiry {
+    display: none;
 
-    .kei-page .polycab-product-name span {
-      font-size: 13px;
+    max-width: 1180px;
+    margin: 30px auto 65px;
 
-      color: #888;
-    }
+    align-items: center;
+    justify-content: space-between;
 
-    .kei-page .polycab-product-name strong {
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif !important;
+    gap: 25px;
 
-      font-size: 22px;
+    padding: 18px 22px;
 
-      font-weight: 500;
-    }
+    border: 1px solid rgba(229,99,24,.25);
+    border-radius: 14px;
 
+    background: #fff8f3;
+}
 
-    /* =====================================================
-       ROLL
-       ===================================================== */
+.selected-enquiry.visible {
+    display: flex;
+}
 
-    .kei-page .polycab-roll {
-      font-size: 18px;
-    }
+.selected-enquiry-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
+.selected-enquiry-dot {
+    width: 9px;
+    height: 9px;
 
-    /* =====================================================
-       SIZES
-       ===================================================== */
+    flex: 0 0 auto;
 
-    .kei-page .polycab-sizes {
-      display: flex;
+    border-radius: 50%;
 
-      flex-wrap: wrap;
+    background: #e56318;
+}
 
-      gap: 9px;
+.selected-enquiry-text span {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
 
-      align-items: center;
-    }
+.selected-enquiry-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    .kei-page .size-list {
-      display: flex;
+    padding: 12px 20px;
 
-      flex-wrap: wrap;
+    border: 0;
+    border-radius: 50px;
 
-      gap: 8px;
-    }
+    background: #e56318;
+    color: #fff;
 
-    .kei-page .wire-size-button {
-      border:
-        1px solid #d5d5d5;
+    font-size: 14px;
+    font-weight: 800;
 
-      background:
-        #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
 
-      color:
-        #222;
+    box-shadow: 0 8px 22px rgba(229,99,24,.18);
 
-      padding:
-        9px 13px;
-
-      border-radius:
-        6px;
-
-      font-size:
-        14px;
-
-      cursor:
-        pointer;
-
-      transition:
-        all .2s ease;
-    }
-
-    .kei-page .wire-size-button:hover {
-      border-color:
-        #e56318;
-
-      color:
-        #e56318;
-    }
-
-    .kei-page .wire-size-button.selected {
-      background:
-        #e56318;
-
-      border-color:
-        #e56318;
-
-      color:
-        #ffffff;
-    }
-
-    .kei-page .size-unit {
-      color:
-        #888;
-
-      font-size:
-        13px;
-
-      margin-left:
-        3px;
-    }
-
-
-    /* =====================================================
-       SELECTED ENQUIRY BAR
-       ===================================================== */
-
-    .kei-page .selected-enquiry {
-      display: none;
-
-      align-items: center;
-
-      justify-content:
-        space-between;
-
-      gap: 25px;
-
-      margin-top:
-        30px;
-
-      padding:
-        20px 24px;
-
-      border:
-        1px solid #dedede;
-
-      background:
-        #fafafa;
-    }
-
-    .kei-page .selected-enquiry.visible {
-      display:
-        flex;
-    }
-
-    .kei-page .selected-enquiry-text {
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      font-size:
-        14px;
-
-      font-weight:
-        600;
-    }
-
-    .kei-page .selected-enquiry-dot {
-      width:
-        8px;
-
-      height:
-        8px;
-
-      border-radius:
-        50%;
-
-      background:
-        #e56318;
-
-      display:
-        inline-block;
-    }
-
-    .kei-page .selected-enquiry-button {
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      background:
-        #e56318;
-
-      color:
-        #ffffff;
-
-      text-decoration:
-        none;
-
-      padding:
-        13px 20px;
-
-      border-radius:
-        6px;
-
-      font-size:
-        14px;
-
-      font-weight:
-        700;
-
-      transition:
+    transition:
         transform .2s ease,
         background .2s ease;
+}
+
+.selected-enquiry-button:hover {
+    background: #d95710;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   GENERAL ENQUIRY
+========================================= */
+
+.polycab-enquiry {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .polycab-products {
+        padding-top: 60px;
+        padding-bottom: 65px;
     }
 
-    .kei-page .selected-enquiry-button:hover {
-      transform:
-        translateY(-2px);
-
-      background:
-        #bd4810;
+    .polycab-heading {
+        margin-bottom: 45px;
     }
 
-
-    /* =====================================================
-       GENERAL ENQUIRY
-       ===================================================== */
-
-    .kei-page .polycab-enquiry {
-      max-width:
-        760px;
-
-      margin:
-        70px auto 0;
-
-      padding:
-        38px;
-
-      border:
-        1px solid #dedede;
-
-      text-align:
-        center;
+    .polycab-table-header {
+        display: none;
     }
 
-    .kei-page .polycab-enquiry h3 {
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif !important;
-
-      font-size:
-        28px;
-
-      font-weight:
-        500;
-
-      margin:
-        8px 0 12px;
+    .polycab-table-row {
+        display: block;
+        padding: 30px 0;
     }
 
-    .kei-page .polycab-enquiry p {
-      color:
-        #69645f;
-
-      max-width:
-        580px;
-
-      margin:
-        0 auto 25px;
-
-      line-height:
-        1.7;
+    .polycab-product-name {
+        margin-bottom: 22px;
     }
 
-    .kei-page .polycab-enquiry a {
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      padding:
-        13px 22px;
-
-      background:
-        #e56318;
-
-      color:
-        #ffffff;
-
-      text-decoration:
-        none;
-
-      border-radius:
-        6px;
-
-      font-weight:
-        700;
+    .polycab-product-name h3 {
+        font-size: 29px;
     }
 
+    .polycab-roll {
+        display: flex;
+        align-items: center;
+        gap: 10px;
 
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    @media (max-width: 800px) {
-
-      .kei-page .polycab-products {
-        padding:
-          72px 0 40px !important;
-      }
-
-      .kei-page .polycab-table-header {
-        display:
-          none;
-      }
-
-      .kei-page .polycab-table-row {
-        grid-template-columns:
-          1fr;
-
-        gap:
-          20px;
-
-        padding:
-          28px 0;
-      }
-
-      .kei-page .polycab-roll {
-        font-size:
-          15px;
-
-        color:
-          #69645f;
-      }
-
-      .kei-page .polycab-sizes {
-        align-items:
-          flex-start;
-      }
-
-      .kei-page .selected-enquiry {
-        flex-direction:
-          column;
-
-        align-items:
-          stretch;
-
-        text-align:
-          center;
-      }
-
-      .kei-page .selected-enquiry-text {
-        justify-content:
-          center;
-      }
-
-      .kei-page .polycab-enquiry {
-        padding:
-          28px 20px;
-
-        margin-top:
-          55px;
-      }
+        margin-bottom: 20px;
     }
 
-  </style>
+    .polycab-roll::before {
+        content: "Roll Length:";
+
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+
+        color: #777;
+    }
+
+    .wire-size-button {
+        min-width: 48px;
+        height: 38px;
+
+        padding: 0 11px;
+
+        font-size: 13px;
+    }
+
+    .selected-enquiry {
+        flex-direction: column;
+        align-items: stretch;
+
+        margin: 25px 0 45px;
+
+        padding: 17px;
+    }
+
+    .selected-enquiry-text {
+        justify-content: center;
+    }
+
+    .selected-enquiry-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
-  <div id="siteHeader"></div>
 
+<div id="siteHeader"></div>
 
-  <main class="kei-page">
 
-    <!-- =================================================
-         HERO
-         ================================================= -->
+<main>
 
-    <section class="page-hero products-hero">
 
-      <div class="container page-hero-inner">
+<!-- =========================================
+     HERO
+========================================= -->
 
-        <span class="eyebrow light">
-          Home Wires
-        </span>
+<section class="page-hero products-hero">
 
-        <h1>
-          KEI
-        </h1>
+<div class="container page-hero-inner">
 
-        <p>
-          KEI home wires available from Maruti Electricals.
-        </p>
+<span class="eyebrow light">
+Home Wires
+</span>
 
-      </div>
+<h1>
+KEI
+</h1>
 
-    </section>
+<p>
+KEI home wires available from Maruti Electricals.
+</p>
 
+</div>
 
-    <!-- =================================================
-         PRODUCTS
-         ================================================= -->
+</section>
 
-    <section class="section polycab-products">
 
-      <div class="container">
+<!-- =========================================
+     PRODUCT SPECIFICATIONS
+========================================= -->
 
+<section class="section polycab-products">
 
-        <div class="polycab-heading">
+<div class="container">
 
-          <span class="eyebrow orange">
-            KEI
-          </span>
 
-          <h2>
-            Available Home Wires
-          </h2>
+<div class="polycab-heading">
 
-          <p>
-            Select one or more sizes to enquire about your requirement.
-          </p>
+<span class="eyebrow orange">
+KEI
+</span>
 
-        </div>
+<h2>
+Available Home Wires
+</h2>
 
+<p>
+Select one or more sizes to enquire about your requirement.
+</p>
 
-        <!-- PRODUCT TABLE -->
+</div>
 
-        <div class="polycab-table">
 
+<div class="polycab-table">
 
-          <div class="polycab-table-header">
 
-            <div>
-              Product
-            </div>
+<!-- TABLE HEADER -->
 
-            <div>
-              Roll Length
-            </div>
+<div class="polycab-table-header">
 
-            <div>
-              Available Sizes
-            </div>
+<div>
+Product
+</div>
 
-          </div>
+<div>
+Roll Length
+</div>
 
+<div>
+Available Sizes
+</div>
 
-          <!-- KEI HOMECAB FR -->
+</div>
 
-          <div class="polycab-table-row">
 
+<!-- =========================================
+     KEI HOMECAB FR
+========================================= -->
 
-            <div class="polycab-product-name">
+<div class="polycab-table-row">
 
-              <span>
-                KEI Home Wire
-              </span>
 
-              <strong>
-                HomeCab FR
-              </strong>
+<div class="polycab-product-name">
 
-            </div>
+<span>
+KEI Home Wire
+</span>
 
+<h3>
+HomeCab FR
+</h3>
 
-            <div class="polycab-roll">
-              90M
-            </div>
+</div>
 
 
-            <div class="polycab-sizes">
+<div class="polycab-roll">
+90M
+</div>
 
-              <div class="size-list">
 
+<div class="polycab-sizes">
 
-                <button
-                  class="wire-size-button"
-                  data-product="HomeCab FR"
-                  data-size="0.75"
-                  type="button"
-                >
-                  0.75
-                </button>
+<span class="size-label">
+Available Sizes
+</span>
 
 
-                <button
-                  class="wire-size-button"
-                  data-product="HomeCab FR"
-                  data-size="1"
-                  type="button"
-                >
-                  1
-                </button>
+<div class="size-list">
 
 
-                <button
-                  class="wire-size-button"
-                  data-product="HomeCab FR"
-                  data-size="1.5"
-                  type="button"
-                >
-                  1.5
-                </button>
+<button
+type="button"
+class="wire-size-button"
+data-product="HomeCab FR"
+data-size="0.75"
+>
+0.75
+</button>
 
 
-                <button
-                  class="wire-size-button"
-                  data-product="HomeCab FR"
-                  data-size="2.5"
-                  type="button"
-                >
-                  2.5
-                </button>
+<button
+type="button"
+class="wire-size-button"
+data-product="HomeCab FR"
+data-size="1"
+>
+1
+</button>
 
 
-                <button
-                  class="wire-size-button"
-                  data-product="HomeCab FR"
-                  data-size="4"
-                  type="button"
-                >
-                  4
-                </button>
+<button
+type="button"
+class="wire-size-button"
+data-product="HomeCab FR"
+data-size="1.5"
+>
+1.5
+</button>
 
 
-                <button
-                  class="wire-size-button"
-                  data-product="HomeCab FR"
-                  data-size="6"
-                  type="button"
-                >
-                  6
-                </button>
+<button
+type="button"
+class="wire-size-button"
+data-product="HomeCab FR"
+data-size="2.5"
+>
+2.5
+</button>
 
 
-              </div>
+<button
+type="button"
+class="wire-size-button"
+data-product="HomeCab FR"
+data-size="4"
+>
+4
+</button>
 
 
-              <span class="size-unit">
-                mm²
-              </span>
+<button
+type="button"
+class="wire-size-button"
+data-product="HomeCab FR"
+data-size="6"
+>
+6
+</button>
 
-            </div>
 
-          </div>
+<span class="size-unit">
+mm²
+</span>
 
-        </div>
 
+</div>
 
-        <!-- =================================================
-             SELECTED SIZES
-             ================================================= -->
+</div>
 
-        <div
-          id="selectedEnquiry"
-          class="selected-enquiry"
-        >
+</div>
 
-          <div class="selected-enquiry-text">
+</div>
 
-            <span class="selected-enquiry-dot"></span>
 
-            <span id="selectedCount">
-              0 sizes selected
-            </span>
+<!-- =========================================
+     SELECTED SIZE ENQUIRY
+========================================= -->
 
-          </div>
+<div
+id="selectedEnquiry"
+class="selected-enquiry"
+>
 
 
-          <a
-            id="selectedEnquiryButton"
-            class="selected-enquiry-button"
-            href="#"
-            target="_blank"
-            rel="noopener"
-          >
-            Send Enquiry for Selected Sizes →
-          </a>
+<div class="selected-enquiry-text">
 
-        </div>
+<span class="selected-enquiry-dot"></span>
 
+<span id="selectedCount">
+0 sizes selected
+</span>
 
-        <!-- =================================================
-             GENERAL ENQUIRY
-             ================================================= -->
+</div>
 
-        <div class="polycab-enquiry">
 
-          <span class="eyebrow orange">
-            KEI Home Wires
-          </span>
+<a
+id="selectedEnquiryButton"
+class="selected-enquiry-button"
+href="#"
+target="_blank"
+rel="noopener"
+>
 
-          <h3>
-            Need a specific wire size?
-          </h3>
+Send Enquiry for Selected Sizes →
 
-          <p>
-            Tell us the wire type, size and quantity you require.
-            Our team at Maruti Electricals will help you with
-            availability and further details.
-          </p>
+</a>
 
+</div>
 
-          <a
-            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20KEI%20HomeCab%20FR%20home%20wires."
-            target="_blank"
-            rel="noopener"
-          >
-            Enquire on WhatsApp →
-          </a>
 
-        </div>
+<!-- =========================================
+     GENERAL ENQUIRY
+========================================= -->
 
+<div class="polycab-enquiry">
 
-        <!-- =================================================
-             BACK
-             ================================================= -->
+<div class="find-card">
 
-        <div
-          style="
-            text-align:center;
-            margin-top:45px;
-          "
-        >
 
-          <a
-            href="home-wires.html"
-            class="btn btn-outline"
-          >
-            ← Back to Home Wires
-          </a>
+<div class="find-icon">
+⌁
+</div>
 
-        </div>
 
-      </div>
+<div>
 
-    </section>
+<span class="eyebrow orange">
+KEI Home Wires
+</span>
 
-  </main>
+<h2>
+Need a specific wire size?
+</h2>
 
+<p>
+Tell us the wire type, size and quantity you require.
+We'll check availability and respond on WhatsApp.
+</p>
 
-  <div id="siteFooter"></div>
+</div>
 
 
-  <script src="app.js"></script>
+<a
+class="btn btn-primary"
+href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20KEI%20HomeCab%20FR%20home%20wires.%20Please%20share%20availability%20and%20details."
+target="_blank"
+rel="noopener"
+>
 
+Send Enquiry on WhatsApp →
 
-  <script>
+</a>
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
 
-        document.getElementById(
-          "siteHeader"
-        ).innerHTML = header("Products");
+</div>
 
+</div>
 
-        document.getElementById(
-          "siteFooter"
-        ).innerHTML = footer();
 
+<div class="center-cta">
 
-        const sizeButtons =
-          document.querySelectorAll(
-            ".kei-page .wire-size-button"
-          );
+<a
+class="btn btn-dark"
+href="home-wires.html"
+>
 
+← Back to Home Wires
 
-        const selectedEnquiry =
-          document.getElementById(
-            "selectedEnquiry"
-          );
+</a>
 
+</div>
 
-        const selectedCount =
-          document.getElementById(
-            "selectedCount"
-          );
 
+</div>
 
-        const selectedEnquiryButton =
-          document.getElementById(
-            "selectedEnquiryButton"
-          );
+</section>
 
 
-        function updateEnquiryButton() {
+</main>
 
-          const selected =
-            document.querySelectorAll(
-              ".kei-page .wire-size-button.selected"
-            );
 
+<div id="siteFooter"></div>
 
-          if (selected.length === 0) {
 
-            selectedEnquiry.classList.remove(
-              "visible"
-            );
+<script>
 
-            selectedEnquiryButton.href = "#";
+/* =========================================
+   HEADER + FOOTER
+========================================= */
 
-            selectedCount.textContent =
-              "0 sizes selected";
+document.addEventListener('DOMContentLoaded', () => {
 
-            return;
-          }
 
+document.getElementById('siteHeader').outerHTML =
+header('Products');
 
-          selectedEnquiry.classList.add(
-            "visible"
-          );
 
+document.getElementById('siteFooter').innerHTML =
+footer();
 
-          selectedCount.textContent =
-            selected.length === 1
-              ? "1 size selected"
-              : selected.length + " sizes selected";
 
+/* =========================================
+   SIZE SELECTION
+========================================= */
 
-          const grouped = {};
+const sizeButtons =
+document.querySelectorAll('.wire-size-button');
 
 
-          selected.forEach(
-            function (button) {
+const selectedEnquiry =
+document.getElementById('selectedEnquiry');
 
-              const product =
-                button.dataset.product;
 
-              const size =
-                button.dataset.size;
+const selectedCount =
+document.getElementById('selectedCount');
 
 
-              if (!grouped[product]) {
-                grouped[product] = [];
-              }
+const selectedEnquiryButton =
+document.getElementById('selectedEnquiryButton');
 
 
-              grouped[product].push(size);
+function updateEnquiryButton() {
 
-            }
-          );
 
+const selected =
+document.querySelectorAll(
+'.wire-size-button.selected'
+);
 
-          let message =
-            "Hello Maruti Electricals, I am interested in KEI home wires.%0A%0A";
 
+if (selected.length === 0) {
 
-          Object.keys(grouped).forEach(
-            function (product) {
+selectedEnquiry.classList.remove('visible');
 
-              message +=
-                product +
-                ": " +
-                grouped[product].join(" mm², ") +
-                " mm²%0A";
+selectedEnquiryButton.href = '#';
 
-            }
-          );
+return;
 
+}
 
-          message +=
-            "%0APlease share availability and details.";
 
+selectedEnquiry.classList.add('visible');
 
-          selectedEnquiryButton.href =
-            "https://wa.me/917733934734?text=" +
-            message;
 
-        }
+selectedCount.textContent =
+selected.length === 1
+? '1 size selected'
+: selected.length + ' sizes selected';
 
 
-        sizeButtons.forEach(
-          function (button) {
+let message =
+'Hello Maruti Electricals, I am interested in KEI home wires.%0A%0A';
 
-            button.addEventListener(
-              "click",
-              function () {
 
-                button.classList.toggle(
-                  "selected"
-                );
+const products = {};
 
-                updateEnquiryButton();
 
-              }
-            );
+selected.forEach(button => {
 
-          }
-        );
 
-      }
-    );
+const product =
+button.dataset.product;
 
-  </script>
+
+const size =
+button.dataset.size;
+
+
+if (!products[product]) {
+products[product] = [];
+}
+
+
+products[product].push(size);
+
+
+});
+
+
+Object.keys(products).forEach(product => {
+
+
+message +=
+product + ': ' +
+products[product]
+.map(size => size + ' mm²')
+.join(', ') +
+'%0A';
+
+
+});
+
+
+message +=
+'%0APlease share availability and details.';
+
+
+selectedEnquiryButton.href =
+'https://wa.me/917733934734?text=' +
+message;
+
+}
+
+
+/* =========================================
+   CLICK HANDLERS
+========================================= */
+
+sizeButtons.forEach(button => {
+
+
+button.addEventListener('click', () => {
+
+
+button.classList.toggle('selected');
+
+
+updateEnquiryButton();
+
+
+});
+
+
+});
+
+
+});
+
+</script>
+
 
 </body>
+
 </html>
