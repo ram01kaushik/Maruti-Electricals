@@ -7,6 +7,7 @@
   <title>Wipro Switches & Sockets | Maruti Electricals</title>
 
   <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
 
   <style>
     .polycab-products {
@@ -36,32 +37,22 @@
     .wipro-grid {
       max-width: 1180px;
       margin: 0 auto;
-
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 0 40px;
-
       border-top: 1px solid rgba(0,0,0,.16);
     }
 
     .wipro-card {
       padding: 34px 0;
-
       border-bottom: 1px solid rgba(0,0,0,.16);
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 24px;
-
       text-decoration: none;
       color: #222;
-
-      transition:
-        transform .18s ease,
-        color .18s ease;
+      transition: transform .18s ease, color .18s ease;
     }
 
     .wipro-card:hover {
@@ -71,18 +62,14 @@
 
     .wipro-card h3 {
       margin: 0 0 8px;
-
       font-family: Georgia, "Times New Roman", serif;
-
       font-size: 31px;
       line-height: 1.1;
     }
 
     .wipro-card p {
       margin: 0;
-
       color: #666;
-
       font-size: 15px;
       line-height: 1.6;
     }
@@ -90,17 +77,12 @@
     .wipro-arrow {
       width: 46px;
       height: 46px;
-
       flex: 0 0 46px;
-
       display: grid;
       place-items: center;
-
       border: 1px solid rgba(0,0,0,.14);
       border-radius: 50%;
-
       font-size: 20px;
-
       transition:
         background .18s ease,
         color .18s ease,
@@ -115,60 +97,40 @@
 
     .find-card {
       max-width: 1180px;
-
       margin: 30px auto 65px;
-
       padding: 30px;
-
       border: 1px solid rgba(0,0,0,.12);
-
       border-radius: 14px;
-
       background: #fafafa;
-
       display: flex;
-
       align-items: center;
       justify-content: space-between;
-
       gap: 30px;
     }
 
     .find-card h3 {
       margin: 0 0 8px;
-
       font-family: Georgia, "Times New Roman", serif;
-
       font-size: 27px;
     }
 
     .find-card p {
       margin: 0;
-
       color: #666;
-
       line-height: 1.6;
     }
 
     .find-card a {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       min-width: 190px;
-
       padding: 13px 22px;
-
       border-radius: 50px;
-
       background: #e56318;
       color: #fff;
-
       text-decoration: none;
-
       font-weight: 700;
-
       box-shadow: 0 8px 22px rgba(229,99,24,.18);
     }
 
@@ -178,15 +140,10 @@
 
     .center-cta a {
       display: inline-flex;
-
       align-items: center;
-
       gap: 8px;
-
       color: #222;
-
       text-decoration: none;
-
       font-weight: 700;
     }
 
@@ -195,7 +152,6 @@
     }
 
     @media (max-width: 800px) {
-
       .polycab-products {
         padding-top: 55px;
         padding-bottom: 65px;
@@ -215,11 +171,8 @@
 
       .find-card {
         margin-top: 25px;
-
         padding: 24px;
-
         flex-direction: column;
-
         align-items: flex-start;
       }
 
@@ -237,198 +190,127 @@
   <main>
 
     <!-- HERO -->
-
     <section class="page-hero products-hero">
-
       <div class="container page-hero-inner">
-
-        <span class="eyebrow light">
-          Switches &amp; Sockets
-        </span>
+        <span class="eyebrow light">Switches &amp; Sockets</span>
 
         <h1>Wipro</h1>
 
         <p>
           Wipro switches &amp; sockets available from Maruti Electricals.
         </p>
-
       </div>
-
     </section>
 
 
     <!-- PRODUCTS -->
-
     <section class="polycab-products">
 
       <div class="container">
 
         <div class="polycab-heading">
+          <span class="eyebrow orange">Wipro</span>
 
-          <span class="eyebrow orange">
-            Wipro
-          </span>
-
-          <h2>
-            Available Models
-          </h2>
+          <h2>Available Models</h2>
 
           <p>
             Select a model to enquire about your requirement.
           </p>
-
         </div>
 
 
-        <!-- WIPRO MODELS -->
-
         <div class="wipro-grid">
 
-
           <!-- STYLUS -->
-
           <a
             class="wipro-card"
             href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Stylus%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
             target="_blank"
             rel="noopener"
           >
-
             <div>
-
-              <h3>
-                Stylus
-              </h3>
-
-              <p>
-                Enquire about Wipro Stylus switches &amp; sockets.
-              </p>
-
+              <h3>Stylus</h3>
+              <p>Wipro Stylus switches &amp; sockets.</p>
             </div>
 
-            <span class="wipro-arrow">
-              →
-            </span>
-
+            <span class="wipro-arrow">→</span>
           </a>
 
 
           <!-- CONVEX -->
-
           <a
             class="wipro-card"
             href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Convex%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
             target="_blank"
             rel="noopener"
           >
-
             <div>
-
-              <h3>
-                Convex
-              </h3>
-
-              <p>
-                Enquire about Wipro Convex switches &amp; sockets.
-              </p>
-
+              <h3>Convex</h3>
+              <p>Wipro Convex switches &amp; sockets.</p>
             </div>
 
-            <span class="wipro-arrow">
-              →
-            </span>
-
+            <span class="wipro-arrow">→</span>
           </a>
 
 
           <!-- VENIA -->
-
           <a
             class="wipro-card"
             href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Venia%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
             target="_blank"
             rel="noopener"
           >
-
             <div>
-
-              <h3>
-                Venia
-              </h3>
-
-              <p>
-                Enquire about Wipro Venia switches &amp; sockets.
-              </p>
-
+              <h3>Venia</h3>
+              <p>Wipro Venia switches &amp; sockets.</p>
             </div>
 
-            <span class="wipro-arrow">
-              →
-            </span>
-
+            <span class="wipro-arrow">→</span>
           </a>
 
 
           <!-- NOWA -->
-
           <a
             class="wipro-card"
             href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20Nowa%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
             target="_blank"
             rel="noopener"
           >
-
             <div>
-
-              <h3>
-                Nowa
-              </h3>
-
-              <p>
-                Enquire about Wipro Nowa switches &amp; sockets.
-              </p>
-
+              <h3>Nowa</h3>
+              <p>Wipro Nowa switches &amp; sockets.</p>
             </div>
 
-            <span class="wipro-arrow">
-              →
-            </span>
-
+            <span class="wipro-arrow">→</span>
           </a>
-
 
         </div>
 
 
         <!-- GENERAL ENQUIRY -->
-
         <div class="find-card">
 
           <div>
-
-            <h3>
-              Need a different Wipro product?
-            </h3>
+            <h3>Looking for something else?</h3>
 
             <p>
-              Send us your requirement and our team will help you with availability and details.
+              Tell us your Wipro switches &amp; sockets requirement and
+              we’ll help you with availability and details.
             </p>
-
           </div>
 
           <a
-            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Wipro%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20looking%20for%20Wipro%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
             target="_blank"
             rel="noopener"
           >
-            Enquire on WhatsApp →
+            Enquire on WhatsApp
           </a>
 
         </div>
 
 
         <!-- BACK -->
-
         <div class="center-cta">
 
           <a href="switches-sockets.html">
@@ -446,8 +328,6 @@
 
   <div id="siteFooter"></div>
 
-
-  <script src="app.js"></script>
 
   <script>
     document.getElementById('siteHeader').outerHTML =
