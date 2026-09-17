@@ -1,100 +1,492 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
+  <title>Legrand Switches & Sockets | Maruti Electricals</title>
 
-<title>Legrand Switches & Sockets | Maruti Electricals</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .legrand-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 0 40px;
+
+      border-top: 1px solid rgba(0,0,0,.16);
+    }
+
+    .legrand-card {
+      padding: 34px 0;
+
+      border-bottom: 1px solid rgba(0,0,0,.16);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 24px;
+
+      text-decoration: none;
+      color: #222;
+
+      transition:
+        transform .18s ease,
+        color .18s ease;
+    }
+
+    .legrand-card:hover {
+      transform: translateY(-2px);
+      color: #e56318;
+    }
+
+    .legrand-card h3 {
+      margin: 0 0 8px;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 31px;
+      line-height: 1.1;
+    }
+
+    .legrand-card p {
+      margin: 0;
+
+      color: #666;
+
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .legrand-arrow {
+      width: 46px;
+      height: 46px;
+
+      flex: 0 0 46px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 50%;
+
+      font-size: 20px;
+
+      transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease;
+    }
+
+    .legrand-card:hover .legrand-arrow {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .find-card {
+      max-width: 1180px;
+
+      margin: 30px auto 65px;
+
+      padding: 30px;
+
+      border: 1px solid rgba(0,0,0,.12);
+
+      border-radius: 14px;
+
+      background: #fafafa;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .find-card h3 {
+      margin: 0 0 8px;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 27px;
+    }
+
+    .find-card p {
+      margin: 0;
+
+      color: #666;
+
+      line-height: 1.6;
+    }
+
+    .find-card a {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 190px;
+
+      padding: 13px 22px;
+
+      border-radius: 50px;
+
+      background: #e56318;
+      color: #fff;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      box-shadow: 0 8px 22px rgba(229,99,24,.18);
+    }
+
+    .center-cta {
+      text-align: center;
+    }
+
+    .center-cta a {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: #222;
+
+      text-decoration: none;
+
+      font-weight: 700;
+    }
+
+    .center-cta a:hover {
+      color: #e56318;
+    }
+
+    @media (max-width: 800px) {
+
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 65px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 40px;
+      }
+
+      .legrand-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .legrand-card {
+        padding: 26px 0;
+      }
+
+      .find-card {
+        margin-top: 25px;
+
+        padding: 24px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .find-card a {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
-
-<main>
-
-<section class="page-hero products-hero">
-
-<div class="container page-hero-inner">
-
-<div class="container page-hero-inner">
-
-<span class="eyebrow light">
-Switches & Sockets
-</span>
-
-<h1>Legrand</h1>
-
-<p>
-Legrand switches and sockets available from Maruti Electricals.
-</p>
-
-</div>
-
-</section>
+  <div id="siteHeader"></div>
 
 
-<section class="section">
+  <main>
 
-<div class="container">
+    <!-- HERO -->
 
-<div class="find-card">
+    <section class="page-hero products-hero">
 
-<div class="find-icon">
-⏻
-</div>
+      <div class="container page-hero-inner">
 
-<div>
+        <span class="eyebrow light">
+          Switches &amp; Sockets
+        </span>
 
-<span class="eyebrow orange">
-Legrand Switches & Sockets
-</span>
+        <h1>Legrand</h1>
 
-<h2>
-Need Legrand switches or sockets?
-</h2>
+        <p>
+          Legrand switches &amp; sockets available from Maruti Electricals.
+        </p>
 
-<p>
-Send us your requirement, series, quantity or project details and we'll get back to you on WhatsApp.
-</p>
+      </div>
 
-</div>
+    </section>
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20switches%20and%20sockets.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener">
-Send Enquiry on WhatsApp →
-</a>
 
-</div>
+    <!-- PRODUCTS -->
 
-<div class="center-cta">
-<a class="btn btn-dark" href="switches-sockets.html">
-← Back to Switches & Sockets
-</a>
-</div>
+    <section class="polycab-products">
 
-</div>
+      <div class="container">
 
-</section>
+        <div class="polycab-heading">
 
-</main>
+          <span class="eyebrow orange">
+            Legrand
+          </span>
 
-<div id="siteFooter"></div>
+          <h2>
+            Available Models
+          </h2>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
+          <p>
+            Select a model to enquire about your requirement.
+          </p>
+
+        </div>
+
+
+        <!-- LEGRAND MODELS -->
+
+        <div class="legrand-grid">
+
+
+          <!-- ARTEOR -->
+
+          <a
+            class="legrand-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20Arteor%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div>
+
+              <h3>
+                Arteor
+              </h3>
+
+              <p>
+                Enquire about Legrand Arteor switches &amp; sockets.
+              </p>
+
+            </div>
+
+            <span class="legrand-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <!-- MYRIUS -->
+
+          <a
+            class="legrand-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20Myrius%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div>
+
+              <h3>
+                Myrius
+              </h3>
+
+              <p>
+                Enquire about Legrand Myrius switches &amp; sockets.
+              </p>
+
+            </div>
+
+            <span class="legrand-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <!-- MYLINC -->
+
+          <a
+            class="legrand-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20Mylinc%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div>
+
+              <h3>
+                Mylinc
+              </h3>
+
+              <p>
+                Enquire about Legrand Mylinc switches &amp; sockets.
+              </p>
+
+            </div>
+
+            <span class="legrand-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <!-- ALLZY -->
+
+          <a
+            class="legrand-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20Allzy%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div>
+
+              <h3>
+                Allzy
+              </h3>
+
+              <p>
+                Enquire about Legrand Allzy switches &amp; sockets.
+              </p>
+
+            </div>
+
+            <span class="legrand-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <!-- LYNCUS -->
+
+          <a
+            class="legrand-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20Lyncus%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div>
+
+              <h3>
+                Lyncus
+              </h3>
+
+              <p>
+                Enquire about Legrand Lyncus switches &amp; sockets.
+              </p>
+
+            </div>
+
+            <span class="legrand-arrow">
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+
+        <!-- GENERAL ENQUIRY -->
+
+        <div class="find-card">
+
+          <div>
+
+            <h3>
+              Need a different Legrand product?
+            </h3>
+
+            <p>
+              Send us your requirement and our team will help you with availability and details.
+            </p>
+
+          </div>
+
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+            Enquire on WhatsApp →
+          </a>
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+
+        <div class="center-cta">
+
+          <a href="switches-sockets.html">
+            ← Back to Switches &amp; Sockets
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <div id="siteFooter"></div>
+
+
+  <script src="app.js"></script>
+
+  <script>
+
+    document.getElementById('siteHeader').outerHTML =
+      header('Products');
+
+    document.getElementById('siteFooter').innerHTML =
+      footer();
+
+  </script>
 
 </body>
 </html>
