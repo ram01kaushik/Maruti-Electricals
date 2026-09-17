@@ -1,98 +1,337 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
+  <title>Norisys Switches & Sockets | Maruti Electricals</title>
 
-<title>Norisys Switches & Sockets | Maruti Electricals</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
+
+  <style>
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .norisys-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 40px;
+      border-top: 1px solid rgba(0,0,0,.16);
+    }
+
+    .norisys-card {
+      padding: 34px 0;
+      border-bottom: 1px solid rgba(0,0,0,.16);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      text-decoration: none;
+      color: #222;
+      transition: transform .18s ease, color .18s ease;
+    }
+
+    .norisys-card:hover {
+      transform: translateY(-2px);
+      color: #e56318;
+    }
+
+    .norisys-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.1;
+    }
+
+    .norisys-card p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .norisys-arrow {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 50%;
+      font-size: 20px;
+      transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease;
+    }
+
+    .norisys-card:hover .norisys-arrow {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .find-card {
+      max-width: 1180px;
+      margin: 30px auto 65px;
+      padding: 30px;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 14px;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .find-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+    }
+
+    .find-card p {
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .find-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 13px 22px;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(229,99,24,.18);
+    }
+
+    .center-cta {
+      text-align: center;
+    }
+
+    .center-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #222;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .center-cta a:hover {
+      color: #e56318;
+    }
+
+    @media (max-width: 800px) {
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 65px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 40px;
+      }
+
+      .norisys-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .norisys-card {
+        padding: 26px 0;
+      }
+
+      .find-card {
+        margin-top: 25px;
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .find-card a {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-<main>
+  <main>
 
-<section class="page-hero products-hero">
+    <!-- HERO -->
+    <section class="page-hero products-hero">
+      <div class="container page-hero-inner">
 
-<div class="container page-hero-inner">
+        <span class="eyebrow light">
+          Switches &amp; Sockets
+        </span>
 
-<span class="eyebrow light">
-Switches & Sockets
-</span>
+        <h1>Norisys</h1>
 
-<h1>Norisys</h1>
+        <p>
+          Norisys switches &amp; sockets available from Maruti Electricals.
+        </p>
 
-<p>
-Norisys switches and sockets available from Maruti Electricals.
-</p>
-
-</div>
-
-</section>
+      </div>
+    </section>
 
 
-<section class="section">
+    <!-- MODELS -->
+    <section class="polycab-products">
 
-<div class="container">
+      <div class="container">
 
-<div class="find-card">
+        <div class="polycab-heading">
 
-<div class="find-icon">
-⏻
-</div>
+          <span class="eyebrow orange">
+            Norisys
+          </span>
 
-<div>
+          <h2>
+            Available Models
+          </h2>
 
-<span class="eyebrow orange">
-Norisys Switches & Sockets
-</span>
+          <p>
+            Select a model to enquire about your requirement.
+          </p>
 
-<h2>
-Need Norisys switches or sockets?
-</h2>
+        </div>
 
-<p>
-Send us your requirement, series, quantity or project details and we'll get back to you on WhatsApp.
-</p>
 
-</div>
+        <div class="norisys-grid">
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Norisys%20switches%20and%20sockets.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener">
-Send Enquiry on WhatsApp →
-</a>
+          <!-- CUBE -->
+          <a
+            class="norisys-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Norisys%20Cube%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
 
-</div>
+            <div>
+              <h3>Cube</h3>
 
-<div class="center-cta">
-<a class="btn btn-dark" href="switches-sockets.html">
-← Back to Switches & Sockets
-</a>
-</div>
+              <p>
+                Norisys Cube switches &amp; sockets.
+              </p>
+            </div>
 
-</div>
+            <span class="norisys-arrow">
+              →
+            </span>
 
-</section>
+          </a>
 
-</main>
 
-<div id="siteFooter"></div>
+          <!-- SQUARE -->
+          <a
+            class="norisys-card"
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Norisys%20Square%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
+            <div>
+              <h3>Square</h3>
+
+              <p>
+                Norisys Square switches &amp; sockets.
+              </p>
+            </div>
+
+            <span class="norisys-arrow">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+
+        <!-- GENERAL ENQUIRY -->
+        <div class="find-card">
+
+          <div>
+
+            <h3>
+              Looking for something else?
+            </h3>
+
+            <p>
+              Tell us your Norisys switches &amp; sockets requirement
+              and we’ll help you with availability and details.
+            </p>
+
+          </div>
+
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20looking%20for%20Norisys%20switches%20%26%20sockets.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+            Enquire on WhatsApp
+          </a>
+
+        </div>
+
+
+        <!-- BACK -->
+        <div class="center-cta">
+
+          <a href="switches-sockets.html">
+            ← Back to Switches &amp; Sockets
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <div id="siteFooter"></div>
+
+
+  <script>
+    document.getElementById('siteHeader').outerHTML =
+      header('Products');
+
+    document.getElementById('siteFooter').innerHTML =
+      footer();
+  </script>
 
 </body>
 </html>
