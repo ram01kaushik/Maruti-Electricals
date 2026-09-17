@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Legrand MCBs | Maruti Electricals</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .polycab-table {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0,0,0,.16);
+    }
+
+    .mcb-row {
+      display: grid;
+      grid-template-columns: 1.2fr 2.8fr;
+      gap: 40px;
+      padding: 34px 0;
+      border-bottom: 1px solid rgba(0,0,0,.16);
+    }
+
+    .mcb-product h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.1;
+    }
+
+    .mcb-product p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .mcb-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 10px;
+    }
+
+    .mcb-size-button {
+      appearance: none;
+      min-width: 58px;
+      height: 40px;
+      padding: 0 13px;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+    }
+
+    .mcb-size-button:hover {
+      border-color: #e56318;
+      color: #e56318;
+      transform: translateY(-1px);
+    }
+
+    .mcb-size-button.selected {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .selected-enquiry {
+      display: none;
+      max-width: 1180px;
+      margin: 30px auto 65px;
+      padding: 18px 22px;
+      border: 1px solid rgba(229,99,24,.25);
+      border-radius: 14px;
+      background: #fff8f3;
+    }
+
+    .selected-enquiry.show {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .selected-enquiry-text {
+      color: #333;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .selected-enquiry-text strong {
+      color: #e56318;
+    }
+
+    .selected-enquiry-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(229,99,24,.18);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .selected-enquiry-button:hover {
+      transform: translateY(-2px);
+      background: #d9570d;
+    }
+
+    .find-card {
+      max-width: 1180px;
+      margin: 0 auto 45px;
+      padding: 34px;
+      border-radius: 16px;
+      background: #f7f7f7;
+      text-align: center;
+    }
+
+    .find-card h3 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+    }
+
+    .find-card p {
+      margin: 0 auto 22px;
+      max-width: 650px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .find-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .18s ease;
+    }
+
+    .find-card a:hover {
+      transform: translateY(-2px);
+    }
+
+    .center-cta {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .center-cta a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .center-cta a:hover {
+      color: #e56318;
+    }
+
+    @media (max-width: 800px) {
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 65px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 42px;
+        padding: 0 20px;
+      }
+
+      .mcb-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 28px 20px;
+      }
+
+      .polycab-table {
+        width: calc(100% - 40px);
+      }
+
+      .mcb-product h3 {
+        font-size: 27px;
+      }
+
+      .selected-enquiry {
+        width: calc(100% - 40px);
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 45px;
+      }
+
+      .selected-enquiry-button {
+        width: 100%;
+      }
+
+      .find-card {
+        width: calc(100% - 40px);
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="siteHeader"></div>
+
+  <main>
+
+    <section class="page-hero products-hero">
+      <div class="container page-hero-inner">
+        <span class="eyebrow light">MCBs</span>
+        <h1>Legrand</h1>
+        <p>Legrand MCBs and protection devices available from Maruti Electricals.</p>
+      </div>
+    </section>
+
+    <section class="polycab-products">
+
+      <div class="polycab-heading">
+        <span class="eyebrow orange">Legrand</span>
+        <h2>Available MCBs</h2>
+        <p>Select one or more ratings to enquire about your requirement.</p>
+      </div>
+
+      <div class="polycab-table">
+
+        <!-- Single Pole -->
+        <div class="mcb-row">
+          <div class="mcb-product">
+            <h3>Single Pole</h3>
+            <p>Legrand Single Pole MCBs</p>
+          </div>
+
+          <div class="mcb-sizes">
+            <button class="mcb-size-button" data-type="Single Pole" data-size="6A">6A</button>
+            <button class="mcb-size-button" data-type="Single Pole" data-size="10A">10A</button>
+            <button class="mcb-size-button" data-type="Single Pole" data-size="16A">16A</button>
+            <button class="mcb-size-button" data-type="Single Pole" data-size="20A">20A</button>
+            <button class="mcb-size-button" data-type="Single Pole" data-size="25A">25A</button>
+            <button class="mcb-size-button" data-type="Single Pole" data-size="32A">32A</button>
+          </div>
+        </div>
+
+        <!-- Double Pole -->
+        <div class="mcb-row">
+          <div class="mcb-product">
+            <h3>Double Pole</h3>
+            <p>Legrand Double Pole MCBs</p>
+          </div>
+
+          <div class="mcb-sizes">
+            <button class="mcb-size-button" data-type="Double Pole" data-size="6A">6A</button>
+            <button class="mcb-size-button" data-type="Double Pole" data-size="10A">10A</button>
+            <button class="mcb-size-button" data-type="Double Pole" data-size="16A">16A</button>
+            <button class="mcb-size-button" data-type="Double Pole" data-size="20A">20A</button>
+            <button class="mcb-size-button" data-type="Double Pole" data-size="25A">25A</button>
+            <button class="mcb-size-button" data-type="Double Pole" data-size="32A">32A</button>
+          </div>
+        </div>
+
+        <!-- Three Pole -->
+        <div class="mcb-row">
+          <div class="mcb-product">
+            <h3>Three Pole</h3>
+            <p>Legrand Three Pole MCBs</p>
+          </div>
+
+          <div class="mcb-sizes">
+            <button class="mcb-size-button" data-type="Three Pole" data-size="16A">16A</button>
+            <button class="mcb-size-button" data-type="Three Pole" data-size="25A">25A</button>
+            <button class="mcb-size-button" data-type="Three Pole" data-size="32A">32A</button>
+            <button class="mcb-size-button" data-type="Three Pole" data-size="40A">40A</button>
+            <button class="mcb-size-button" data-type="Three Pole" data-size="63A">63A</button>
+          </div>
+        </div>
+
+        <!-- TPN -->
+        <div class="mcb-row">
+          <div class="mcb-product">
+            <h3>TPN</h3>
+            <p>Legrand TPN MCBs</p>
+          </div>
+
+          <div class="mcb-sizes">
+            <button class="mcb-size-button" data-type="TPN" data-size="16A">16A</button>
+            <button class="mcb-size-button" data-type="TPN" data-size="25A">25A</button>
+            <button class="mcb-size-button" data-type="TPN" data-size="32A">32A</button>
+            <button class="mcb-size-button" data-type="TPN" data-size="40A">40A</button>
+            <button class="mcb-size-button" data-type="TPN" data-size="63A">63A</button>
+          </div>
+        </div>
+
+        <!-- RCCB DP -->
+        <div class="mcb-row">
+          <div class="mcb-product">
+            <h3>RCCB DP</h3>
+            <p>Legrand Double Pole RCCBs</p>
+          </div>
+
+          <div class="mcb-sizes">
+            <button class="mcb-size-button" data-type="RCCB DP" data-size="25A">25A</button>
+            <button class="mcb-size-button" data-type="RCCB DP" data-size="40A">40A</button>
+            <button class="mcb-size-button" data-type="RCCB DP" data-size="63A">63A</button>
+          </div>
+        </div>
+
+        <!-- RCCB 4 Pole -->
+        <div class="mcb-row">
+          <div class="mcb-product">
+            <h3>RCCB 4 Pole</h3>
+            <p>Legrand Four Pole RCCBs</p>
+          </div>
+
+          <div class="mcb-sizes">
+            <button class="mcb-size-button" data-type="RCCB 4 Pole" data-size="40A">40A</button>
+            <button class="mcb-size-button" data-type="RCCB 4 Pole" data-size="63A">63A</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Selected enquiry -->
+      <div class="selected-enquiry" id="selectedEnquiry">
+
+        <div class="selected-enquiry-text">
+          <strong id="selectedCount">0</strong>
+          rating(s) selected
+        </div>
+
+        <a
+          href="#"
+          id="selectedEnquiryButton"
+          class="selected-enquiry-button"
+          target="_blank"
+          rel="noopener"
+        >
+          Send Enquiry for Selected Ratings →
+        </a>
+
+      </div>
+
+      <!-- General enquiry -->
+      <div class="find-card">
+        <h3>Need help with your requirement?</h3>
+
+        <p>
+          Send us your Legrand MCB requirement and our team will
+          help you with availability and details.
+        </p>
+
+        <a
+          href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Legrand%20MCBs.%20Please%20share%20availability%20and%20details."
+          target="_blank"
+          rel="noopener"
+        >
+          Enquire on WhatsApp →
+        </a>
+      </div>
+
+      <!-- Back -->
+      <div class="center-cta">
+        <a href="mcbs.html">← Back to MCBs</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="app.js"></script>
+
+  <script>
+    document.getElementById('siteHeader').outerHTML =
+      header('Products');
+
+    document.getElementById('siteFooter').innerHTML =
+      footer();
+
+    const buttons = document.querySelectorAll('.mcb-size-button');
+    const selectedEnquiry = document.getElementById('selectedEnquiry');
+    const selectedCount = document.getElementById('selectedCount');
+    const selectedEnquiryButton =
+      document.getElementById('selectedEnquiryButton');
+
+    function updateSelectedEnquiry() {
+
+      const selected =
+        Array.from(buttons).filter(button =>
+          button.classList.contains('selected')
+        );
+
+      selectedCount.textContent = selected.length;
+
+      if (selected.length === 0) {
+
+        selectedEnquiry.classList.remove('show');
+        selectedEnquiryButton.href = '#';
+
+        return;
+      }
+
+      selectedEnquiry.classList.add('show');
+
+      const grouped = {};
+
+      selected.forEach(button => {
+
+        const type = button.dataset.type;
+        const size = button.dataset.size;
+
+        if (!grouped[type]) {
+          grouped[type] = [];
+        }
+
+        grouped[type].push(size);
+
+      });
+
+      let message =
+        "Hello Maruti Electricals, I am interested in Legrand MCBs and protection devices.\\n\\n";
+
+      Object.keys(grouped).forEach(type => {
+
+        message += type + ": " +
+          grouped[type].join(", ") +
+          "\\n";
+
+      });
+
+      message +=
+        "\\nPlease share availability and details.";
+
+      selectedEnquiryButton.href =
+        "https://wa.me/917733934734?text=" +
+        encodeURIComponent(message);
+    }
+
+    buttons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        button.classList.toggle('selected');
+
+        updateSelectedEnquiry();
+
+      });
+
+    });
+
+    updateSelectedEnquiry();
+  </script>
+
+</body>
+</html>
