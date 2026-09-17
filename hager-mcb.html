@@ -1,84 +1,604 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hager MCBs | Maruti Electricals</title>
+  <title>Hager MCBs | Maruti Electricals</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js"></script>
+
+  <style>
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .polycab-table {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0,0,0,.16);
+    }
+
+    .mcb-row {
+      display: grid;
+      grid-template-columns: 1.2fr 2.8fr;
+      gap: 40px;
+      padding: 34px 0;
+      border-bottom: 1px solid rgba(0,0,0,.16);
+    }
+
+    .mcb-product h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.1;
+    }
+
+    .mcb-product p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .mcb-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 10px;
+    }
+
+    .mcb-size-button {
+      appearance: none;
+      min-width: 58px;
+      height: 40px;
+      padding: 0 13px;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+    }
+
+    .mcb-size-button:hover {
+      border-color: #e56318;
+      color: #e56318;
+      transform: translateY(-1px);
+    }
+
+    .mcb-size-button.selected {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .selected-enquiry {
+      display: none;
+      max-width: 1180px;
+      margin: 30px auto 65px;
+      padding: 18px 22px;
+      border: 1px solid rgba(229,99,24,.25);
+      border-radius: 14px;
+      background: #fff8f3;
+    }
+
+    .selected-enquiry.show {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .selected-enquiry-text {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .selected-enquiry-text strong {
+      color: #222;
+    }
+
+    .selected-enquiry-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      padding: 13px 22px;
+      border: 0;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(229,99,24,.18);
+      cursor: pointer;
+    }
+
+    .find-card {
+      max-width: 1180px;
+      margin: 0 auto 65px;
+      padding: 30px;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 14px;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .find-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+    }
+
+    .find-card p {
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .find-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 13px 22px;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(229,99,24,.18);
+    }
+
+    .center-cta {
+      text-align: center;
+    }
+
+    .center-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #222;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .center-cta a:hover {
+      color: #e56318;
+    }
+
+    @media (max-width: 800px) {
+      .polycab-products {
+        padding-top: 55px;
+        padding-bottom: 65px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 40px;
+      }
+
+      .mcb-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 28px 0;
+      }
+
+      .mcb-sizes {
+        gap: 8px;
+      }
+
+      .selected-enquiry.show {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .selected-enquiry-button {
+        width: 100%;
+      }
+
+      .find-card {
+        margin-top: 25px;
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .find-card a {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-<main>
+  <main>
 
-<section class="page-hero products-hero">
-<div class="container page-hero-inner">
+    <!-- HERO -->
+    <section class="page-hero products-hero">
+      <div class="container page-hero-inner">
 
-<span class="eyebrow light">MCBs</span>
-<h1>Hager</h1>
+        <span class="eyebrow light">
+          MCBs
+        </span>
 
-<p>Hager MCB products available from Maruti Electricals.</p>
+        <h1>Hager</h1>
 
-</div>
-</section>
+        <p>
+          Hager MCBs and protection devices available from Maruti Electricals.
+        </p>
+
+      </div>
+    </section>
 
 
-<section class="section">
+    <!-- PRODUCTS -->
+    <section class="polycab-products">
 
-<div class="container">
+      <div class="container">
 
-<div class="find-card">
+        <div class="polycab-heading">
 
-<div class="find-icon">⛨</div>
+          <span class="eyebrow orange">
+            Hager
+          </span>
 
-<div>
+          <h2>
+            Available MCBs
+          </h2>
 
-<span class="eyebrow orange">Hager MCBs</span>
+          <p>
+            Select one or more ratings to enquire about your requirement.
+          </p>
 
-<h2>Need Hager MCBs?</h2>
+        </div>
 
-<p>
-Send us your requirement, rating or quantity and we'll get back to you on WhatsApp.
-</p>
 
-</div>
+        <div class="polycab-table">
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Hager%20MCBs.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener">
-Send Enquiry on WhatsApp →
-</a>
 
-</div>
+          <!-- SINGLE POLE -->
+          <div class="mcb-row">
 
-<div class="center-cta">
-<a class="btn btn-dark" href="mcb.html">
-← Back to MCBs
-</a>
-</div>
+            <div class="mcb-product">
+              <h3>Single Pole</h3>
+              <p>Hager Single Pole MCBs</p>
+            </div>
 
-</div>
+            <div class="mcb-sizes">
 
-</section>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="6A">6A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="10A">10A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="16A">16A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="20A">20A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="25A">25A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="32A">32A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="40A">40A</button>
+              <button class="mcb-size-button" data-type="Single Pole" data-size="63A">63A</button>
 
-</main>
+            </div>
 
-<div id="siteFooter"></div>
+          </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-document.getElementById('siteHeader').outerHTML=header('Products');
-document.getElementById('siteFooter').innerHTML=footer();
-});
-</script>
+
+          <!-- DOUBLE POLE -->
+          <div class="mcb-row">
+
+            <div class="mcb-product">
+              <h3>Double Pole</h3>
+              <p>Hager Double Pole MCBs</p>
+            </div>
+
+            <div class="mcb-sizes">
+
+              <button class="mcb-size-button" data-type="Double Pole" data-size="6A">6A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="10A">10A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="16A">16A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="20A">20A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="25A">25A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="32A">32A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="40A">40A</button>
+              <button class="mcb-size-button" data-type="Double Pole" data-size="63A">63A</button>
+
+            </div>
+
+          </div>
+
+
+          <!-- THREE POLE -->
+          <div class="mcb-row">
+
+            <div class="mcb-product">
+              <h3>Three Pole</h3>
+              <p>Hager Three Pole MCBs</p>
+            </div>
+
+            <div class="mcb-sizes">
+
+              <button class="mcb-size-button" data-type="Three Pole" data-size="16A">16A</button>
+              <button class="mcb-size-button" data-type="Three Pole" data-size="25A">25A</button>
+              <button class="mcb-size-button" data-type="Three Pole" data-size="32A">32A</button>
+              <button class="mcb-size-button" data-type="Three Pole" data-size="40A">40A</button>
+              <button class="mcb-size-button" data-type="Three Pole" data-size="63A">63A</button>
+
+            </div>
+
+          </div>
+
+
+          <!-- TPN -->
+          <div class="mcb-row">
+
+            <div class="mcb-product">
+              <h3>TPN</h3>
+              <p>Hager TPN MCBs</p>
+            </div>
+
+            <div class="mcb-sizes">
+
+              <button class="mcb-size-button" data-type="TPN" data-size="16A">16A</button>
+              <button class="mcb-size-button" data-type="TPN" data-size="25A">25A</button>
+              <button class="mcb-size-button" data-type="TPN" data-size="32A">32A</button>
+              <button class="mcb-size-button" data-type="TPN" data-size="40A">40A</button>
+              <button class="mcb-size-button" data-type="TPN" data-size="63A">63A</button>
+
+            </div>
+
+          </div>
+
+
+          <!-- RCCB DP -->
+          <div class="mcb-row">
+
+            <div class="mcb-product">
+              <h3>RCCB DP</h3>
+              <p>Hager Double Pole RCCBs</p>
+            </div>
+
+            <div class="mcb-sizes">
+
+              <button class="mcb-size-button" data-type="RCCB DP" data-size="25A">25A</button>
+              <button class="mcb-size-button" data-type="RCCB DP" data-size="40A">40A</button>
+              <button class="mcb-size-button" data-type="RCCB DP" data-size="63A">63A</button>
+
+            </div>
+
+          </div>
+
+
+          <!-- RCCB 4 POLE -->
+          <div class="mcb-row">
+
+            <div class="mcb-product">
+              <h3>RCCB 4 Pole</h3>
+              <p>Hager Four Pole RCCBs</p>
+            </div>
+
+            <div class="mcb-sizes">
+
+              <button class="mcb-size-button" data-type="RCCB 4 Pole" data-size="40A">40A</button>
+              <button class="mcb-size-button" data-type="RCCB 4 Pole" data-size="63A">63A</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SELECTED ENQUIRY -->
+        <div class="selected-enquiry" id="selectedEnquiry">
+
+          <div class="selected-enquiry-text">
+            <strong id="selectedCount">0</strong>
+            ratings selected
+          </div>
+
+          <a
+            href="#"
+            id="selectedEnquiryButton"
+            class="selected-enquiry-button"
+            target="_blank"
+            rel="noopener"
+          >
+            Send Enquiry for Selected Ratings →
+          </a>
+
+        </div>
+
+
+        <!-- GENERAL ENQUIRY -->
+        <div class="find-card">
+
+          <div>
+
+            <h3>
+              Looking for something else?
+            </h3>
+
+            <p>
+              Tell us your Hager requirement and we’ll help you
+              with availability and details.
+            </p>
+
+          </div>
+
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20looking%20for%20Hager%20MCBs%20or%20protection%20devices.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+            Enquire on WhatsApp
+          </a>
+
+        </div>
+
+
+        <!-- BACK -->
+        <div class="center-cta">
+
+          <a href="mcbs.html">
+            ← Back to MCBs
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <div id="siteFooter"></div>
+
+
+  <script>
+
+    document.getElementById('siteHeader').outerHTML =
+      header('Products');
+
+    document.getElementById('siteFooter').innerHTML =
+      footer();
+
+
+    /* =========================================
+       HAGER MCB SIZE SELECTION
+       ========================================= */
+
+    const buttons =
+      document.querySelectorAll('.mcb-size-button');
+
+    const enquiryBox =
+      document.getElementById('selectedEnquiry');
+
+    const selectedCount =
+      document.getElementById('selectedCount');
+
+    const enquiryButton =
+      document.getElementById('selectedEnquiryButton');
+
+
+    function updateEnquiry() {
+
+      const selected =
+        Array.from(
+          document.querySelectorAll('.mcb-size-button.selected')
+        );
+
+      if (selected.length === 0) {
+
+        enquiryBox.classList.remove('show');
+
+        enquiryButton.href = '#';
+
+        selectedCount.textContent = '0';
+
+        return;
+      }
+
+
+      enquiryBox.classList.add('show');
+
+      selectedCount.textContent =
+        selected.length;
+
+
+      const grouped = {};
+
+
+      selected.forEach(button => {
+
+        const type =
+          button.dataset.type;
+
+        const size =
+          button.dataset.size;
+
+
+        if (!grouped[type]) {
+          grouped[type] = [];
+        }
+
+
+        grouped[type].push(size);
+
+      });
+
+
+      let message =
+        'Hello Maruti Electricals, I am interested in Hager MCBs/protection devices.\\n\\n';
+
+
+      Object.keys(grouped).forEach(type => {
+
+        message +=
+          type + ': ' +
+          grouped[type].join(', ') +
+          '\\n';
+
+      });
+
+
+      message +=
+        '\\nPlease share availability and details.';
+
+
+      enquiryButton.href =
+        'https://wa.me/917733934734?text=' +
+        encodeURIComponent(message);
+
+    }
+
+
+    buttons.forEach(button => {
+
+      button.addEventListener('click', function() {
+
+        this.classList.toggle('selected');
+
+        updateEnquiry();
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
