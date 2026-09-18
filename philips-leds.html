@@ -1,112 +1,513 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e56318">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<script src="app.js"></script>
+  <title>Philips LED Products | Maruti Electricals</title>
 
-<title>Philips LEDs | Maruti Electricals</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .polycab-products {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .polycab-heading {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .polycab-heading h2 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+    }
+
+    .polycab-heading p {
+      margin: 0;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .polycab-table {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0,0,0,.16);
+    }
+
+    .led-row {
+      display: grid;
+      grid-template-columns: 1.2fr 2.8fr;
+      gap: 40px;
+      padding: 34px 0;
+      border-bottom: 1px solid rgba(0,0,0,.16);
+    }
+
+    .led-product h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.1;
+    }
+
+    .led-product p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .led-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 10px;
+    }
+
+    .led-size-button {
+      appearance: none;
+      min-width: 58px;
+      height: 40px;
+      padding: 0 13px;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 8px;
+      background: #fff;
+      color: #222;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+    }
+
+    .led-size-button:hover {
+      border-color: #e56318;
+      color: #e56318;
+      transform: translateY(-1px);
+    }
+
+    .led-size-button.selected {
+      background: #e56318;
+      border-color: #e56318;
+      color: #fff;
+    }
+
+    .selected-enquiry {
+      display: none;
+      max-width: 1180px;
+      margin: 30px auto 65px;
+      padding: 18px 22px;
+      border: 1px solid rgba(229,99,24,.25);
+      border-radius: 14px;
+      background: #fff8f3;
+    }
+
+    .selected-enquiry.show {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .selected-enquiry-text strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .selected-enquiry-text span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .selected-enquiry-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(229,99,24,.18);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .selected-enquiry-button:hover {
+      transform: translateY(-2px);
+      background: #d95710;
+    }
+
+    .find-card {
+      max-width: 1180px;
+      margin: 0 auto 30px;
+      padding: 32px;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .find-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+    }
+
+    .find-card p {
+      margin: 0 0 20px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .find-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 50px;
+      background: #e56318;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .18s ease;
+    }
+
+    .find-card a:hover {
+      transform: translateY(-2px);
+    }
+
+    .center-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .center-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 50px;
+      color: #222;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition:
+        border-color .18s ease,
+        color .18s ease,
+        transform .18s ease;
+    }
+
+    .center-cta a:hover {
+      border-color: #e56318;
+      color: #e56318;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 800px) {
+      .polycab-products {
+        padding-top: 60px;
+        padding-bottom: 70px;
+      }
+
+      .polycab-heading {
+        margin-bottom: 45px;
+      }
+
+      .led-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 28px 0;
+      }
+
+      .led-product h3 {
+        font-size: 28px;
+      }
+
+      .selected-enquiry.show {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .selected-enquiry-button {
+        width: 100%;
+      }
+
+      .find-card {
+        padding: 26px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-<main>
+  <main>
 
-<section class="page-hero products-hero">
+    <section class="page-hero products-hero">
+      <div class="container page-hero-inner">
+        <span class="eyebrow light">LEDs</span>
+        <h1>Philips</h1>
+        <p>Philips LED lighting products available from Maruti Electricals.</p>
+      </div>
+    </section>
 
-<div class="container page-hero-inner">
+    <section class="polycab-products">
 
-<span class="eyebrow light">
-LEDs
-</span>
+      <div class="container">
 
-<h1>Philips</h1>
+        <div class="polycab-heading">
+          <span class="eyebrow orange">Philips</span>
+          <h2>Available LED Products</h2>
+          <p>Select one or more products to enquire about your requirement.</p>
+        </div>
 
-<p>
-Philips LED bulbs and panels available from Maruti Electricals.
-</p>
+        <div class="polycab-table">
 
-</div>
+          <!-- LED BULB -->
+          <div class="led-row">
+            <div class="led-product">
+              <h3>LED Bulb</h3>
+              <p>Philips LED bulbs available in multiple wattages.</p>
+            </div>
 
-</section>
+            <div class="led-sizes">
+              <button class="led-size-button"
+                      data-type="LED Bulb"
+                      data-size="5W">5W</button>
 
+              <button class="led-size-button"
+                      data-type="LED Bulb"
+                      data-size="9W">9W</button>
 
-<section class="section">
+              <button class="led-size-button"
+                      data-type="LED Bulb"
+                      data-size="12W">12W</button>
 
-<div class="container">
+              <button class="led-size-button"
+                      data-type="LED Bulb"
+                      data-size="14W">14W</button>
 
-<div class="find-card">
+              <button class="led-size-button"
+                      data-type="LED Bulb"
+                      data-size="22W">22W</button>
+            </div>
+          </div>
 
-<div class="find-icon">
-☼
-</div>
+          <!-- CONCEALED -->
+          <div class="led-row">
+            <div class="led-product">
+              <h3>Concealed</h3>
+              <p>Philips concealed LED lighting available in multiple wattages.</p>
+            </div>
 
-<div>
+            <div class="led-sizes">
+              <button class="led-size-button"
+                      data-type="Concealed"
+                      data-size="5W">5W</button>
 
-<span class="eyebrow orange">
-Philips LEDs
-</span>
+              <button class="led-size-button"
+                      data-type="Concealed"
+                      data-size="10W">10W</button>
 
-<h2>
-Need Philips LEDs?
-</h2>
+              <button class="led-size-button"
+                      data-type="Concealed"
+                      data-size="15W">15W</button>
+            </div>
+          </div>
 
-<p>
-Send us your required wattage, type, quantity or project
-requirement and we'll get back to you on WhatsApp.
-</p>
+          <!-- TUBELIGHT -->
+          <div class="led-row">
+            <div class="led-product">
+              <h3>Tubelight</h3>
+              <p>Philips LED tubelights available in multiple variants.</p>
+            </div>
 
-</div>
+            <div class="led-sizes">
+              <button class="led-size-button"
+                      data-type="Tubelight"
+                      data-size="10W">10W</button>
 
-<a
-class="btn btn-primary"
-href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Philips%20LEDs.%20Please%20share%20availability%20and%20details."
-target="_blank"
-rel="noopener"
->
-Send Enquiry on WhatsApp →
-</a>
+              <button class="led-size-button"
+                      data-type="Tubelight"
+                      data-size="20W">20W</button>
 
-</div>
+              <button class="led-size-button"
+                      data-type="Tubelight"
+                      data-size="36W">36W</button>
 
+              <button class="led-size-button"
+                      data-type="Tubelight"
+                      data-size="36W Tri-Color">36W Tri-Color</button>
+            </div>
+          </div>
 
-<div class="center-cta">
+        </div>
 
-<a class="btn btn-dark" href="leds.html">
-← Back to LEDs
-</a>
+        <!-- SELECTED PRODUCTS -->
+        <div class="selected-enquiry" id="selectedEnquiry">
 
-</div>
+          <div class="selected-enquiry-text">
+            <strong id="selectedCount">0 products selected</strong>
+            <span>Send one enquiry for your selected Philips LED products.</span>
+          </div>
 
-</div>
+          <a
+            href="#"
+            id="selectedEnquiryButton"
+            class="selected-enquiry-button"
+            target="_blank"
+            rel="noopener"
+          >
+            Send Enquiry for Selected Products →
+          </a>
 
-</section>
+        </div>
 
-</main>
+        <!-- GENERAL ENQUIRY -->
+        <div class="find-card">
 
+          <h3>Looking for something else?</h3>
 
-<div id="siteFooter"></div>
+          <p>
+            Contact Maruti Electricals for Philips LED products,
+            availability and other requirements.
+          </p>
 
+          <a
+            href="https://wa.me/917733934734?text=Hello%20Maruti%20Electricals%2C%20I%20am%20interested%20in%20Philips%20LED%20products.%20Please%20share%20availability%20and%20details."
+            target="_blank"
+            rel="noopener"
+          >
+            Enquire on WhatsApp →
+          </a>
 
-<script>
+        </div>
 
-document.addEventListener('DOMContentLoaded', () => {
+        <!-- BACK BUTTON -->
+        <div class="center-cta">
+          <a href="leds.html">
+            ← Back to LEDs
+          </a>
+        </div>
 
-document.getElementById('siteHeader').outerHTML =
-header('Products');
+      </div>
 
-document.getElementById('siteFooter').innerHTML =
-footer();
+    </section>
 
-});
+  </main>
 
-</script>
+  <div id="siteFooter"></div>
+
+  <script src="app.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const buttons = document.querySelectorAll(".led-size-button");
+      const selectedEnquiry = document.getElementById("selectedEnquiry");
+      const selectedCount = document.getElementById("selectedCount");
+      const selectedEnquiryButton =
+        document.getElementById("selectedEnquiryButton");
+
+      const phone = "917733934734";
+
+      function updateSelection() {
+
+        const selected = Array.from(
+          document.querySelectorAll(".led-size-button.selected")
+        );
+
+        const count = selected.length;
+
+        if (count === 0) {
+          selectedEnquiry.classList.remove("show");
+          selectedCount.textContent = "0 products selected";
+          selectedEnquiryButton.href = "#";
+          return;
+        }
+
+        selectedEnquiry.classList.add("show");
+
+        selectedCount.textContent =
+          count === 1
+            ? "1 product selected"
+            : count + " products selected";
+
+        const grouped = {};
+
+        selected.forEach(function (button) {
+
+          const type = button.dataset.type;
+          const size = button.dataset.size;
+
+          if (!grouped[type]) {
+            grouped[type] = [];
+          }
+
+          grouped[type].push(size);
+
+        });
+
+        let message =
+          "Hello Maruti Electricals, I am interested in Philips LED products.";
+
+        message += "\n\n";
+
+        Object.keys(grouped).forEach(function (type) {
+
+          message += type + ": ";
+
+          message += grouped[type].join(", ");
+
+          message += "\n";
+
+        });
+
+        message +=
+          "\nPlease share availability and details.";
+
+        selectedEnquiryButton.href =
+          "https://wa.me/" +
+          phone +
+          "?text=" +
+          encodeURIComponent(message);
+      }
+
+      buttons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+          button.classList.toggle("selected");
+
+          updateSelection();
+
+        });
+
+      });
+
+    });
+  </script>
 
 </body>
 </html>
